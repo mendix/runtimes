@@ -209,7 +209,7 @@
 	osgi.identity;filter:='(osgi.identity=webui)',\
 	osgi.identity;filter:='(osgi.identity={ProjectName}.i18n)',\
 	osgi.identity;filter:='(osgi.identity={ProjectName}.project)'
--runbundles: appcontainer,\
+-runbundles: appcontainer;version=latest,\
 	biz.aQute.bnd.annotation,\
 	biz.aQute.bndlib,\
 	ch.qos.logback.classic,\
