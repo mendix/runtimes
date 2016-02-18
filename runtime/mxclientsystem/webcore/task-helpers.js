@@ -4,4 +4,4 @@
 */
 
 //>>built
-define("webcore/task-helpers",["bluebird/bluebird"],function(_1){var _2={};_2.promiseFromTask=function(t){return new _1(function(_3,_4){t.fork(_4,_3);});};return _2;});
+define("webcore/task-helpers",["./Task","bluebird/bluebird"],function(_1,_2){var _3={};_3.promiseFromTask=function(t){return new _2(function(_4,_5){t.fork(_5,_4);});};_3.taskFromPromise=function(p){return new _1(function(_6,_7){p.then(_7,_6);});};return _3;});
