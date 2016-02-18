@@ -233,6 +233,7 @@
 	com.springsource.org.junit,\
 	com.sun.mail.javax.mail,\
 	com.sun.xml.bind,\
+	connectionbus;version=latest,\
 	documentexporter;version=latest,\
 	integration;version=latest,\
 	jackson-core-asl,\

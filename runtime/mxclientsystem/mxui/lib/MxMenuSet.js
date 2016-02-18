@@ -1,5 +1,0 @@
-
-/* Copyright (c) 2005-2012, Mendix bv. All rights reserved. */
-
-//>>built
-define("mxui/lib/MxMenuSet",["dojo","dijit","dojox"],function(_1,_2,_3){_1.provide("mxui.lib.MxMenuSet");mxui.lib.MxMenuItem=function(_4){var _5="",_6=null,_7=arguments.callee;this.getName=function(){return _5;};this.getIcon=function(){return _4[_5][0];};this.getForm=function(){return _4[_5][1];};this.getMicroflow=function(){return _4[_5][2];};this.getItems=function(){if(!_6){_6=[];if(_4[_5][3]){for(var i=0;i<_4[_5][3].length;i++){_6.push(new _7(_4[_5][3][i]));}}}return _6;};for(var i in _4){_5=i;}};mxui.lib.MxMenuSet=function(_8){_8=_8||{};var _9=_8.type||"menu";var _a=_8.callback||function(){};var _b=null;this.getItems=function(){var _c=[];for(var i=0;i<_b.length;i++){_c.push(new mxui.lib.MxMenuItem(_b[i]));}return _c;};mx.server.request({request:{action:"retrieve_menus",params:{type:_9}},options:{callback:function(_d,_e){_b=_e.menu_tree;mendix.lang.thread(_a);},preventCache:true,useCache:false}});};});
