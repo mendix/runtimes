@@ -1,0 +1,1 @@
+.mx-progress {z-index: 5000;}.mx-progress-list {padding: 0; list-style: none;}.mx-progress-item {padding: 15px 0; border-top: 1px solid #eee; background: url(images/loading-big.gif) no-repeat center right; background-size: 32px 32px;}.dj_rtl .mx-progress-item {background-position: left;}.mx-progress-item:first-child {border-top: none;}

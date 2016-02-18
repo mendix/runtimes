@@ -1,0 +1,5 @@
+
+/* Copyright (c) 2005-2012, Mendix bv. All rights reserved. */
+
+//>>built
+define("reporting/lib/MetaResult",["dojo","dijit","dojox"],function(_1,_2,_3){_1.provide("reporting.lib.MetaResult");reporting.lib.MetaResult=function(_4){var _5=_4;var _6=[];var _7=[];var _8=_1.hitch(mx.parser,"formatDate");this.getRenderValue=function(_9,_a){var _b=_5[_9];switch(_b.type){case "Boolean":var _c=String(_a);return (_c.match(/true|false/))?mx.ui.translate("mxui.widget.DataGrid",_c):_a;break;case "Currency":case "String":case "AutoNumber":case "Int":case "Integer":case "Float":case "Long":case "URI":return String(_a);break;case "Date":case "DateTime":if(typeof (_a)=="string"){return String(_a);}else{var _d=mx.parser.formatDate(_a,{datePattern:_b.format});if(mx.ui.isRtl()&&_d){return _d.split("‏/").reverse().join("/");}else{return _d;}}break;case "Enum":if(_b.options){for(var i=0;i<_b.options.length;i++){var _e=_b.options[i];for(var _f in _e){if(_a==_f){return _e[_f];}break;}}}return _a;break;default:return String(_a);}};};});

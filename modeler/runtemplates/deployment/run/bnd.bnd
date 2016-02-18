@@ -1,0 +1,7 @@
+Private-Package: {PrivatePackages:{Name:PropertiesEscapeValue}|, }
+Import-Package: *;resolution:=optional
+Service-Component: *
+{IncludeResource}
+{BundleClassPath}
+Bundle-Name: {ProjectName:PropertiesEscapeValue}
+Bundle-SymbolicName: project

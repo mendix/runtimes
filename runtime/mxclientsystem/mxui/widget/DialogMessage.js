@@ -1,0 +1,5 @@
+
+/* Copyright (c) 2005-2012, Mendix bv. All rights reserved. */
+
+//>>built
+define("mxui/widget/DialogMessage",["dojo","dijit","dojox"],function(_1,_2,_3){_1.provide("mxui.widget.DialogMessage");_1.declare("mxui.widget.DialogMessage",mxui.widget.Dialog,{type:"",content:null,buildRendering:function(){var $=mxui.dom.create;this.buildDialog();this.setCaption(this.caption||this.translate(this.type,null,"Message"));var _4=$("p");_4.innerHTML=mxui.dom.convertNlToBr(mxui.dom.escapeString(this.content));this.setContent(_4);var _5=$("button",{"class":"btn btn-primary"},this.translate("ok",null,"Ok"));this.connect(_5,"click",function(){this.hide();});this.setButtons([_5]);_1.addClass(this.domNode,"mx-dialog-"+this.type);},onFocusPress:function(e,_6){var dk=_1.keys,cc=e.charOrCode;if(cc===dk.ESCAPE||cc===dk.ENTER||cc===" "){this.hide();}}});});

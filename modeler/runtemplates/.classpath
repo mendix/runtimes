@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="{JavaSourceDir:HtmlAttributeEncode}"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	{CompileLibs:<classpathentry kind="lib" path="{InstallDir:HtmlAttributeEncode}/{Name:HtmlAttributeEncode}"/>|}
+	{UserLibs:<classpathentry kind="lib" path="{Name:HtmlAttributeEncode}"/>|}
+	<classpathentry kind="output" path="deployment/{CompileTargetDir:HtmlAttributeEncode}"/>
+</classpath>

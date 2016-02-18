@@ -1,0 +1,5 @@
+
+/* Copyright (c) 2005-2012, Mendix bv. All rights reserved. */
+
+//>>built
+define("mxui/widget/MicroflowButton",["dojo","dijit","dojox"],function(_1,_2,_3){_1.provide("mxui.widget.MicroflowButton");_1.declare("mxui.widget.MicroflowButton",mxui.widget._Button,{microflow:null,confirmation:null,onClick:function(e){var _4=this,mf=this.microflow,_5=mf.confirmation,_6=[];if(_5){_6.push(function(cb){mx.ui.confirmation({cancel:_5.cancel,proceed:_5.proceed,content:_5.question,handler:cb});});}if(mf.validate=="view"){_6.push(_1.hitch(this.mxform,"validate"));}_6.push(function(_7){_4.mxform.save(_7,function(_8){if(!(_8 instanceof mendix.lib.ValidationError)){mx.onError(_8);}});});_6.push(function(){mx.ui.execute({microflow:mf},{context:_4.mxcontext,store:{dir:_4.direction,caller:_4.mxform}});});this.sequence(_6);}});});

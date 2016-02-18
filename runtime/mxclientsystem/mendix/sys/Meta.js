@@ -1,0 +1,5 @@
+
+/* Copyright (c) 2005-2012, Mendix bv. All rights reserved. */
+
+//>>built
+define("mendix/sys/Meta",["dojo","dijit","dojox"],function(_1,_2,_3){_1.provide("mendix.sys.Meta");mendix.sys.Meta=function(_4){_4=_4||{};var _5=this,_6="mendix.sys.Meta",_7=false,_8=null;var _9=function(_a){var _b=function(_c){_8={};for(var i=0,_d;_d=_c[i];i++){var _e=new mendix.lib.MxMetaObject({json:_d});_8[_e.getEntity()]=_e;}_a();};_b(mx.session.getConfig("metadata"));};this.toString=function(){return _6;};this.startup=function(_f){if(!mx.offline){_9(function(){_7=true;_f();});}else{_f();}};this.shutdown=function(){_7=false;_8=null;};this.isLoaded=function(){return _7;};this.getMap=function(){return _7?_8:null;};this.getEntity=function(_10){var _11=_8[_10];if(!_11){logger.error("No permission to read or write entity "+_10+", check security!",{modal:true});}return _11;};};});

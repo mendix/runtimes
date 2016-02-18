@@ -1,0 +1,5 @@
+
+/* Copyright (c) 2005-2012, Mendix bv. All rights reserved. */
+
+//>>built
+define("mendix/sys/Context",["dojo","dijit","dojox"],function(_1,_2,_3){_1.provide("mendix.sys.Context");mendix.sys.Context=function(_4){_4=_4||{};var _5=this,_6="mendix.sys.Context",_7=false,_8={};this.toString=function(){return _6;};this.startup=function(_9){_7=true;_9();};this.shutdown=function(){_7=false;};this.isLoaded=function(){return _7;};this.get=function(id){return _8[id]&&_8[id].context;};this.create=function(_a,_b){var _c=new mendix.lib.MxContext(_b);_8[_c.id]={context:_c,listeners:_a?[_a]:[]};return _c;};this.clean=function(id,_d){var _e=_8[id];if(_e){mendix.lang.arraySubtract(_e.listeners,[_d]);if(_e.listeners.length==0){delete _8[id];}else{}}else{}};this.destroy=function(id){delete _8[id];};this.subscribe=function(id,_f){_8[id].listeners.push(_f);};this.unsubscribe=function(id,_10){var _11=_8[id],_12=_11.listeners,_13=_1.indexOf(_12,_10);if(_13!=-1){_12.splice(_13,1);if(_12.length==0){delete _11[id];}}};this.unsubscribeAll=function(_14){for(var id in _8){this.unsubscribe(id,_14);}};};});

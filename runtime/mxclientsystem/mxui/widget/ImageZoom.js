@@ -1,0 +1,5 @@
+
+/* Copyright (c) 2005-2012, Mendix bv. All rights reserved. */
+
+//>>built
+define("mxui/widget/ImageZoom",["dojo","dijit","dojox"],function(_1,_2,_3){_1.provide("mxui.widget.ImageZoom");_1.declare("mxui.widget.ImageZoom",mxui.widget._WidgetBase,{src:"",_image:null,_offset:0,_content:null,buildRendering:function(){var $=mxui.dom.create;this.domNode=$("div",{"class":"mx-imagezoom"},$("div",{"class":"mx-imagezoom-wrapper"},this._image=$("img",{"class":"mx-imagezoom-image",src:this.src})));this._content=document.getElementById("content");this.connect(this.domNode,"click","hide");},show:function(){this._offset=window.pageYOffset;this._content.style.display="none";document.body.appendChild(this.domNode);},hide:function(e){document.body.removeChild(this.domNode);var _4=this;setTimeout(function(){window.scrollTo(0,_4._offset);_4._content.style.display="";});},_setSrcAttr:function(_5){this._image.src=this.src=_5;}});});

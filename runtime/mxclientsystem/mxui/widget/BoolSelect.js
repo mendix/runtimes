@@ -1,0 +1,5 @@
+
+/* Copyright (c) 2005-2012, Mendix bv. All rights reserved. */
+
+//>>built
+define("mxui/widget/BoolSelect",["dojo","dijit","dojox","dojo/require!mxui/widget/_FormWidget"],function(_1,_2,_3){_1.provide("mxui.widget.BoolSelect");_1.require("mxui.widget._FormWidget");_1.declare("mxui.widget.BoolSelect",mxui.widget._FormWidget,{_value:false,buildRendering:function(){var $=mxui.dom.create,_4=this.editNode=$("input",{type:"checkbox"});this.readNode=$("label");this.inherited(arguments);},onChange:function(e){if(this._value!=this.editNode.checked){this._value=this.editNode.checked;this.inherited(arguments);}},_getValueAttr:function(){return this.editNode.checked;},_setValueAttr:function(_5){this.editNode.checked=this._value=_5;mxui.dom.text(this.readNode,mx.parser.formatValue(_5,"Boolean"));}});});

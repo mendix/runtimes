@@ -1,0 +1,18 @@
+{
+	"RunDir": "run",
+	"CompileTargetDir": "run/bin",
+	"CompileLibs":
+	[
+		"runtime/bundles/biz.aQute.bnd.annotation-2.1.0.jar",
+		"runtime/bundles/org.scala-lang.scala-library-2.10.2.jar",
+		"runtime/bundles/json.jar",
+		"runtime/bundles/logging.jar",
+		"runtime/bundles/m2ee-api.jar",
+		"runtime/bundles/mxruntime.jar",
+		"runtime/bundles/integration.jar",
+		"runtime/bundles/osgi.cmpn-4.2.0.jar",
+		"runtime/bundles/webui.jar",
+		"runtime/bundles/javax.servlet-3.0.0.jar"
+	],
+	"ProjectBundlesDir": "model/bundles",
+}

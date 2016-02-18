@@ -1,0 +1,5 @@
+
+/* Copyright (c) 2005-2012, Mendix bv. All rights reserved. */
+
+//>>built
+define("mxui/widget/MenuBar",["dojo","dijit","dojox"],function(_1,_2,_3){_1.provide("mxui.widget.MenuBar");_1.declare("mxui.widget.MenuBar",mxui.widget._WidgetBase,{menuID:"",orientation:"horizontal",_active:null,buildRendering:function(){var $=mxui.dom.create,_4=mx.ui.getMenu(this.menuID),_5;this.domNode=$("div",{"class":"mx-menubar mx-menubar-"+this.orientation},_5=$("ul",{"class":"nav nav-pills mx-menubar-list"}));if(this.orientation=="vertical"){_1.addClass(_5,"nav-stacked");}_1.forEach(_4,function(_6,i){var _7=$("a",{href:"#"}," "+_6.caption);if(_6.icon){_1.place($("img",{"class":"mx-menubar-icon",src:mx.appUrl+_6.icon}),_7,"first");}this.connect(_7,"click",_1.partial(this.onClick,_6.action,i));_5.appendChild($("li",{"class":"mx-menubar-item"},_7));},this);},onClick:function(_8,_9,e){var _a=function(){if(this._active){_1.removeClass(this._active,"active");}this._active=e.target.parentNode;_1.addClass(this._active,"active");mx.ui.execute(_8);};if(_8.microflow&&_8.microflow.validate=="view"){this.mxform.validate(_1.hitch(this,_a));}else{_a();}_1.stopEvent(e);}});});

@@ -1,0 +1,10 @@
+-buildpath: json,\
+	logging,\
+	m2ee-api,\
+	mxruntime,\
+	integration,\
+	webui,\
+	biz.aQute.bnd.annotation,\
+	osgi.cmpn,\
+	osgi.core
+-sub: *.bnd

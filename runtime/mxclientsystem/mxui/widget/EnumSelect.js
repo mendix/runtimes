@@ -1,0 +1,5 @@
+
+/* Copyright (c) 2005-2012, Mendix bv. All rights reserved. */
+
+//>>built
+define("mxui/widget/EnumSelect",["dojo","dijit","dojox","dojo/require!mxui/widget/_FormWidget"],function(_1,_2,_3){_1.provide("mxui.widget.EnumSelect");_1.require("mxui.widget._FormWidget");_1.declare("mxui.widget.EnumSelect",mxui.widget._FormWidget,{_keys:null,buildRendering:function(){var $=mxui.dom.create,_4=mx.meta.getEntity(this._entity),_5=this._keys=_4.getEnumKVPairs(this._attribute),_6=this.editNode=$("select",{"class":"form-control"},$("option",{value:""},""));for(var _7 in _5){_6.appendChild($("option",{value:_7},_5[_7]));}this.readNode=$("label");this.inherited(arguments);},_getValueAttr:function(){return this.editNode.value;},_setValueAttr:function(_8){this.editNode.value=_8;var _9=this._keys[_8];if(_9){mxui.dom.text(this.readNode,_9);}else{this.readNode.innerHTML="&nbsp;";}}});});
