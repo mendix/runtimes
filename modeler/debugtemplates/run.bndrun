@@ -235,16 +235,16 @@
 	com.sun.mail.javax.mail,\
 	com.sun.xml.bind,\
 	configuration;version=latest,\
-	connectionbus;version="[8.0.4,8.0.5)",\
-	datastorage;version="[2.0.4,2.0.5)",\
-	datastorage-api;version="[2.0.1,2.0.2)",\
-	datastorage-launcher;version="[1.0.0,1.0.1)",\
-	datastorage-model-api;version="[1.0.0,1.0.1)",\
-	datastorage-modelinfo;version="[1.0.0,1.0.1)",\
-	datastorage-modelinfo-api;version="[1.0.0,1.0.1)",\
-	datastorage-utils;version="[1.1.4,1.1.5)",\
-	documentexporter;version="[6.0.9,6.0.10)",\
-	integration;version="[6.2.6,6.2.7)",\
+	connectionbus;version=latest,\
+	datastorage;version=latest,\
+	datastorage-api;version=latest,\
+	datastorage-launcher;version=latest,\
+	datastorage-model-api;version=latest,\
+	datastorage-modelinfo;version=latest,\
+	datastorage-modelinfo-api;version=latest,\
+	datastorage-utils;version=latest,\
+	documentexporter;version=latest,\
+	integration;version=latest,\
 	jackson-core-asl,\
 	javax.servlet,\
 	jaxb-api,\
@@ -305,11 +305,11 @@
 	com.typesafe.akka.actor;version="[2.3,2.4)",\
 	com.typesafe.config;version="[1.2,1.3)",\
 	com.typesafe.akka.slf4j;version="[2.3,2.4)",\
-	queryparser;version="[6.1.9,6.1.10)",\
+	queryparser;version=latest,\
 	slf4j.api;version=1.7.7,\
 	storage-api;version=latest,\
 	storage-localfilesystem;version=latest,\
 	storage-s3;version=latest,\
-	webui;version="[6.2.0,6.2.1)",\
+	webui;version=latest,\
 	{ProjectName}.i18n;version=latest,\
 	{ProjectName}.project;version=latest

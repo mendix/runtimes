@@ -1,0 +1,7 @@
+/*
+    Copyright (c) 2005-2015, Mendix bv. All rights reserved.
+    See licenses.txt for third party licenses that apply.
+*/
+
+//>>built
+define("webcore/Task",[],function(){function _1(f){this.fork=f;};_1.of=function(x){return new _1(function(_2,_3){_3(x);});};_1.prototype.chain=function(f){var _4=this;return new _1(function(_5,_6){_4.fork(_5,function(x){f(x).fork(_5,_6);});});};_1.prototype.ap=function(a){var _7=this;var _8=2;var _9,_a,_b;return new _1(function(_c,_d){_7.fork(_e,function(f){_9=f;_f();});a.fork(_e,function(x){_a=x;_f();});function _f(){if(--_8===0){_d(_9(_a));}};function _e(e){if(_b===undefined){_b=e;_c(_b);}};});};_1.prototype.map=function(f){return this.chain(function(x){return _1.of(f(x));});};_1.rejected=_1.prototype.rejected=function(e){return new _1(function(_10,_11){_10(e);});};_1.parallel=function(_12){return new _1(function(_13,_14){var _15=_12.length;var _16=new Array(_12.length);var _17;if(_12.length===0){_14(_16);return;}_12.forEach(function(_18,i){_18.fork(function(e){if(_17===undefined){_17=e;_13(e);}},_19(i));});function _19(i){return function(x){_16[i]=x;if(_17===undefined&&--_15===0){_14(_16);}};};});};_1.sequence=function(_1a){return _1a.reduce(function(acc,_1b){return acc.chain(function(_1c){return _1b;});},_1.of(null));};return _1;});
