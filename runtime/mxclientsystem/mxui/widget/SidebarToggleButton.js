@@ -4,4 +4,4 @@
 */
 
 //>>built
-define("mxui/widget/SidebarToggleButton",["mxui/widget/_Button","mxui/widget/LayoutContainer","mendix/logger","dojo/_base/declare","dijit/registry"],function(_1,_2,_3,_4,_5){var _6=_4(_1,{declaredClass:"mxui.widget.SidebarToggleButton",onClick:function(){this.mxform.publish("toggleSidebar");}});return _6;});
+define("mxui/widget/SidebarToggleButton",["mxui/widget/_Button","dojo/_base/declare"],function(_1,_2){var _3=_2(_1,{declaredClass:"mxui.widget.SidebarToggleButton",useClickMagic:false,onClick:function(){this.mxform.publish("toggleSidebar");}});return _3;});

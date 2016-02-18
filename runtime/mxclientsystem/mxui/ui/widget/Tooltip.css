@@ -1,1 +1,1 @@
-.mx-tooltip {margin: 10px;}.mx-tooltip-content {width: 400px;}.mx-tooltip-prepare {height: 24px; padding: 8px; background: transparent url(images/Tooltip/loading.gif) no-repeat scroll center center;}.mx-tooltip-content .table th,.mx-tooltip-content .table td {padding: 2px 8px;}
+.mx-tooltip {margin: 10px;}.mx-tooltip-content {width: 400px; overflow-y: auto;}.mx-tooltip-prepare {height: 24px; padding: 8px; background: transparent url(images/Tooltip/loading.gif) no-repeat scroll center center;}.mx-tooltip-content .table th,.mx-tooltip-content .table td {padding: 2px 8px;}

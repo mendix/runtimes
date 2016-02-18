@@ -1,0 +1,7 @@
+/*
+    Copyright (c) 2005-2015, Mendix bv. All rights reserved.
+    See licenses.txt for third party licenses that apply.
+*/
+
+//>>built
+define("mxui/lib/sidebarRenderer/PushContentAside",["dojo/dom-style","dojo/dom-class","dojo/_base/declare","mxui/lib/sidebarRenderer/_SidebarRenderer"],function(_1,_2,_3,_4){var _5=_3(_4,{containerClass:"push",_oppositeRegion:null,constructor:function(){this._toggleNode=this._containerNode;var _6=this._regions[this._toggleRegion.position==="left"?"right":"left"];if(_6){var _7=_6.node.style.width;_6.cssWidth=parseInt(_7,10);_6.cssUnit=_7.indexOf("%")!=-1?"%":"px";this._oppositeRegion=_6;}},show:function(){this.inherited(arguments);_1.set(this._containerNode,{left:this._computeLeftPosition(true)});},hide:function(){this.inherited(arguments);_1.set(this._containerNode,{left:this._computeLeftPosition(false)});},resize:function(){this.inherited(arguments);_1.set(this._containerNode,{transition:"none",width:""});_1.set(this._toggleRegion.node,"display","none");var _8=this._containerNode.offsetWidth;if(this._oppositeRegion&&this._oppositeRegion.cssUnit==="%"){_1.set(this._oppositeRegion.node,"width",this._oppositeRegion.cssWidth*_8/100+"px");}var _9=this._computeRegionWidth();_1.set(this._toggleRegion.node,{display:"",width:_9+"px"});this._toggleRegion.width=this._toggleRegion.node.offsetWidth;_1.set(this._containerNode,{width:_8+this._toggleRegion.width+"px",left:this._computeLeftPosition(this.isVisible())});_1.get(this._containerNode,"width");_1.set(this._containerNode,"transition","");}});return _5;});
