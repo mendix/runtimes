@@ -1,5 +1,7 @@
-
-/* Copyright (c) 2005-2012, Mendix bv. All rights reserved. */
+/*
+    Copyright (c) 2005-2015, Mendix bv. All rights reserved.
+    See licenses.txt for third party licenses that apply.
+*/
 
 //>>built
-define("reporting/lib/MetaResult",["dojo","dijit","dojox"],function(_1,_2,_3){_1.provide("reporting.lib.MetaResult");reporting.lib.MetaResult=function(_4){var _5=_4;var _6=[];var _7=[];var _8=_1.hitch(mx.parser,"formatDate");this.getRenderValue=function(_9,_a){var _b=_5[_9];switch(_b.type){case "Boolean":var _c=String(_a);return (_c.match(/true|false/))?mx.ui.translate("mxui.widget.DataGrid",_c):_a;break;case "Currency":case "String":case "AutoNumber":case "Int":case "Integer":case "Float":case "Long":case "URI":return String(_a);break;case "Date":case "DateTime":if(typeof (_a)=="string"){return String(_a);}else{var _d=mx.parser.formatDate(_a,{datePattern:_b.format});if(mx.ui.isRtl()&&_d){return _d.split("‏/").reverse().join("/");}else{return _d;}}break;case "Enum":if(_b.options){for(var i=0;i<_b.options.length;i++){var _e=_b.options[i];for(var _f in _e){if(_a==_f){return _e[_f];}break;}}}return _a;break;default:return String(_a);}};};});
+define("reporting/lib/MetaResult",[],function(){function _1(_2){this.getRenderValue=function(_3,_4){var _5=_2[_3];switch(_5.type){case "Boolean":var _6=String(_4);return _6.match(/true|false/)?window.mx.ui.translate("mxui.widget.DataGrid",_6):_4;case "Date":case "DateTime":if(typeof _4=="string"){return _4;}var _7=window.mx.parser.formatDate(_4,{datePattern:_5.format});if(window.mx.ui.isRtl()&&_7){_7=_7.split("‏/").reverse().join("/");}return _7;case "Enum":if(_5.options){for(var i=0;i<_5.options.length;i++){var _8=_5.options[i];for(var _9 in _8){if(_4==_9){return _8[_9];}break;}}}return _4;default:return String(_4);}};};return _1;});

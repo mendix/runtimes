@@ -1,5 +1,7 @@
-
-/* Copyright (c) 2005-2012, Mendix bv. All rights reserved. */
+/*
+    Copyright (c) 2005-2015, Mendix bv. All rights reserved.
+    See licenses.txt for third party licenses that apply.
+*/
 
 //>>built
 define("mendix/sys/XAS",["mendix/logger","dojo/_base/array"],function(_1,_2){function _3(){var _4="mendix.sys.XAS";this.toString=function(){return _4;};this.getTranslations=function(_5){mx.server.request({request:{action:"get_translations"},options:{callback:function(_6,_7){_5.callback(_7.translations);},error:function(e){if(_5.error){_5.error(e);}else{_5.callback({});}}}});};this.triggerStartup=function(_8){_8=_8||{};mx.server.request({request:{action:"trigger_startup",params:{environment:_8.environment}},options:{callback:function(_9,_a){_8.callback&&_8.callback();},error:function(e){if(_8.error){_8.error(e);}else{_8.callback&&_8.callback();}},useCache:false}});};this.getActiveModules=function(_b){if(typeof _b.callback!="function"){throw new Error(_4+".getActiveModules: no callback specified");}mx.server.request({request:{action:"active_modules",params:{}},options:{sync:true,callback:function(_c,_d){var _e=null,_f=null,_10=_d&&_d.active_modules;if(_10){var _11=_10.clientmodules;_f=_11?_2.map(_11,function(mod){return (/\./.test(mod))?mod:(mod+"."+mod);}):null;_e=_10.customwidgets;}_b.callback({modules:_f,widgets:_e});},error:function(){if(_b.error){_b.error(e);}else{_b.callback({modules:null,widgets:null});}}}});};};return _3;});

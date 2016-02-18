@@ -1,5 +1,7 @@
-
-/* Copyright (c) 2005-2012, Mendix bv. All rights reserved. */
+/*
+    Copyright (c) 2005-2015, Mendix bv. All rights reserved.
+    See licenses.txt for third party licenses that apply.
+*/
 
 //>>built
 define("mxui/widget/GroupBox",["mxui/widget/_WidgetBase","mxui/mixin/_Stateful","mxui/widget","mxui/dom","dijit/registry","dojo/dom-class","dojo/dom-construct","dojo/_base/declare"],function(_1,_2,_3,_4,_5,_6,_7,_8){var _9=_8([_1,_2],{declaredClass:"mxui.widget.GroupBox",caption:null,collapsed:false,collapsable:false,_iconNode:null,buildRendering:function(){this.inherited(arguments);if(this.collapsable){this._iconNode=this.domNode.querySelector("i");this.collapsed=this.getState("collapsed",this.collapsed);this._doCollapse();this.connect(this.domNode.querySelector("h2"),"click",function(e){this.toggleCollapsed();e.stopPropagation();});}},toggleCollapsed:function(){this.set("collapsed",!this.collapsed);},_setCollapsedAttr:function(_a){if(this.collapsed!=_a){this.collapsed=_a;this._doCollapse();}},_doCollapse:function(){if(this.collapsed){_6.add(this.domNode,"collapsed");if(this._iconNode){_6.replace(this._iconNode,"glyphicon-plus","glyphicon-minus");}}else{_6.remove(this.domNode,"collapsed");if(this._iconNode){_6.replace(this._iconNode,"glyphicon-minus","glyphicon-plus");}this.mxform.resize();}},storeState:function(_b){_b("collapsed",this.collapsed);}});return _9;});
