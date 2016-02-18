@@ -2,4 +2,4 @@
 /* Copyright (c) 2005-2012, Mendix bv. All rights reserved. */
 
 //>>built
-define("mxui/widget/NewButton",["dojo","dijit","dojox"],function(_1,_2,_3){_1.provide("mxui.widget.NewButton");_1.declare("mxui.widget.NewButton",mxui.widget._Button,{form:null,entity:"",onClick:function(e){var _4=mx.ui.showProgress();mx.data.create({entity:this.entity,callback:function(_5){var _6=new mendix.lib.MxContext();_6.setContext(_5);mx.ui.execute({form:this.form},{context:_6});mx.ui.hideProgress(_4);},error:function(e){mx.ui.hideProgress(_4);mx.onError(e);}},this);}});});
+define("mxui/widget/NewButton",["mxui/widget/_Button","mendix/lib/MxContext","mendix/logger","dojo/_base/declare"],function(_1,_2,_3,_4){var _5=_4(_1,{declaredClass:"mxui.widget.NewButton",form:null,entity:"",onClick:function(e){var _6=window.mx.ui.showProgress();window.mx.data.create({entity:this.entity,callback:function(_7){var _8=new _2();_8.setContext(_7);window.mx.ui.execute({form:this.form},{context:_8});window.mx.ui.hideProgress(_6);},error:function(e){window.mx.ui.hideProgress(_6);window.mx.onError(e);}},this);}});return _5;});

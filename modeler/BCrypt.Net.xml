@@ -4,6 +4,26 @@
         <name>BCrypt.Net</name>
     </assembly>
     <members>
+        <member name="T:BCrypt.Net.SaltParseException">
+            <summary>Exception for signalling parse errors. </summary>
+        </member>
+        <member name="M:BCrypt.Net.SaltParseException.#ctor">
+            <summary>Default constructor. </summary>
+        </member>
+        <member name="M:BCrypt.Net.SaltParseException.#ctor(System.String)">
+            <summary>Initializes a new instance of <see cref="T:BCrypt.Net.SaltParseException"/>.</summary>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:BCrypt.Net.SaltParseException.#ctor(System.String,System.Exception)">
+            <summary>Initializes a new instance of <see cref="T:BCrypt.Net.SaltParseException"/>.</summary>
+            <param name="message">       The message.</param>
+            <param name="innerException">The inner exception.</param>
+        </member>
+        <member name="M:BCrypt.Net.SaltParseException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>Initializes a new instance of <see cref="T:BCrypt.Net.SaltParseException"/>.</summary>
+            <param name="info">   The information.</param>
+            <param name="context">The context.</param>
+        </member>
         <member name="T:BCrypt.Net.BCrypt">
             <summary>BCrypt implementation.</summary>
             <remarks>
@@ -176,26 +196,6 @@
             <param name="saltBytes"> The salt byte array to hash with.</param>
             <param name="logRounds"> The binary logarithm of the number of rounds of hashing to apply.</param>
             <returns>A byte array containing the hashed result.</returns>
-        </member>
-        <member name="T:BCrypt.Net.SaltParseException">
-            <summary>Exception for signalling parse errors. </summary>
-        </member>
-        <member name="M:BCrypt.Net.SaltParseException.#ctor">
-            <summary>Default constructor. </summary>
-        </member>
-        <member name="M:BCrypt.Net.SaltParseException.#ctor(System.String)">
-            <summary>Initializes a new instance of <see cref="T:BCrypt.Net.SaltParseException"/>.</summary>
-            <param name="message">The message.</param>
-        </member>
-        <member name="M:BCrypt.Net.SaltParseException.#ctor(System.String,System.Exception)">
-            <summary>Initializes a new instance of <see cref="T:BCrypt.Net.SaltParseException"/>.</summary>
-            <param name="message">       The message.</param>
-            <param name="innerException">The inner exception.</param>
-        </member>
-        <member name="M:BCrypt.Net.SaltParseException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
-            <summary>Initializes a new instance of <see cref="T:BCrypt.Net.SaltParseException"/>.</summary>
-            <param name="info">   The information.</param>
-            <param name="context">The context.</param>
         </member>
     </members>
 </doc>
