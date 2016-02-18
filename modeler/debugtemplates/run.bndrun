@@ -2,7 +2,7 @@
 -runee: JavaSE-1.6
 -runvm: {JvmArguments:{Name:PropertiesEscapeValue}|, }, -Declipse.consoleLog=true
 -runpath: com.mendix.xml-apis
--runproperties: org.osgi.framework.bootdelegation="sun.misc", org.osgi.framework.system.packages="org.osgi.framework; version="1.7.0",\
+-runproperties: org.osgi.framework.bootdelegation="sun.misc, com.singularity.*", org.osgi.framework.system.packages="org.osgi.framework; version="1.7.0",\
 	com.sun.image.codec.jpeg,\
 	com.sun.imagio.plugins.bmp,\
 	com.sun.imagio.plugins.common,\
