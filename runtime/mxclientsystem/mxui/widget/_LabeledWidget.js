@@ -4,4 +4,4 @@
 */
 
 //>>built
-define("mxui/widget/_LabeledWidget",["mxui/widget/_WidgetBase","dojo/_base/array","dojo/_base/declare"],function(_1,_2,_3){var _4=_3(_1,{declaredClass:"mxui.widget._LabeledWidget",insideFormGroup:false,startup:function(){if(!this.insideFormGroup){return;}var _5=this.domNode.querySelector("input,textarea,select")||this.domNode.querySelector("button");if(!_5.id){_5.id=this.id+"_input";}var _6=this.domNode.previousSibling;_6.setAttribute("for",_5.id);}});return _4;});
+define("mxui/widget/_LabeledWidget",["mxui/widget/_WidgetBase","dojo/_base/array","dojo/_base/declare"],function(_1,_2,_3){var _4=_3(_1,{declaredClass:"mxui.widget._LabeledWidget",insideFormGroup:false,startup:function(){if(!this.insideFormGroup){return;}var _5=this.domNode.querySelectorAll("input,textarea,select");if(_5.length>1){return;}var _6=_5[0]||this.domNode.querySelector("button");if(!_6.id){_6.id=this.id+"_input";}var _7=this.domNode.previousSibling;_7.setAttribute("for",_6.id);}});return _4;});
