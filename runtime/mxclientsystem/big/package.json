@@ -2,6 +2,26 @@
   "name": "big.js",
   "description": "A small, fast, easy-to-use library for arbitrary-precision decimal arithmetic",
   "version": "3.0.0",
+  "author": {
+    "name": "Michael Mclaughlin",
+    "email": "M8ch88l@gmail.com"
+  },
+  "homepage": "https://github.com/MikeMcl/big.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MikeMcl/big.js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MikeMcl/big.js/issues"
+  },
+  "engines": {
+    "node": "*"
+  },
+  "main": "./big",
+  "dist": {
+    "tarball": "https://kate.rnd.hq.mendix.net/artifactory/npm-virtual/big.js/-/big.js-3.0.0.tgz",
+    "shasum": "ffe15b3a94542e799147e2dfcf12a8e3016ee1fc"
+  },
   "keywords": [
     "arbitrary",
     "precision",
@@ -16,47 +36,26 @@
     "bigint",
     "bignum"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/MikeMcl/big.js.git"
-  },
-  "main": "./big",
-  "author": {
-    "name": "Michael Mclaughlin",
-    "email": "M8ch88l@gmail.com"
-  },
-  "bugs": {
-    "url": "https://github.com/MikeMcl/big.js/issues"
-  },
-  "engines": {
-    "node": "*"
-  },
   "license": "MIT",
-  "scripts": {
-    "test": "node ./test/every-test.js",
-    "build": "uglifyjs -o ./big.min.js ./big.js"
-  },
-  "gitHead": "5afcb640507bf1ea1f4cf6b1f86bdf5d0cd6352c",
-  "homepage": "https://github.com/MikeMcl/big.js",
-  "_id": "big.js@3.0.0",
-  "_shasum": "ffe15b3a94542e799147e2dfcf12a8e3016ee1fc",
-  "_from": "big.js@3.0.0",
-  "_npmVersion": "1.4.28",
-  "_npmUser": {
-    "name": "mikemcl",
-    "email": "M8ch88l@gmail.com"
-  },
   "maintainers": [
     {
       "name": "mikemcl",
       "email": "M8ch88l@gmail.com"
     }
   ],
-  "dist": {
-    "shasum": "ffe15b3a94542e799147e2dfcf12a8e3016ee1fc",
-    "tarball": "http://registry.npmjs.org/big.js/-/big.js-3.0.0.tgz"
-  },
   "directories": {},
-  "_resolved": "https://registry.npmjs.org/big.js/-/big.js-3.0.0.tgz",
+  "scripts": {
+    "test": "node ./test/every-test.js",
+    "build": "uglifyjs -o ./big.min.js ./big.js"
+  },
+  "_from": "big.js@3.0.0",
+  "_npmVersion": "1.4.28",
+  "_npmUser": {
+    "name": "mikemcl",
+    "email": "M8ch88l@gmail.com"
+  },
+  "_id": "big.js@3.0.0",
+  "_shasum": "ffe15b3a94542e799147e2dfcf12a8e3016ee1fc",
+  "_resolved": "https://kate.rnd.hq.mendix.net/artifactory/npm-virtual/big.js/-/big.js-3.0.0.tgz",
   "readme": "ERROR: No README data found!"
 }

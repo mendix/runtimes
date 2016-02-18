@@ -15,12 +15,12 @@
 <link type="text/css" rel="stylesheet" href="http://opensource.org/files/css/css_k3snrbsthqot7V7ccRZHS9OkCZkwBv4adtNieIVlbEU.css" media="print" />
 
 <!--[if lt IE 7]>
-<link type="text/css" rel="stylesheet" href="http://opensource.org/themes/garland/fix-ie.css?no1b7g" media="all" />
+<link type="text/css" rel="stylesheet" href="http://opensource.org/themes/garland/fix-ie.css?ntn5x0" media="all" />
 <![endif]-->
-  <script type="text/javascript" src="http://opensource.org/files/js/js_xAPl0qIk9eowy_iS9tNkCWXLUVoat94SQT48UBCFkyQ.js"></script>
+  <script type="text/javascript" src="http://opensource.org/files/js/js_UWQINlriydSoeSiGQxToOUdv493zEa7dpsXC1OtYlZU.js"></script>
 <script type="text/javascript">
 <!--//--><![CDATA[//><!--
-jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"garland","theme_token":"JSLVQLu30MuU2oohciV7lomj4ncJ09EjDQ1MTtV-2FA","js":{"misc\/jquery.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/aggregator\/aggregator.css":1,"modules\/comment\/comment.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/mollom\/mollom.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"themes\/garland\/style.css":1,"themes\/garland\/print.css":1,"themes\/garland\/fix-ie.css":1}}});
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"garland","theme_token":"3RGoVquQ7Md03Pyco8Dsh2Ma6zaa2ilec_9bWlJS47M","js":{"misc\/jquery.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/aggregator\/aggregator.css":1,"modules\/comment\/comment.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/mollom\/mollom.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"themes\/garland\/style.css":1,"themes\/garland\/print.css":1,"themes\/garland\/fix-ie.css":1}},"urlIsAjaxTrusted":{"\/licenses\/bsd-license.php":true}});
 //--><!]]>
 </script>
 </head>
@@ -53,7 +53,7 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
   <label class="element-invisible" for="edit-search-block-form--2">Search </label>
  <input title="Enter the terms you wish to search for." type="text" id="edit-search-block-form--2" name="search_block_form" value="" size="15" maxlength="128" class="form-text" />
 </div>
-<div class="form-actions form-wrapper" id="edit-actions"><input type="submit" id="edit-submit" name="op" value="Search" class="form-submit" /></div><input type="hidden" name="form_build_id" value="form-KG9sl-mlr_M0FmPU__Ye4Klu7NbWhlu4_DCg1TybDEg" />
+<div class="form-actions form-wrapper" id="edit-actions"><input type="submit" id="edit-submit" name="op" value="Search" class="form-submit" /></div><input type="hidden" name="form_build_id" value="form-W92KuCekxp5uiZibvrZF0NP5UevGWzIuypUS5I7BUGI" />
 <input type="hidden" name="form_id" value="search_block_form" />
 </div>
 </div></form>  </div>
@@ -99,9 +99,7 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
       
   
   <div class="content clearfix">
-        <img style="float: right; margin: 1em;" width="100" height="137" alt="[OSI Approved License]" src="/trademarks/opensource/OSI-Appro
-ved-License-100x137.png"/>
-        <div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even">    <h1>The BSD 2-Clause License</h1>
+    <div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even">    <h1>The BSD 2-Clause License</h1>
 
     <blockquote>
       <p>The following is a BSD 2-Clause license template. To generate your own license, change the values of OWNER and YEAR from their original values as given here, and substitute your own.</p>
@@ -146,7 +144,20 @@ ved-License-100x137.png"/>
 
     
   <div class="content">
-    <p style="text-align:center">Help shape the future of the Open Source Initiative...<br /><a href="http://osi.xwiki.com">visit and participate in the OSI wiki</a>.
+    <script type="text/javascript">
+<!--//--><![CDATA[// ><!--
+
+/* <![CDATA[ */
+    (function() {
+        var s = document.createElement('script'), t = document.getElementsByTagName('script')[0];
+        s.type = 'text/javascript';
+        s.async = true;
+        s.src = 'http://api.flattr.com/js/0.6/load.js?mode=auto';
+        t.parentNode.insertBefore(s, t);
+    })();
+/* ]]]]><![CDATA[> */
+//--><!]]>
+</script><p style="text-align:center">Help shape the future of the Open Source Initiative...<br /><a href="http://osi.xwiki.com">visit and participate in the OSI wiki</a>.
 </p>
 
 <div>
@@ -156,7 +167,8 @@ ved-License-100x137.png"/>
 <!--//--><![CDATA[// ><!--
 !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
 //--><!]]>
-</script></div>
+</script><br /><a class="FlattrButton" style="display:none;" href="http://opensource.org/"></a>
+</div>
 
 <p>
 <!-- Creative Commons License --><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width: 0" src="http://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />Opensource.org site content is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.<!-- /Creative Commons License -->
