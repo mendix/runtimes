@@ -15,12 +15,12 @@
 <link type="text/css" rel="stylesheet" href="http://opensource.org/files/css/css_k3snrbsthqot7V7ccRZHS9OkCZkwBv4adtNieIVlbEU.css" media="print" />
 
 <!--[if lt IE 7]>
-<link type="text/css" rel="stylesheet" href="http://opensource.org/themes/garland/fix-ie.css?nm6pyr" media="all" />
+<link type="text/css" rel="stylesheet" href="http://opensource.org/themes/garland/fix-ie.css?no1b7g" media="all" />
 <![endif]-->
   <script type="text/javascript" src="http://opensource.org/files/js/js_xAPl0qIk9eowy_iS9tNkCWXLUVoat94SQT48UBCFkyQ.js"></script>
 <script type="text/javascript">
 <!--//--><![CDATA[//><!--
-jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"garland","theme_token":"J6RZPBrRywd-d7vD9GaWwtOO_YCtiboZvlKxkdXtyvg","js":{"misc\/jquery.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/aggregator\/aggregator.css":1,"modules\/comment\/comment.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/mollom\/mollom.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"themes\/garland\/style.css":1,"themes\/garland\/print.css":1,"themes\/garland\/fix-ie.css":1}}});
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"garland","theme_token":"5YOy1tc_nYZ3BU9Sl_nzS1uqa2PeqheBmhZLGdlCfeA","js":{"misc\/jquery.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/aggregator\/aggregator.css":1,"modules\/comment\/comment.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/mollom\/mollom.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"themes\/garland\/style.css":1,"themes\/garland\/print.css":1,"themes\/garland\/fix-ie.css":1}}});
 //--><!]]>
 </script>
 </head>
@@ -53,7 +53,7 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
   <label class="element-invisible" for="edit-search-block-form--2">Search </label>
  <input title="Enter the terms you wish to search for." type="text" id="edit-search-block-form--2" name="search_block_form" value="" size="15" maxlength="128" class="form-text" />
 </div>
-<div class="form-actions form-wrapper" id="edit-actions"><input type="submit" id="edit-submit" name="op" value="Search" class="form-submit" /></div><input type="hidden" name="form_build_id" value="form-MSlPm9hDAUxzLHyhqztn3x-GheRvGQV5bamrNwDlS64" />
+<div class="form-actions form-wrapper" id="edit-actions"><input type="submit" id="edit-submit" name="op" value="Search" class="form-submit" /></div><input type="hidden" name="form_build_id" value="form-OAy5yLn_PKO3UhhG3KKiPZZSVHBWNqLBx1R1RHs_8Uw" />
 <input type="hidden" name="form_id" value="search_block_form" />
 </div>
 </div></form>  </div>
@@ -64,8 +64,7 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
   
   <div class="content">
     <ul class="menu"><li class="first collapsed"><a href="/about" title="About the Open Source Initiative">About the OSI</a></li>
-<li class="collapsed"><a href="/osd" title="The actual OSD defining what constitutes an Open Source licence">The Open Source Definition</a></li>
-<li class="collapsed"><a href="/licenses">Open Source Licenses</a></li>
+<li class="collapsed"><a href="/licenses">Licenses &amp; Standards</a></li>
 <li class="leaf"><a href="/working_groups">Working Groups</a></li>
 <li class="leaf"><a href="/faq" title="Frequently Asked Questions about open source and about the OSI.">FAQ</a></li>
 <li class="collapsed"><a href="/trademark" title="Information about trademark and logo usage">Trademark and Logo Usage</a></li>
@@ -79,7 +78,7 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
 <li class="collapsed"><a href="/affiliates" title="Home page for OSI&#039;s membership scheme for non-profits and not-for-profits">OSI Affiliate Membership</a></li>
 <li class="leaf"><a href="/contact" title="">Contact OSI</a></li>
 <li class="leaf"><a href="/ToS" title="Rules for posting content on this site">Terms of Service</a></li>
-<li class="last leaf"><a href="/support">OSI Corporate Support</a></li>
+<li class="last leaf"><a href="/sponsors">Sponsors &amp; Support</a></li>
 </ul>  </div>
 </div>
   </div>
@@ -198,5 +197,5 @@ urchinTracker();
       
     </div> <!-- /#container -->
   </div> <!-- /#wrapper -->
-  <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"53c69192ac","applicationID":"224050","transactionName":"b1dRZkQCXEEHAEVRXFYdZkBfTFtcAgZJFkNQQg==","queueTime":0,"applicationTime":30,"ttGuid":"","agentToken":"","atts":"QxBSEAwYT08=","errorBeacon":"bam.nr-data.net","agent":"js-agent.newrelic.com\/nr-593.min.js"}</script></body>
+  <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"53c69192ac","applicationID":"224050","transactionName":"b1dRZkQCXEEHAEVRXFYdZkBfTFtcAgZJFkNQQg==","queueTime":0,"applicationTime":49,"ttGuid":"","agentToken":"","atts":"QxBSEAwYT08=","errorBeacon":"bam.nr-data.net","agent":"js-agent.newrelic.com\/nr-593.min.js"}</script></body>
 </html>

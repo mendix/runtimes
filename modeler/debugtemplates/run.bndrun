@@ -221,8 +221,7 @@
 	com.mendix.jaxp.ri,\
 	com.mendix.jbcrypt,\
 	com.mendix.metadata-extractor,\
-	com.mendix.ojdbc6,\
-	com.mendix.postgresql.jdbc4,\
+	com.mendix.ojdbc7;version=12.1,\
 	com.mendix.smack,\
 	com.mendix.sqljdbc4,\
 	com.mendix.user-agent-utils,\
@@ -290,9 +289,10 @@
 	org.eclipse.jetty.util,\
 	org.eclipse.osgi.services,\
 	org.glassfish.metro.webservices-api-osgi,\
-	org.hsqldb.hsqldb,\
+	org.hsqldb.hsqldb;version=2.3.2,\
 	osgi.cmpn,\
-	org.mariadb.jdbc,\
+	org.mariadb.jdbc;version=1.1.8,\
+	org.postgresql.jdbc41;version=9.4,\
 	org.scala-lang.scala-reflect;version="[2.11,2.12)",\
 	org.scala-lang.scala-library;version="[2.11.0,2.12)",\
 	com.typesafe.akka.actor;version="[2.3,2.4)",\

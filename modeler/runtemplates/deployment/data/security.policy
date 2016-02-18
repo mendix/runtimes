@@ -76,6 +76,7 @@ ALLOW \{
   (java.util.PropertyPermission "org.hornetq.ssl.trustStoreProvider" "read")
   (java.util.PropertyPermission "org.imgscalr.*" "read,write")
   (java.util.PropertyPermission "org.jboss.netty.debug" "read")
+  (java.util.PropertyPermission "org.postgresql.forceBinary" "read")
   (java.util.PropertyPermission "org.springframework.*" "read write")
   (java.util.PropertyPermission "org.owasp.*" "read,write")
   (java.util.PropertyPermission "org.xml.sax.parser" "read,write")
