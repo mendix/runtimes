@@ -1,7 +1,6 @@
 -runfw: org.apache.felix.framework
 -runee: JavaSE-1.6
 -runvm: {JvmArguments:{Name:PropertiesEscapeValue}|, }, -Declipse.consoleLog=true
--runtrace: true
 -runpath: com.mendix.xml-apis
 -runproperties: org.osgi.framework.bootdelegation="sun.misc", org.osgi.framework.system.packages="org.osgi.framework; version="1.7.0",\
 	com.sun.image.codec.jpeg,\
@@ -215,7 +214,6 @@
 	ch.qos.logback.classic,\
 	ch.qos.logback.core,\
 	com.google.guava,\
-	com.mendix.ehcache;version=2.6.9,\
 	com.mendix.jaxp.ri,\
 	com.mendix.jbcrypt,\
 	com.mendix.metadata-extractor,\
