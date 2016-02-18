@@ -68,6 +68,7 @@ ALLOW \{
   (java.io.FilePermission "{DeploymentDir}/model/lib/-"  "read")
   (java.net.SocketPermission "*" "connect, accept")
   (java.lang.RuntimePermission "getProtectionDomain")
+  (java.lang.RuntimePermission "getClassLoader")
 \} "Permissions for the project bundle"
 
 ALLOW \{
