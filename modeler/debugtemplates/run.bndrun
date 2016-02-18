@@ -284,9 +284,9 @@
 	org.glassfish.metro.webservices-api-osgi,\
 	org.hsqldb.hsqldb,\
 	osgi.cmpn,\
-	org.scala-lang.scala-library,\
-	com.typesafe.akka.osgi,\
-	com.typesafe.config,\
+	org.scala-lang.scala-library;version="[2.10.0,2.11)",\
+	com.typesafe.akka.osgi;version="[2.2,2.3)",\
+	com.typesafe.config;version="[1.0,1.2)",\
 	queryparser;version=latest,\
 	slf4j.api,\
 	webui;version=latest,\
