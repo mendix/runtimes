@@ -213,6 +213,10 @@
 	biz.aQute.bndlib,\
 	ch.qos.logback.classic,\
 	ch.qos.logback.core,\
+	com.amazonaws.aws-java-sdk-osgi,\
+	com.fasterxml.jackson.core.jackson-annotations,\
+	com.fasterxml.jackson.core.jackson-core,\
+	com.fasterxml.jackson.core.jackson-databind,\
 	com.google.guava,\
 	com.mendix.jaxp.ri,\
 	com.mendix.jbcrypt,\
@@ -231,7 +235,11 @@
 	com.springsource.org.junit,\
 	com.sun.mail.javax.mail,\
 	com.sun.xml.bind,\
+	configuration;version=latest,\
 	connectionbus;version=latest,\
+	datastorage;version=latest,\
+	datastorage-api;version=latest,\
+	datastorage-utils;version=latest,\
 	documentexporter;version=latest,\
 	integration;version=latest,\
 	jackson-core-asl,\
@@ -240,16 +248,17 @@
 	jcl.over.slf4j,\
 	joda-time,\
 	json;version=latest,\
-	storage-localfilesystem;version=latest,\
 	logging;version=latest,\
 	m2ee-api;version=latest,\
 	mxruntime;version=latest,\
+	org.apache.commons.codec,\
 	org.apache.commons.collections4,\
-	org.apache.commons.dbcp,\
+	org.apache.commons.dbcp2;version=2.1,\
 	org.apache.commons.fileupload,\
 	org.apache.commons.io,\
 	org.apache.commons.lang3,\
-	org.apache.commons.pool,\
+	org.apache.commons.logging;version=1.2,\
+	org.apache.commons.pool2;version=2.3,\
 	org.apache.felix.eventadmin,\
 	org.apache.felix.framework.security,\
 	org.apache.felix.log,\
@@ -263,7 +272,6 @@
 	org.apache.servicemix.bundles.avalon-framework,\
 	org.apache.servicemix.bundles.batik,\
 	org.apache.servicemix.bundles.bcpg-jdk16,\
-	org.apache.servicemix.bundles.commons-codec,\
 	org.apache.servicemix.bundles.fop,\
 	org.apache.servicemix.bundles.xalan,\
 	org.apache.servicemix.bundles.xerces,\
@@ -292,6 +300,9 @@
 	com.typesafe.akka.slf4j;version="[2.3,2.4)",\
 	queryparser;version=latest,\
 	slf4j.api;version=1.7.7,\
+	storage-api;version=latest,\
+	storage-localfilesystem;version=latest,\
+	storage-s3;version=latest,\
 	webui;version=latest,\
 	{ProjectName}.i18n;version=latest,\
 	{ProjectName}.project;version=latest

@@ -5,6 +5,7 @@
 	[
 		"runtime/bundles/biz.aQute.bnd.annotation.jar",
 		"runtime/bundles/org.scala-lang.scala-library.jar",
+		"runtime/bundles/datastorage-api.jar",
 		"runtime/bundles/json.jar",
 		"runtime/bundles/logging.jar",
 		"runtime/bundles/m2ee-api.jar",
