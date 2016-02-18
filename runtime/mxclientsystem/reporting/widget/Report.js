@@ -1,5 +1,0 @@
-
-/* Copyright (c) 2005-2012, Mendix bv. All rights reserved. */
-
-//>>built
-define("reporting/widget/Report",["dojo","dijit","dojox","dojo/require!reporting/mixin/_Reportable"],function(_1,_2,_3){_1.provide("reporting.widget.Report");_1.require("reporting.mixin._Reportable");mxui.widget.declare("reporting.widget.Report",{mixins:[_2._TemplatedMixin,_2._Container,_2._Contained,mxui.mixin._Contextable,reporting.mixin._Reportable],inputargs:{content:"",reportid:"",startdormant:true},isContainer:true,constructor:function(){this.templatePath=null;this.templateString="<div class='reportingReport'></div>";this.content="";this.startdormant=true;this.domNode=null;var _4="";this.postCreate=function(){this.initContext();this.sequence(["actFetchContent","actRenderContent","actLoaded"]);};this.actFetchContent=function(_5){this.domNode.appendChild(mx.ui.getTemplate(this.mxid,"content"));_5&&_5();};this.actRenderContent=function(_6){var _7=mxui.html.parser.parse(this.domNode,{mxform:this.mxform});mxui.widget.fireOnReady(_7,_6);};this.uninitialize=function(_8){try{mxui.widget.destroyChildren(this.domNode);}catch(e){}};}});});
