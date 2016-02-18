@@ -233,17 +233,17 @@
 	com.springsource.org.junit,\
 	com.sun.mail.javax.mail,\
 	com.sun.xml.bind,\
-	documentexporter,\
-	integration,\
+	documentexporter;version=latest,\
+	integration;version=latest,\
 	jackson-core-asl,\
 	javax.servlet,\
 	jaxb-api,\
 	jcl.over.slf4j,\
 	joda-time,\
-	json,\
-	logging,\
-	m2ee-api,\
-	mxruntime,\
+	json;version=latest,\
+	logging;version=latest,\
+	m2ee-api;version=latest,\
+	mxruntime;version=latest,\
 	org.apache.commons.collections,\
 	org.apache.commons.dbcp,\
 	org.apache.commons.fileupload,\
@@ -288,6 +288,6 @@
 	com.typesafe.akka.osgi,\
 	com.typesafe.config,\
 	slf4j.api,\
-	webui,\
+	webui;version=latest,\
 	{ProjectName}.i18n;version=latest,\
 	{ProjectName}.project;version=latest
