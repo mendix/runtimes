@@ -1,7 +1,7 @@
 -buildpath: json,\
 	logging,\
 	m2ee-api,\
-	mxruntime;version=6.1,\
+	mxruntime;version=7,\
 	integration,\
 	webui,\
 	biz.aQute.bnd.annotation,\

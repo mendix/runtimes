@@ -240,6 +240,7 @@
 	jcl.over.slf4j,\
 	joda-time,\
 	json;version=latest,\
+	storage-localfilesystem;version=latest,\
 	logging;version=latest,\
 	m2ee-api;version=latest,\
 	mxruntime;version=latest,\
@@ -283,6 +284,7 @@
 	org.glassfish.metro.webservices-api-osgi,\
 	org.hsqldb.hsqldb,\
 	osgi.cmpn,\
+	org.mariadb.jdbc,\
 	org.scala-lang.scala-reflect;version="[2.11,2.12)",\
 	org.scala-lang.scala-library;version="[2.11.0,2.12)",\
 	com.typesafe.akka.actor;version="[2.3,2.4)",\
