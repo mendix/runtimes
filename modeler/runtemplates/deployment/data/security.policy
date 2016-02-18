@@ -69,6 +69,9 @@ ALLOW \{
   (java.net.SocketPermission "*" "connect, accept")
   (java.lang.RuntimePermission "getProtectionDomain")
   (java.lang.RuntimePermission "getClassLoader")
+  (java.lang.RuntimePermission "setContextClassLoader")
+  (java.lang.RuntimePermission "accessDeclaredMembers")
+  (java.lang.reflect.ReflectPermission "suppressAccessChecks")
 \} "Permissions for the project bundle"
 
 ALLOW \{

@@ -2,4 +2,4 @@
 /* Copyright (c) 2005-2012, Mendix bv. All rights reserved. */
 
 //>>built
-define("mxui/startup",["dojo","dijit","dojox"],function(_1,_2,_3){_1.provide("mxui.startup");(function(){var _4=_1.config;mx=new mendix.Client({appUrl:_4.appbase,baseUrl:_4.xasbase,server:{timeout:_4.timeout}});mx.registerSubSystem("ui","mxui.sys.UI");mx.registerSubSystem("parser","mxui.sys.Parser");mx.startup();_1.connect(mx.session,"onRedeploy",function(){window.location.reload();});_1.connect(mx.session,"onRedirect",function(_5){window.location=_5;});})();});
+define("mxui/startup",["mendix/Client","dojo/_base/config","dojo/aspect"],function(_1,_2,_3){window.mx=new _1({appUrl:_2.appbase,baseUrl:_2.xasbase,server:{timeout:_2.timeout}});window.mx.registerSubSystem("ui","mxui.sys.UI");window.mx.registerSubSystem("parser","mxui.sys.Parser");window.mx.startup();_3.after(window.mx.session,"onRedeploy",function(){window.location.reload();},true);_3.after(window.mx.session,"onRedirect",function(_4){window.location=_4;},true);});

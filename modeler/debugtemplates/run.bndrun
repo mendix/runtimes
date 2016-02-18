@@ -287,6 +287,7 @@
 	org.scala-lang.scala-library,\
 	com.typesafe.akka.osgi,\
 	com.typesafe.config,\
+	queryparser;version=latest,\
 	slf4j.api,\
 	webui;version=latest,\
 	{ProjectName}.i18n;version=latest,\

@@ -6,5 +6,6 @@
 	webui,\
 	biz.aQute.bnd.annotation,\
 	osgi.cmpn,\
-	osgi.core
+	osgi.core,\
+	javax.servlet
 -sub: *.bnd
