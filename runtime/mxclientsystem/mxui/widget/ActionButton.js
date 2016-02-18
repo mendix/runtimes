@@ -1,0 +1,7 @@
+/*
+    Copyright (c) 2005-2015, Mendix bv. All rights reserved.
+    See licenses.txt for third party licenses that apply.
+*/
+
+//>>built
+define("mxui/widget/ActionButton",["mxui/widget/_Button","mendix/logger","dojo/_base/lang","dojo/_base/declare"],function(_1,_2,_3,_4){var _5=_4(_1,{declaredClass:"mxui.widget.ActionButton",action:null,needsObject:false,constructor:function(_6){if(_6.action&&_6.action.microflow&&_6.action.microflow.applyTo){this.needsObject=true;}if(_6.action&&_6.action.form&&_6.action.form.passContext){this.needsObject=true;}},onClick:function(){var _7=this,_8=[];if(!this.action){return;}if(this.action.microflow&&this.action.microflow.confirmation){_8.push(function(cb){var _9=_7.action.microflow.confirmation;window.mx.ui.confirmation({cancel:_9.cancel,proceed:_9.proceed,content:_9.question,handler:cb});});}if(this.action.form||(this.action.microflow&&this.action.microflow.validate=="view")){_8.push(_3.hitch(this.mxform,"validate"));}_8.push(function(_a){_7.mxform.save(_a,function(_b){if(!(_b instanceof mendix.lib.ValidationError)){window.mx.onError(_b);}});});_8.push(function(){window.mx.ui.execute(_7.action,{context:_7.mxcontext,store:{caller:_7.mxform}});});this.sequence(_8);}});return _5;});
