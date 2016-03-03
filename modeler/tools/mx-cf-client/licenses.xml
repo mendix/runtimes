@@ -89,7 +89,7 @@
     <dependency>
       <groupId>com.mendix</groupId>
       <artifactId>mx-cf-client</artifactId>
-      <version>4.0</version>
+      <version>5.0</version>
       <licenses>
         <!--No license information available. -->
       </licenses>
@@ -97,7 +97,7 @@
     <dependency>
       <groupId>com.mendix</groupId>
       <artifactId>mx-cf-lib</artifactId>
-      <version>4.0</version>
+      <version>5.0</version>
       <licenses>
         <!--No license information available. -->
       </licenses>
