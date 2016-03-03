@@ -1,5 +1,0 @@
-Private-Package: .
-Include-Resource: {TranslationFiles:deployment/run/i18n/{Name:PropertiesEscapeValue}|, }
-Fragment-Host: mxruntime
--sourcepath: $\{project\}/javasource
--classpath: deployment/run/i18n
