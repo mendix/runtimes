@@ -1,0 +1,7 @@
+/*
+    Copyright (c) 2005-2015, Mendix bv. All rights reserved.
+    See licenses.txt for third party licenses that apply.
+*/
+
+//>>built
+define("webcore/dataSourceFactory",["mendix/lib/dataSourceTypes","./datasource/OfflineSource","./datasource/OfflineByReferenceSource","./datasource/EntityPathSource","./datasource/MicroflowSource","./datasource/XPathSource","dojo/_base/config"],function(_1,_2,_3,_4,_5,_6,_7){var _8={create:function(_9){if(_9.type===_1.database&&_7.offline){if(_9.path.split("/").length===1){return new _2({entity:_9.path,sort:_9.sort,page:_9.page,offset:_9.offset,filter:_9.offlineConstraints});}else{return new _3({path:_9.path,sort:_9.sort,page:_9.page,offset:_9.offset,filter:_9.offlineConstraints,context:_9.context});}}if(_9.type===_1.database&&!_7.offline){return new _6({path:_9.path,constraint:_9.xpathConstraints,attributes:_9.attributes,sortparams:_9.sort,page:_9.page,offset:_9.offset,context:_9.context,queryid:_9.queryid});}if(_9.type===_1.microflow){return new _5({microflow:_9.microflow,page:_9.page,offset:_9.offset,context:_9.context,queryid:_9.queryid});}if(_9.type===_1.entityPath){return new _4({path:_9.path,page:_9.page,offset:_9.offset,context:_9.context,queryid:_9.queryid});}return new _6({path:_9.path,sortparams:_9.sort,aggregates:_9.aggregates,attributes:_9.attributes,constraint:_9.constraint,page:_9.page,offset:_9.offset,context:_9.context,queryid:_9.queryid,useContext:_9.useContext});}};return _8;});

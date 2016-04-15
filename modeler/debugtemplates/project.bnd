@@ -1,7 +1,0 @@
-Private-Package: {PrivatePackages:{Name:PropertiesEscapeValue}|, }
-Import-Package: *;resolution:=optional
-Service-Component: *
-{IncludeResource}
-{BundleClassPath}
--sourcepath: $\{project\}/javasource
--classpath: deployment/{CompileTargetDir:PropertiesEscapeValue}
