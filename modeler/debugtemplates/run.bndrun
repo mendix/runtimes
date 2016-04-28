@@ -278,6 +278,7 @@
 	org.apache.servicemix.bundles.batik,\
 	org.apache.servicemix.bundles.bcpg-jdk16,\
 	org.apache.servicemix.bundles.fop,\
+	org.apache.servicemix.bundles.saxon,\
 	org.apache.servicemix.bundles.xalan,\
 	org.apache.servicemix.bundles.xerces,\
 	org.apache.servicemix.bundles.xmlbeans,\
