@@ -4,4 +4,4 @@
 */
 
 //>>built
-define("mendix/lib/dataSourceTypes",{database:"database",xpath:"xpath",microflow:"microflow",entityPath:"entityPath",referenceSet:"referenceSet",direct:"direct",listen:"listen"});
+define("mendix/lib/dataSourceTypes",{xpath:"xpath",microflow:"microflow",entityPath:"entityPath",referenceSet:"referenceSet",direct:"direct",listen:"listen",offline:"offline",offlineReference:"offlineReference"});
