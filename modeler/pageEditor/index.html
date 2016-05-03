@@ -2,13 +2,22 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="static/pageEditor.css">
         <style>
-            * { -webkit-user-select: none; }
+            * {
+                box-sizing: border-box;
+                -webkit-user-select: none;
+            }
+            body {
+                margin: 0;
+            }
+            #content {
+                height: 100vh;
+            }
         </style>
     </head>
-    <body style="margin: 0">
-        <div id="content" style="height: 100vh;"></div>
+    <body>
+        <div id="content"></div>
         <script src="index.js"></script>
     </body>
 </html>
