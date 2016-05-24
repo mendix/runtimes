@@ -4,4 +4,4 @@
 */
 
 //>>built
-define("webcore/guid",[],function(){var _1="GUID:";return {create:function(){return _1+(+new Date());}};});
+define("webcore/guid",["mendix/lang"],function(_1){var _2="GUID:";return {create:function(){return _2+_1.getUniqueId();}};});
