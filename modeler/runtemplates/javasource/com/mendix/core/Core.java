@@ -1363,12 +1363,25 @@ public final class Core
 	 * @param stream the stream to map and store.
 	 * @param importMappingName name of the mapping document, containing the mapping from XML or JSON to domain model objects (as defined in the Mendix Modeler, e.g. "Orders.MyMapping").
 	 * @param mappingParameter parameter object used during the mapping (optional).
-	 * @param shouldValidate whether the XML should be validated. Validation can only be applied to XML.
+	 * @param shouldValidate whether the input should be validated. Validation can only be applied to XML.
 	 * @throws MendixRuntimeException this exception is thrown when an error occurs.
 	 */
 	public static List<IMendixObject> importStream(IContext context, InputStream stream, String importMappingName, IMendixObject mappingParameter, boolean shouldValidate)
 	\{
 		return integration.importStream(context, stream, importMappingName, mappingParameter, -1, shouldValidate);
+	\}
+
+	/**
+	 * Export domain object as XML or JSON stream.
+	 * @param context the context.
+	 * @param exportMappingName name of the mapping document, containing the mapping from domain model objects to XML or JSON (as defined in the Mendix Modeler, e.g. "Orders.MyMapping").
+	 * @param objectToExport object to export using the mapping.
+	 * @param shouldValidate whether the output should be validated. Validation can only be applied to XML.
+	 * @throws MendixRuntimeException this exception is thrown when an error occurs.
+	 */
+	public static InputStream exportStream(IContext context, String exportMappingName, IMendixObject objectToExport, boolean shouldValidate)
+	\{
+		return integration.exportStream(context, exportMappingName, objectToExport, shouldValidate);
 	\}
 	
 	/**

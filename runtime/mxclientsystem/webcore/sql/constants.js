@@ -4,4 +4,4 @@
 */
 
 //>>built
-define("webcore/sql/constants",[],{LIKE_ESCAPE_CHAR:"~"});
+define("webcore/sql/constants",[],{LIKE_ESCAPE_CHAR:"~",QUOTE_CHAR:"\""});
