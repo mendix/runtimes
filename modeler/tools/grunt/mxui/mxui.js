@@ -16,6 +16,8 @@ require ([
 "mendix/lib/ObjectValidation",
 "mendix/lib/Error",
 "mendix/lang",
+"mendix/validator",
+"big/big",
 "dojo/dojo",
 "dojo/main",
 "dojo/_base/kernel",

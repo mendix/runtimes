@@ -21,6 +21,7 @@ dependencies = {
         [ "mxui", "../mxui" ],
         [ "mendix", "../mendix" ],
 
+        [ "big", "../big" ],
 ${PREFIXES}
     ]
 };
