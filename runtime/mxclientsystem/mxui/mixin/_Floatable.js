@@ -4,4 +4,4 @@
 */
 
 //>>built
-define("mxui/mixin/_Floatable",["mxui/dom","dijit/BackgroundIframe","dojo/has","dojo/_base/declare"],function(_1,_2,_3,_4){_3.add("config-bgIframe",_3("ie")||_3("trident"),false,true);var _5=_4(null,{createBackgroundIframe:function(){if(_3("config-bgIframe")){var _6=new _2(this.domNode);this.addOnDestroy(function(){_6.destroy();});this.domNode.appendChild(_1.create("div",{"class":"mx-ie-event-shield"}));}}});return _5;});
+define("mxui/mixin/_Floatable",["dijit/BackgroundIframe","dojo/has","dojo/_base/declare"],function(_1,_2,_3){var _4=_3(null,{createBackgroundIframe:function(){if(_2("ie")||_2("trident")){var _5=new _1(this.domNode);this.addOnDestroy(function(){_5.destroy();});}}});return _4;});

@@ -82,7 +82,6 @@
             <ul class="dropdown-menu" role="menu">
               <li><a href="/foundation/getinvolved.html">Overview</a></li>
       				<li><a href="http://community.apache.org/">Community Development</a></li>
-                    <li><a href="http://helpwanted.apache.org/">Help Wanted</a></li>
       				<li><a href="http://www.apachecon.com/">ApacheCon</a></li>
             </ul>
   				</li>
