@@ -4,4 +4,4 @@
 */
 
 //>>built
-define("mxui/widget/DynamicText",["mxui/dom","mxui/lib/TextTemplate","mxui/widget/_WidgetBase","dojo/_base/declare"],function(_1,_2,_3,_4){var _5=_4(_3,{declaredClass:"mxui.widget.DynamicText",content:null,_contentText:null,postCreate:function(){var _6=this;this._contentText=new _2(this.content,function(_7){_1.text(_6.domNode,_7||" ");});},update:function(_8,_9){this._contentText.update(_8,_9);},uninitialize:function(){this._contentText.destroy();}});return _5;});
+define("mxui/widget/DynamicText",["mxui/dom","mxui/lib/TextTemplate","mxui/widget/_WidgetBase","dojo/_base/declare"],function(_1,_2,_3,_4){var _5=_4(_3,{declaredClass:"mxui.widget.DynamicText",content:null,_contentText:null,postCreate:function(){var _6=this;this._contentText=new _2(this.content,function(_7){_1.html(_6.domNode,_7||"&nbsp;");});},update:function(_8,_9){this._contentText.update(_8,_9);},uninitialize:function(){this._contentText.destroy();}});return _5;});

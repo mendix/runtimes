@@ -1,7 +1,0 @@
-/*
-    Copyright (c) 2005-2015, Mendix bv. All rights reserved.
-    See licenses.txt for third party licenses that apply.
-*/
-
-//>>built
-define("webcore/Task",[],function(){function _1(f){this.fork=f;};_1.of=function(x){return new _1(function(_2,_3){_3(x);});};_1.prototype.chain=function(f){var _4=this;return new _1(function(_5,_6){_4.fork(_5,function(x){f(x).fork(_5,_6);});});};_1.prototype.orElse=function(f){var _7=this;return new _1(function(_8,_9){_7.fork(function(e){f(e).fork(_8,_9);},_9);});};_1.prototype.ap=function(a){var _a=this;var _b=2;var _c,_d,_e;return new _1(function(_f,_10){_a.fork(_11,function(f){_c=f;_12();});a.fork(_11,function(x){_d=x;_12();});function _12(){if(--_b===0){_10(_c(_d));}};function _11(e){if(_e===undefined){_e=e;_f(_e);}};});};_1.prototype.map=function(f){return this.chain(function(x){return _1.of(f(x));});};_1.rejected=_1.prototype.rejected=function(e){return new _1(function(_13,_14){_13(e);});};_1.parallel=function(_15){return new _1(function(_16,_17){var _18=_15.length;var _19=new Array(_15.length);var _1a;if(_15.length===0){_17(_19);return;}_15.forEach(function(_1b,i){_1b.fork(function(e){if(_1a===undefined){_1a=e;_16(e);}},_1c(i));});function _1c(i){return function(x){_19[i]=x;if(_1a===undefined&&--_18===0){_17(_19);}};};});};_1.sequence=function(_1d){return _1d.reduce(function(acc,_1e){return acc.chain(function(_1f){return _1e;});},_1.of(null));};return _1;});
