@@ -1,7 +1,0 @@
-/*
-    Copyright (c) 2005-2015, Mendix bv. All rights reserved.
-    See licenses.txt for third party licenses that apply.
-*/
-
-//>>built
-define("mxui/compat-6",["dojo/_base/kernel","dojo/_base/lang","dojo/_base/declare","mxui/exposed","mxui/startup"],function(_1,_2,_3){var _4="8.0";var _5=window.mx.ui.execute;window.mx.ui.execute=function(_6,_7,_8){var _9=_2.mixin({},_7);if(_9.store&&_9.store.caller){_1.deprecated("The originating page should be passed to mx.ui.execute as 'origin' instead of 'store.caller'","",_4);_9.origin=_9.store.caller;delete _9.store;}_5.call(window.mx.ui,_6,_9,_8);};var _a=window.mx.ui.action;window.mx.ui.action=function(_b,_c,_d){var _e=_2.mixin({},_c);if(_e.store&&_e.store.caller){_1.deprecated("The originating page should be passed to mx.ui.action as 'origin' instead of 'store.caller'","",_4);_e.origin=_e.store.caller;delete _e.store;}_a.call(window.mx.ui,_b,_e,_d);};var _f=function(){_1.deprecated("The _Scriptable mixin does not have any effect anymore. The only supported interface "+"was 'close' and to continue offering it now, widget should just implement a method 'close(callback)'.","",_4);};window.mxui.mixin._Scriptable=_3(null,{offeredInterfaces:null,offerInterface:_f,offerInterfaces:_f,deleteInterface:_f,hasInterface:_f,invokeCall:_f});});
