@@ -1,66 +1,7 @@
 {
-  "_args": [
-    [
-      {
-        "raw": "big.js@3.0.0",
-        "scope": null,
-        "escapedName": "big.js",
-        "name": "big.js",
-        "rawSpec": "3.0.0",
-        "spec": "3.0.0",
-        "type": "version"
-      },
-      "/home/autobuild/.jenkins/jobs/WebUI-Build/workspace@2/client"
-    ]
-  ],
-  "_from": "big.js@3.0.0",
-  "_id": "big.js@3.0.0",
-  "_inCache": true,
-  "_installable": true,
-  "_location": "/big.js",
-  "_npmUser": {
-    "name": "mikemcl",
-    "email": "M8ch88l@gmail.com"
-  },
-  "_npmVersion": "1.4.28",
-  "_phantomChildren": {},
-  "_requested": {
-    "raw": "big.js@3.0.0",
-    "scope": null,
-    "escapedName": "big.js",
-    "name": "big.js",
-    "rawSpec": "3.0.0",
-    "spec": "3.0.0",
-    "type": "version"
-  },
-  "_requiredBy": [
-    "/"
-  ],
-  "_resolved": "https://registry.npmjs.org/big.js/-/big.js-3.0.0.tgz",
-  "_shasum": "ffe15b3a94542e799147e2dfcf12a8e3016ee1fc",
-  "_shrinkwrap": null,
-  "_spec": "big.js@3.0.0",
-  "_where": "/home/autobuild/.jenkins/jobs/WebUI-Build/workspace@2/client",
-  "author": {
-    "name": "Michael Mclaughlin",
-    "email": "M8ch88l@gmail.com"
-  },
-  "bugs": {
-    "url": "https://github.com/MikeMcl/big.js/issues"
-  },
-  "dependencies": {},
+  "name": "big.js",
   "description": "A small, fast, easy-to-use library for arbitrary-precision decimal arithmetic",
-  "devDependencies": {},
-  "directories": {},
-  "dist": {
-    "shasum": "ffe15b3a94542e799147e2dfcf12a8e3016ee1fc",
-    "tarball": "https://registry.npmjs.org/big.js/-/big.js-3.0.0.tgz"
-  },
-  "engines": {
-    "node": "*"
-  },
-  "gitHead": "5afcb640507bf1ea1f4cf6b1f86bdf5d0cd6352c",
-  "homepage": "https://github.com/MikeMcl/big.js",
+  "version": "3.0.0",
   "keywords": [
     "arbitrary",
     "precision",
@@ -75,24 +16,47 @@
     "bigint",
     "bignum"
   ],
-  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MikeMcl/big.js.git"
+  },
   "main": "./big",
+  "author": {
+    "name": "Michael Mclaughlin",
+    "email": "M8ch88l@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/MikeMcl/big.js/issues"
+  },
+  "engines": {
+    "node": "*"
+  },
+  "license": "MIT",
+  "scripts": {
+    "test": "node ./test/every-test.js",
+    "build": "uglifyjs -o ./big.min.js ./big.js"
+  },
+  "gitHead": "5afcb640507bf1ea1f4cf6b1f86bdf5d0cd6352c",
+  "homepage": "https://github.com/MikeMcl/big.js",
+  "_id": "big.js@3.0.0",
+  "_shasum": "ffe15b3a94542e799147e2dfcf12a8e3016ee1fc",
+  "_from": "big.js@3.0.0",
+  "_npmVersion": "1.4.28",
+  "_npmUser": {
+    "name": "mikemcl",
+    "email": "M8ch88l@gmail.com"
+  },
   "maintainers": [
     {
       "name": "mikemcl",
       "email": "M8ch88l@gmail.com"
     }
   ],
-  "name": "big.js",
-  "optionalDependencies": {},
-  "readme": "ERROR: No README data found!",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/MikeMcl/big.js.git"
+  "dist": {
+    "shasum": "ffe15b3a94542e799147e2dfcf12a8e3016ee1fc",
+    "tarball": "https://registry.npmjs.org/big.js/-/big.js-3.0.0.tgz"
   },
-  "scripts": {
-    "build": "uglifyjs -o ./big.min.js ./big.js",
-    "test": "node ./test/every-test.js"
-  },
-  "version": "3.0.0"
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/big.js/-/big.js-3.0.0.tgz",
+  "readme": "ERROR: No README data found!"
 }

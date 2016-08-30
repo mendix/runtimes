@@ -1,0 +1,7 @@
+/*
+    Copyright (c) 2005-2015, Mendix bv. All rights reserved.
+    See licenses.txt for third party licenses that apply.
+*/
+
+//>>built
+define("webcore/StringSet",[],function(){function _1(_2){this.__values={};for(var m in _2){this.__values[m+""]=true;}};_1.of=_1.prototype.of=function(x){return _1.fromArray([x]);};_1.fromArray=function(_3){var _4={};for(var i=0;i<_3.length;++i){_4[_3[i]]=true;}return new _1(_4);};_1.empty=_1.prototype.empty=function(){return _1.fromArray([]);};_1.prototype.contains=function(_5){return this.__values[_5]||false;};_1.prototype.remove=function(_6){delete this.__values[_6];};_1.prototype.or=_1.prototype.concat=function(_7){var _8={};for(var m in this.__values){_8[m]=true;}for(var n in _7.__values){_8[n]=true;}return new _1(_8);};_1.prototype.minus=function(_9){var _a=_1.empty();for(var m in this.__values){if(!_9.__values[m]){_a.__values[m]=true;}}return _a;};_1.prototype.length=function(){return this.values().length;};_1.prototype.reduce=function(fn,_b){return this.values().reduce(fn,_b);};_1.prototype.chain=function(fn){return this.reduce(function(_c,x){return _c.concat(fn(x));},this.empty());};_1.prototype.map=function(fn){return this.chain(function(x){return this.of(fn(x));}.bind(this));};_1.prototype.values=function(){return Object.keys(this.__values);};_1.prototype.toString=function(){return "StringSet("+this.values()+")";};return _1;});

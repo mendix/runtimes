@@ -4,4 +4,4 @@
 */
 
 //>>built
-define("mxui/widget/NavigationListItem",["mxui/widget/_WidgetBase","dojo/_base/declare"],function(_1,_2){var _3=_2(_1,{declaredClass:"mxui.widget.NavigationListItem",action:null,buildRendering:function(){this.inherited(arguments);if(this.action){this.connect(this.domNode,"click","onClick");}},onClick:function(){var _4=this;var _5=function(){window.mx.ui.execute(_4.action,{context:_4.mxcontext});};if(this.action.microflow&&this.action.microflow.validate=="view"){this.mxform.validate(_5);}else{_5();}}});return _3;});
+define("mxui/widget/NavigationListItem",["mxui/widget/_WidgetBase","dojo/_base/declare"],function(_1,_2){var _3=_2(_1,{declaredClass:"mxui.widget.NavigationListItem",action:null,buildRendering:function(){this.inherited(arguments);this.connect(this.domNode,"click","onClick");},onClick:function(){window.mx.ui.execute(this.action,{origin:this.mxform,context:this.mxcontext,abortOnClientValidations:true});}});return _3;});
