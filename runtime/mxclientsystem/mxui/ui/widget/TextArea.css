@@ -1,1 +1,1 @@
-.mx-textarea {position: relative;}.mx-textarea-clone {position: absolute; height: 0 !important; padding-top: 0; padding-bottom: 0; z-index: -1; visibility: hidden;}.mx-textarea-input {resize: none; overflow-y: hidden;}.mx-textarea-input-noresize {height: auto; resize: vertical; overflow-y: auto;}.mx-textarea-counter {font-size: smaller;}
+.mx-textarea-input {resize: none; overflow-y: hidden;}.mx-textarea-input-noresize {height: auto; resize: vertical; overflow-y: auto;}.mx-textarea-counter {font-size: smaller;}
