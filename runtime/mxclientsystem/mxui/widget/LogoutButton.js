@@ -4,4 +4,4 @@
 */
 
 //>>built
-define("mxui/widget/LogoutButton",["mxui/widget/_DynamicButton","dojo/_base/declare"],function(_1,_2){var _3=_2(_1,{declaredClass:"mxui.widget.LogoutButton",postCreate:function(){if(window.mx.session.isGuest()){this.domNode.style.display="none";}this.inherited(arguments);},onClick:function(e){mx.ui.showProgress(null,true);window.mx.logout();}});return _3;});
+define("mxui/widget/LogoutButton",["mxui/widget/_DynamicButton","mendix/logger","dojo/_base/declare"],function(_1,_2,_3){var _4=_3(_1,{declaredClass:"mxui.widget.LogoutButton",postCreate:function(){if(window.mx.session.isGuest()){this.domNode.style.display="none";}this.inherited(arguments);},onClick:function(e){window.mx.logout();}});return _4;});
