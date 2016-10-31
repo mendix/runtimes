@@ -21,7 +21,6 @@ import com.mendix.core.component.InternalCore;
 import com.mendix.core.conf.Configuration;
 import com.mendix.externalinterface.connector.RequestHandler;
 import com.mendix.integration.Integration;
-import com.mendix.integration.WebserviceException;
 import com.mendix.logging.ILogNode;
 import com.mendix.logging.LogSubscriber;
 import com.mendix.m2ee.api.IMxRuntimeRequest;
@@ -844,7 +843,9 @@ public final class Core
 	 * @param metaAssociationName the name of the meta association of this schema
 	 * @param retrievalSchema the retrieval schema of the associated meta object
 	 * @return an IMetaAssociationSchema
+	 * @deprecated Will be removed in next major release.
 	 */
+	@Deprecated
 	public static IMetaAssociationSchema createMetaAssociationSchema(String metaAssociationName, IRetrievalSchema retrievalSchema) \{
 		return component.core().createMetaAssociationSchema(metaAssociationName, retrievalSchema);
 	\}
@@ -1329,39 +1330,6 @@ public final class Core
 	\}
 
 	/**
-	 * Import an XML stream, map this stream to domain model objects and store those objects in the Mendix database.
-	 * @param context the context.
-	 * @param xmlStream the XML stream to map and store.
-	 * @param importMappingName name of the mapping document, containing the mapping from XML to domain model objects (as defined in the Mendix Modeler, e.g. "Orders.MyMapping").
-	 * @param mappingParameter parameter object used during the mapping (optional)
-	 * @param shouldValidate whether the XML should be validated.
-	 * @deprecated Please use importStream instead.
-	 */
-	@Deprecated   
-	public static void importXmlStream(IContext context, InputStream xmlStream, String importMappingName, IMendixObject mappingParameter, boolean shouldValidate)
-	\{
-		integration.importStream(context, xmlStream, importMappingName, mappingParameter, -1, shouldValidate);
-	\}
-
-	/**
-	 * Import an XML stream, map this stream to domain model objects and store those objects in the Mendix database.
-	 * @param context the context.
-	 * @param xmlStream the XML stream to map and store.
-	 * @param importMappingName name of the mapping document, containing the mapping from XML to domain model objects (as defined in the Mendix Modeler, e.g. "Orders.MyMapping").
-	 * @param mappingParameter parameter object used during the mapping (optional)
-	 * @param storeResultInVariable whether to store the result of the XML mapping in variable which will be returned by this method.
-	 * @param hasListReturnValue indicates whether the return value of the XML mapping is of type List.
-	 * @param shouldValidate whether the XML should be validated.
-	 * @deprecated Please use importStream instead.
-	 */
-	@Deprecated   
-	public static Object importXmlStream(IContext context, InputStream xmlStream, String importMappingName, IMendixObject mappingParameter,
-			boolean storeResultInVariable, boolean hasListReturnValue, boolean shouldValidate)
-	\{
-		return integration.importXmlStream(context, xmlStream, importMappingName, mappingParameter, storeResultInVariable, -1, hasListReturnValue, shouldValidate);
-	\}
-
-	/**
 	 * Import an XML or JSON stream, map this stream to domain model objects and store those objects in the Mendix database.
 	 * @param context the context.
 	 * @param stream the stream to map and store.
@@ -1386,126 +1354,6 @@ public final class Core
 	public static InputStream exportStream(IContext context, String exportMappingName, IMendixObject objectToExport, boolean shouldValidate)
 	\{
 		return integration.exportStream(context, exportMappingName, objectToExport, shouldValidate);
-	\}
-	
-	/**
-	 * Call a webservice
-	 * Post method headers:
-	 *  - Content-Type: text/xml
-	 *  - Host: location host (e.g. www.w3schools.com)
-	 *  - SoapAction: soapAction (e.g. http://tempuri.com/FahrenheitToCelsius)
-	 * @param location the webservice location url
-	 * @param soapAction the webservice soap action
-	 * @param soapRequestMessage
-	 * <pre>
-	 * \{@code
-	 * <?xml version="1.0" encoding="utf-8"?>
-	 *	<soap:envelope 
-	 *			xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
-	 *			xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
-	 *			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	 *	>
-	 *		<soap:header>
-	 *			<authentication>
-	 *				<username> username </username>
-	 *				<password> password </password>
-	 *			</authentication>
-	 *		</soap:header>
-     *		<soap:body>
-     *   		<operationName xmlns:=targetNamespace>
-     *       		<x>5</x>
-     *       		<y>5.0</y>
-     *   		</operationName>
-     *		</soap:body>
-	 * </soap:envelope>
-	 * \}
-	 * </pre>
-	 * @return a soap envelope response stream, e.g.:
-	 * <pre>
-	 * \{@code
-	 * <?xml version="1.0" encoding="utf-8"?>
-	 * <soap:Envelope 
-	 * 		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-	 * 		xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
-	 * 		xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
-	 * >
-  	 * 		<soap:Body>
-     * 			<OperationResponse xmlns=namespace>
-     * 				<Result>string</Result>
-     * 			</OperationResponse>
-     * 		</soap:Body>
-	 *	</soap:Envelope>
-	 *\}
-	 *</pre>
-	 * @throws WebserviceException
-	 * @throws IOException
-	 * @deprecated Don't use this, it will be removed in the future. If you want to build your own custom web
-	 * service calls, you can fully implement this yourself.
-	 */
-	@Deprecated   
-	public static IWebserviceResponse callWebservice(String location, String soapAction, String soapRequestMessage) 
-	\{
-		return integration.callWebservice(location, soapAction, soapRequestMessage);
-	\}
-	
-	/**
-	 * Call a webservice
-	 * Post method headers:
-	 *  - Content-Type: text/xml
-	 *  - Host: location host (e.g. www.w3schools.com)
-	 *  - SoapAction: soapAction (e.g. http://tempuri.com/FahrenheitToCelsius)
-	 * @param location the webservice location url
-	 * @param soapAction the webservice soap action
-	 * @param soapRequestMessage
-	 * <pre>
-	 * \{@code 
-	 * <?xml version="1.0" encoding="utf-8"?>
-	 *	<soap:envelope 
-	 *			xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
-	 *			xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
-	 *			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	 *	>
-	 *		<soap:header>
-	 *			<authentication>
-	 *				<username> username </username>
-	 *				<password> password </password>
-	 *			</authentication>
-	 *		</soap:header>
-     *		<soap:body>
-     *   		<operationName xmlns:=targetNamespace>
-     *       		<x>5</x>
-     *       		<y>5.0</y>
-     *   		</operationName>
-     *		</soap:body>
-	 * </soap:envelope>
-	 * \}
-	 * </pre>
-	 * @return a soap envelope response stream, e.g.:
-	 * <pre>
-	 * \{@code
-	 * <?xml version="1.0" encoding="utf-8"?>
-	 * <soap:Envelope 
-	 * 		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-	 * 		xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
-	 * 		xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
-	 * >
-  	 * 		<soap:Body>
-     * 			<OperationResponse xmlns=namespace>
-     * 				<Result>string</Result>
-     * 			</OperationResponse>
-     * 		</soap:Body>
-	 *	</soap:Envelope>
-	 *\}
-	 *</pre>
-	 * @throws WebserviceException
-	 * @throws IOException
-	 * @deprecated Don't use this, it will be removed in the future. If you want to build your own custom web
-	 * service calls, you can fully implement this yourself.
-	 */
-	@Deprecated
-	public static IWebserviceResponse callWebservice(String location, String soapAction, InputStream soapRequestMessage) 
-	\{
-		return integration.callWebservice(location, soapAction, soapRequestMessage);
 	\}
 	
 	/**
