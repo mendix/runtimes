@@ -1,7 +1,0 @@
-/*
-    Copyright (c) 2005-2015, Mendix bv. All rights reserved.
-    See licenses.txt for third party licenses that apply.
-*/
-
-//>>built
-define("webcore/file-helpers",["./Task","bluebird/bluebird"],function(_1,_2){var _3={};var _4=[];_3.getFileSystem=function(_5){if(!_4[_5]){_4[_5]=new _2(function(_6,_7){window.webkitRequestFileSystem(_5,1024*1024,_6,_7);});}return _4[_5];};_3.openDirectory=function(re,_8){if(typeof _8==="string"){_8=_8.split("/");}var _9=_8.map(function(pc){return function(de){return new _1(function(_a,_b){de.getDirectory(pc,{create:true},function(_c){_b(_c);},_a);});};});return _9.reduce(function(_d,_e){return _d.chain(function(de){return _e(de);});},_1.of(re));};_3.createFileTask=function(de,_f,_10){return new _1(function(_11,_12){de.getFile(_f,_10,_12,_11);});};_3.createGetFileBlobTask=function(fe){return new _1(function(_13,_14){fe.file(_14,_13);});};_3.createReadAsArrayBufferTask=function(_15){return new _1(function(_16,_17){var fr=new FileReader();fr.onload=function(e){_17(e.target.result);};fr.onerror=function(e){_16(e.target.error);};fr.readAsArrayBuffer(_15);});};_3.createWriterTask=function(fe){return new _1(function(_18,_19){fe.createWriter(_19,_18);});};_3.createWriteTask=function(fw,_1a){return new _1(function(_1b,_1c){fw.onwrite=_1c;fw.onerror=_1b;fw.write(_1a);});};_3.saveBlob=function(_1d,de,_1e,_1f){return _3.createFileTask(de,_1e,_1f).chain(function(fe){return _3.createWriterTask(fe).chain(function(fw){return _3.createWriteTask(fw,_1d);});});};return _3;});

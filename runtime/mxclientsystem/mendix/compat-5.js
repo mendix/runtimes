@@ -1,7 +1,0 @@
-/*
-    Copyright (c) 2005-2015, Mendix bv. All rights reserved.
-    See licenses.txt for third party licenses that apply.
-*/
-
-//>>built
-define("mendix/compat-5",["mendix/lib/MxMetaObject","mendix/lib/MxObject","mendix/exposed","mxui/startup"],function(_1,_2){var _3="7.0",_4=window.mx.login;window.mx.login=function(){if(arguments.length===0||(arguments.length===1&&typeof arguments[0]=="object")){_5("mx.login(args) is deprecated. Use mx.login(username, password, onLoginSucceed, onLoginFailure) instead");window.mx.reload();}else{_4.apply(window.mx,arguments);}};Object.assign(_1.prototype,{isNumber:function(_6){_5("MxMetaObject.isNumber Use MxMetaObject.isNumeric instead");if(typeof _6!="string"){throw new Error("mendix/lib/MxMetaObject.isNumber : parameter attr is not of type String.");}return (/^(Integer|Decimal|Float|Long|AutoNumber)$/).test(this.getAttributeType(_6));}});Object.assign(_2.prototype,{get:function(_7){if(/^(Integer|Long|Float|Currency)$/.test(this.metaData.getAttributeType(_7))){return this.get2(_7).toString();}else{return this.get2(_7);}},isNumber:function(_8){_5("MxObject.isNumber Use MxObject.isNumeric instead");return this.metaData.isNumber(_8);}});function _5(_9){console.warn("DEPRECATED: "+_9+" -- will be removed in version: "+_3);};});

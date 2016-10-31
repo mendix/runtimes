@@ -1,7 +1,0 @@
-/*
-    Copyright (c) 2005-2015, Mendix bv. All rights reserved.
-    See licenses.txt for third party licenses that apply.
-*/
-
-//>>built
-define("mendix/exposed",["mendix/lang","mendix/ov","mendix/logger","mendix/lib/MxObject","mendix/lib/MxMetaObject","mendix/lib/MxContext","mendix/lib/ObjectValidation","webcore/datasource/_DataSource","webcore/datasource/_XPathSourceBase","webcore/datasource/XPathSource","webcore/datasource/EntityPathSource","webcore/datasource/MicroflowSource","webcore/datasource/ReferenceSetSource","webcore/objectsource/DirectObjectSource","webcore/objectsource/SchemaObjectSource","webcore/objectsource/MicroflowObjectSource","mendix/lib/Upload","mendix/lib/Error","mendix/lib/ServerError","mendix/lib/ConnectionError","mendix/lib/DescribedServerError","mendix/lib/NavigationError","mendix/lib/ValidationError","mendix/next/dataLayer"],function(_1,ov,_2,_3,_4,_5,_6,_7,_8,_9,_a,_b,_c,_d,_e,_f,_10,_11,_12,_13,_14,_15,_16,_17){window.logger=_2;window.mendix={lang:_1,ov:ov,lib:{MxObject:_3,MxMetaObject:_4,MxContext:_5,ObjectValidation:_6,MxValidator:_6,Upload:_10,Error:_11,ServerError:_12,ConnectionError:_13,DescribedServerError:_14,NavigationError:_15,ValidationError:_16},next:{dataLayer:_17}};window.webcore={datasource:{_DataSource:_7,_XPathSourceBase:_8,XPathSource:_9,EntityPathSource:_a,MicroflowSource:_b,ReferenceSetSource:_c},objectsource:{DirectObjectSource:_d,SchemaObjectSource:_e,MicroflowObjectSource:_f}};});

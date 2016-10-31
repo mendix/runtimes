@@ -1,7 +1,0 @@
-/*
-    Copyright (c) 2005-2015, Mendix bv. All rights reserved.
-    See licenses.txt for third party licenses that apply.
-*/
-
-//>>built
-define("mxui/lib/MxGridConfig",["mxui/html","dojo/_base/lang"],function(_1,_2){var _3=function(_4){var _5=_4.config;var _6={};var _7=[];var _8=function(){var _9=_5.controlBar.gridTools,_a=_5.defaultButton;for(var i=0,_b;_b=_9[i];i++){if(window.mx.session.hasSomeRole(_b[_1.attrs.ForRole]||null)){var _c=_a&&_b.mxid===_a.mxid&&_a.clickType==="single";_7.push(_2.mixin({alwaysHidden:_c},_b));}}};var _d=function(){var _e=_5.controlBar.gridActions;for(var i=0,_f;_f=_e[i];i++){_6[_f.keyValue]={actionCall:_f.gridFunction,params:_f.params};}};this.gridSetting=function(str){var _10=_5.gridpresentation,_11=_2.mixin({pageSize:_10.rows*_10.columns},_10);return _11[str];};this.gridTools=function(){return _7;};this.getActionsByKey=function(key){var _12=_6[key];return _12&&_12.params?_2.clone(_12):_12;};this.searchBarItems=function(){return _5.searchElements;};this.gridAttributes=function(){return _5.griddata;};this.searchBarConfig=function(){return _5.searchOptions;};this.getDataSource=function(){return _5.datasource;};this.getDefaultButton=function(){return _5.defaultButton;};this.getPlugins=function(){return _5.plugins||{};};this.toString=function(){return "mxui.lib.MxGridConfig";};_8();_d();};return _3;});

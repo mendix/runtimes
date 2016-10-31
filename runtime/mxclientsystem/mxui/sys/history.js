@@ -1,7 +1,0 @@
-/*
-    Copyright (c) 2005-2015, Mendix bv. All rights reserved.
-    See licenses.txt for third party licenses that apply.
-*/
-
-//>>built
-define("mxui/sys/history",["mxui/lib/browserBackend","mendix/lang"],function(_1,_2){var _3,_4,_5;var _6={_queue:[],_process:function(){while(this._queue[0]){this._queue.shift().call();}},startPush:function(){this._queue.push(null);},endPush:function(){if(this._queue.length===0||this._queue[0]!==null){throw new Error("Invalid state of the queue");}this._queue.shift();this._process();},push:function(_7){this._queue.push(_7);this._process();},empty:function(){return this._queue.length==0;}};var _8={init:function(){_3=_2.getUniqueId();_5=null;_4={id:_3};_1.history.replaceState(_4,"",_9());_1.history.onPopstate(function(e){_1.setTimeout(function(){_a(e.state);if(!_6.empty()){_6.endPush();}},0);});},back:function(){_6.startPush();_1.history.back();},forward:function(){_6.startPush();_1.history.forward();},push:function(_b){_6.push(function(){var _c={id:_2.getUniqueId(),pageInfo:_b};_1.history.pushState(_c,"",_9());_a(_c);});},replace:function(_d,_e){if(_6.empty()){_1.history.replaceState(_4,_d,_e);_1.title(_d);}},onNavigation:function(){},isAtBeginning:function(){return _5===null||_4.id===_5;}};function _a(_f){if(_f===null){_1.history.replaceState(_4,_1.title(),_9());return;}if(_f.id===_3){_5=null;return;}_8.onNavigation(_4.pageInfo,_f.pageInfo);_4=_f;if(_5===null){_5=_4.id;}};function _9(){return _1.location.pathname()+_1.location.search()+_1.location.hash();};return _8;});
