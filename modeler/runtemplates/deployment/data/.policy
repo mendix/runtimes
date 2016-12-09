@@ -128,7 +128,7 @@ grant \{
   permission org.bouncycastle.jce.ProviderConfigurationPermission "BC", "ecImplicitlyCA, threadLocalEcImplicitlyCA";
 \};
 
-grant codeBase "file:/{InstallDir}/-" \{
+grant codeBase "file:{InstallDir}/-" \{
   permission java.security.AllPermission;
 \};
 
@@ -136,7 +136,7 @@ grant codeBase "file:$\{\{java.ext.dirs\}\}/-" \{
   permission java.security.AllPermission;
 \};
 
-keystore "file:/{InstallDir}/runtime/lib/keystore";
+keystore "file:{InstallDir}/runtime/lib/keystore";
 
 grant SignedBy "mendix" \{
   permission java.security.AllPermission;
