@@ -1,6 +1,6 @@
 Private-Package: {PrivatePackages:{Name:PropertiesEscapeValue}|, }
 Import-Package: *;resolution:=optional
 Service-Component: *
-Include-Resource: ../../userlib/;recursive:=true;filter:=!*.jar
+{IncludeResource}
 Bundle-Name: {ProjectName:PropertiesEscapeValue}
 Bundle-SymbolicName: project
