@@ -51,7 +51,6 @@ require ([
 "dojo/fx",
 "dojo/has",
 "dojo/i18n",
-"dojo/io-query",
 "dojo/json",
 "dojo/keys",
 "dojo/on",
