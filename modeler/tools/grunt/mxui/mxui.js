@@ -54,7 +54,6 @@ require ([
 "dojo/io-query",
 "dojo/json",
 "dojo/keys",
-"dojo/number",
 "dojo/on",
 "dojo/promise/all",
 "dojo/query",
