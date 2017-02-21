@@ -1,7 +1,0 @@
-/*
-    Copyright (c) 2005-2015, Mendix bv. All rights reserved.
-    See licenses.txt for third party licenses that apply.
-*/
-
-//>>built
-define("webcore/MxObjectCache",["dojo/_base/array"],function(_1){function _2(){this._objectCache={};this._refCounts={};};_2.prototype.getObject=function(_3){return this._objectCache[_3]||null;};_2.prototype.removeObject=function(_4){if(this._objectCache[_4]){delete this._objectCache[_4];delete this._refCounts[_4];}};_2.prototype.reset=function(_5){var _6=this.getObject(_5.guid);if(!_6){throw new Error("Attempt to reset uncached object");}_6.resetFromJSON(_5);};_2.prototype.blacklist=function(_7){var _8=this.getObject(_7);this._objectCache[_7]=null;if(_8){_8.resetFromJSON(null);}};_2.prototype.isBlacklisted=function(_9){return this._objectCache[_9]===null;};_2.prototype.add=function(_a){if(this.has(_a.getGuid())){throw new Error("Attempt to overwrite existing object in cache");}this._objectCache[_a.getGuid()]=_a;this._refCounts[_a.getGuid()]=0;};_2.prototype.has=function(_b){return !!this.getObject(_b);};_2.prototype.filter=function(_c){var _d=[];for(var _e in this._objectCache){if(_c(_e)){_d.push(_e);}}return _d;};_2.prototype.reference=function(_f){++this._refCounts[_f];};_2.prototype.unreference=function(_10){if(!this.has(_10)){throw new Error("Attempt to decrease reference count of uncached object");}--this._refCounts[_10];};_2.prototype.isReferenced=function(_11){if(!this.has(_11)){throw new Error("Attempt to check reference count of uncached object");}return !!this._refCounts[_11];};return _2;});

@@ -1,7 +1,0 @@
-/*
-    Copyright (c) 2005-2015, Mendix bv. All rights reserved.
-    See licenses.txt for third party licenses that apply.
-*/
-
-//>>built
-define("webcore/objectsource/DirectObjectSource",["webcore/objectsource/_ObjectSource","dojo/_base/declare"],function(_1,_2){var _3=_2(_1,{name:"webcore.objectsource.DirectObjectSource",_path:"",_entity:"",constructor:function(_4){this.inherited(arguments);this._path=_4.path?_4.path.split("/"):[];this._entity=this._path.slice(-1)[0];},fetch:function(_5,_6){var _7=this;var _8=function(_9){if(_9&&_9.isA(_7._entity)){_5(_9);}else{_5(null);}};var _a=function(_b){window.mx.data.fetch(_b,_7._path,{usexpath:true,schema:_7.schema},function(_c,_d){if(_d){_7.hold(_c);}_8(_c);},_6);};this.release();var _e=this.context.getTrackId();if(_e){if(this.context.hasTrackObject()){_a(this.context.getTrackObject());}else{if(this._path.length>0){window.mx.data.get({guid:_e,callback:function(_f){_7.hold(_f);_a(_f);},error:_6});}else{var _10=window.mx.meta.getEntity(this.context.getTrackEntity());if(_10.isA(this._entity)){window.mx.data.get({guid:_e,filter:{id:this.schema},callback:function(obj){_7.hold(obj);_8(obj);},error:_6});}else{this.hold(null);_5(null);}}}}else{this.hold(null);_5(null);}},getRoot:function(){return this._path.length>1?this._path[0]:"";}});return _3;});
