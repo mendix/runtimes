@@ -14,7 +14,7 @@ define([
 
 	// module:
 	//		dojo/fx
-
+	
 	// For back-compat, remove in 2.0.
 	if(!dojo.isAsync){
 		ready(0, function(){
@@ -44,14 +44,8 @@ define([
 
 		this.duration = 0;
 		arrayUtil.forEach(this._animations, function(a){
-			if(a){
-				if(typeof a.duration != "undefined"){
-	        		this.duration += a.duration;
-				}
-				if(a.delay){
-					this.duration += a.delay;
-				}
-			}
+			this.duration += a.duration;
+			if(a.delay){ this.duration += a.delay; }
 		}, this);
 	};
 	_chain.prototype = new Evented();
@@ -176,7 +170,7 @@ define([
 		//	|		]).play();
 		//	|	});
 		//
-		return new _chain(lang.isArray(animations) ? animations : Array.prototype.slice.call(animations, 0)); // dojo/_base/fx.Animation
+		return new _chain(animations); // dojo/_base/fx.Animation
 	};
 
 	var _combine = function(animations){
@@ -259,9 +253,8 @@ define([
 		//		Combine a list of `dojo/_base/fx.Animation`s to run in parallel
 		//
 		// description:
-		//		Combine an array of `dojo/_base/fx.Animation`s or N
-		//		`dojo/_base/fx.Animation`s  to run in parallel, providing
-		//		a new `dojo/_base/fx.Animation` instance encompassing each
+		//		Combine an array of `dojo/_base/fx.Animation`s to run in parallel,
+		//		providing a new `dojo/_base/fx.Animation` instance encompasing each
 		//		animation, firing standard animation events.
 		//
 		// example:
@@ -286,7 +279,7 @@ define([
 		//	|		anim.play(); // play the animation
 		//	|	});
 		//
-		return new _combine(lang.isArray(animations) ? animations : Array.prototype.slice.call(animations, 0)); // dojo/_base/fx.Animation
+		return new _combine(animations); // dojo/_base/fx.Animation
 	};
 
 	coreFx.wipeIn = function(/*Object*/ args){

@@ -1,0 +1,11 @@
+<div class="dijitDialog" tabindex="-1" waiRole="dialog" waiState="labelledby-${id}_title">
+	<div dojoAttachPoint="titleBar" class="dijitDialogTitleBar">
+	<span dojoAttachPoint="titleNode" class="dijitDialogTitle" id="${id}_title"></span>
+	<span dojoAttachPoint="closeButtonNode" tabindex="0" class="dijitDialogCloseIcon" dojoAttachEvent="onclick: onCancel" title="${buttonCancel}">
+		<span dojoAttachPoint="closeText" class="closeText" title="${buttonCancel}">x</span>
+	</span>
+	</div>
+    <div class="mendixDialog_contentWrapper">
+		<div dojoAttachPoint="containerNode" class="dijitDialogPaneContent"></div>
+    </div>
+</div>

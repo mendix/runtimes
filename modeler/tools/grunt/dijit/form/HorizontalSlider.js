@@ -254,8 +254,7 @@ define([
 				count = c[this._pixelCount];
 			}
 			count--;
-			// the division is imprecise so the expression has to be rounded to avoid long floating numbers
-			var value = Math.round((this.value - this.minimum) * count / (this.maximum - this.minimum)) + signedChange;
+			var value = (this.value - this.minimum) * count / (this.maximum - this.minimum) + signedChange;
 			if(value < 0){
 				value = 0;
 			}
@@ -300,12 +299,6 @@ define([
 		_mouseWheeled: function(/*Event*/ evt){
 			// summary:
 			//		Event handler for mousewheel where supported
-
-			if(!this.focused){
-				// If use is scrolling over page and we happen to get the mouse wheel event, just ignore it.
-				return;
-			}
-
 			evt.stopPropagation();
 			evt.preventDefault();
 			this._bumpValue(evt.wheelDelta < 0 ? -1 : 1, true); // negative scroll acts like a decrement

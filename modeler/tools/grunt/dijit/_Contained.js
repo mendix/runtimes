@@ -20,8 +20,11 @@ define([
 			//		Either "next" or "previous"
 			// tags:
 			//		private
-			var p = this.getParent();
-			return (p && p._getSiblingOfChild && p._getSiblingOfChild(this, which == "previous" ? -1 : 1)) || null;	// dijit/_WidgetBase
+			var node = this.domNode;
+			do{
+				node = node[which+"Sibling"];
+			}while(node && node.nodeType != 1);
+			return node && registry.byNode(node);	// dijit/_WidgetBase
 		},
 
 		getPreviousSibling: function(){

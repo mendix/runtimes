@@ -1,6 +1,5 @@
 var profile = (function(){
 	var testResourceRe = /^dijit\/tests\//,
-	nodeModulesRe = /\/node_modules\//,
 
 		copyOnly = function(filename, mid){
 			var list = {
@@ -8,10 +7,7 @@ var profile = (function(){
 				"dijit/package.json":1,
 				"dijit/themes/claro/compile":1
 			};
-			return (mid in list) ||
-				(/^dijit\/resources\//.test(mid) && !/\.css$/.test(filename)) ||
-				/(png|jpg|jpeg|gif|tiff)$/.test(filename) ||
-				nodeModulesRe.test(mid);
+			return (mid in list) || (/^dijit\/resources\//.test(mid) && !/\.css$/.test(filename)) || /(png|jpg|jpeg|gif|tiff)$/.test(filename);
 		};
 
 	return {
@@ -29,10 +25,11 @@ var profile = (function(){
 			},
 
 			miniExclude: function(filename, mid){
-				return /^dijit\/bench\//.test(mid) ||
-					/^dijit\/themes\/themeTest/.test(mid) ||
-					nodeModulesRe.test(mid);
+				return /^dijit\/bench\//.test(mid) || /^dijit\/themes\/themeTest/.test(mid);
 			}
 		}
 	};
 })();
+
+
+

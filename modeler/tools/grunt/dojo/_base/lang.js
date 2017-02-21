@@ -216,7 +216,7 @@ define(["./kernel", "../has", "../sniff"], function(dojo, has){
 			// context: Object?
 			//		Optional. Object to use as root of path. Defaults to
 			//		'dojo.global'. Null may be passed.
-			return !name ? context : getProp(name.split("."), create, context); // Object
+			return getProp(name ? name.split(".") : [], create, context); // Object
 		},
 
 		exists: function(name, obj){
@@ -256,12 +256,13 @@ define(["./kernel", "../has", "../sniff"], function(dojo, has){
 			return (typeof it == "string" || it instanceof String); // Boolean
 		},
 
-		isArray: Array.isArray || function(it){
+		isArray: function(it){
 			// summary:
 			//		Return true if it is an Array.
+			//		Does not work on Arrays created in other windows.
 			// it: anything
 			//		Item to test.
-			return opts.call(it) == "[object Array]"; // Boolean
+			return it && (it instanceof Array || typeof it == "array"); // Boolean
 		},
 
 		isFunction: function(it){
@@ -295,7 +296,7 @@ define(["./kernel", "../has", "../sniff"], function(dojo, has){
 			//		and DOM collections will return true when passed to
 			//		isArrayLike(), but will return false when passed to
 			//		isArray().
-			return !!it && // Boolean
+			return it && it !== undefined && // Boolean
 				// keep out built-in constructors (Number, String, ...) which have length
 				// properties
 				!lang.isString(it) && !lang.isFunction(it) &&
@@ -502,7 +503,7 @@ define(["./kernel", "../has", "../sniff"], function(dojo, has){
 				r = [];
 				for(i = 0, l = src.length; i < l; ++i){
 					if(i in src){
-						r[i] = lang.clone(src[i]);
+						r.push(lang.clone(src[i]));
 					}
 				}
 				// we don't clone functions for performance reasons
@@ -612,3 +613,4 @@ define(["./kernel", "../has", "../sniff"], function(dojo, has){
 
 	return lang;
 });
+

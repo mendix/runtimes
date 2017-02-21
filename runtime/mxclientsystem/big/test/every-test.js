@@ -1,0 +1,2 @@
+//>>built
+define("big/test/every-test",["dojo","dijit","dojox"],function(_1,_2,_3){var _4,_5=0,_6=0,_7=+new Date();["abs","div","cmp","minus","mod","plus","pow","round","sqrt","times","toExponential","toFixed","toPrecision","toString"].forEach(function(_8){_4=require("./"+_8);_5+=_4[0];_6+=_4[1];});});

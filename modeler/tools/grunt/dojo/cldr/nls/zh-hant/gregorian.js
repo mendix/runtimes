@@ -186,7 +186,9 @@ define(
 	"field-sun-relative+1": "下週日",
 	"eraAbbr": [
 		"西元前",
-		"西元"
+		"公元前",
+		"西元",
+		"公元"
 	],
 	"field-minute": "分鐘",
 	"field-dayperiod": "上午/下午",
