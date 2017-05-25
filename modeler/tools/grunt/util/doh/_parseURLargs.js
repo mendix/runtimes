@@ -20,28 +20,28 @@
 			//
 			["dojo/tests/module"],
 
-		paths =
-			// zero to many path items to pass to the AMD loader; provided by semicolon separated values
+		paths = 
+			// zero to many path items to pass to the AMD loader; provided by semicolon separated values 
 			// for URL query parameter="paths"; each path item has the form <from-path>,<to-path>
 			// i.e. path-to-util/doh/runner.html?paths=my/from/path,my/to/path;my/from/path2,my/to/path2
 			{},
-
-		dohPlugins =
+			
+		dohPlugins = 
 			// Semicolon separated list of files to load before the tests.
 			// Idea is to override aspects of DOH for reporting purposes.
 			"",
 
-		breakOnError =
+		breakOnError = 
 			// boolean; instructs doh to call the debugger upon a test failures; this can be helpful when
 			// trying to isolate exactly where the test failed
 			false,
 
-		async =
+		async = 
 			// boolean; config require.async==true before loading boot; this will have the effect of making
 			// version 1.7+ dojo bootstrap/loader operating in async mode
 			false,
 
-		sandbox =
+		sandbox = 
 			// boolean; use a loader configuration that sandboxes the dojo and dojox objects used by doh
 			false,
 
@@ -52,10 +52,9 @@
 				}
 				return result;
 			}else{
-				return text.match(/[^\s]*/)[0];
+				return text.match(/[^\s]*/)[0]; 
 			}
-		},
-		packages= [];
+		};
 
 		qstr = window.location.search.substr(1);
 
@@ -109,17 +108,6 @@
 				case "dohPlugins":
 					dohPlugins=value.split(";");
 					break;
-				case 'mapPackage':
-					var packagesRaw=value.split(';');
-					for (var i = 0; i < packagesRaw.length; i++) {
-						var parts = packagesRaw[i].split(',');
-						packages.push({
-							name: parts[0],
-							location: parts[1]
-						});
-					}
-
-					break;
 			}
 		}
 	}
@@ -148,7 +136,7 @@
 				// and dojox uses dojo...that is, dohDojox...which must be mapped to dohDojo in the context of dohDojox
 				packageMap: {dojo: "dohDojo", dojox: "dohDojox"}
 			}],
-
+			
 			// next, we need to preposition a special configuration for dohDojo
 			cache: {
 				"dohDojo*_base/config": function(){
@@ -174,7 +162,15 @@
 
 			deps: ["dohDojo/domReady", "doh"],
 
-			callback: callback,
+			callback: function(domReady, doh){
+				domReady(function(){
+					doh._fixHeight();
+					doh.breakOnError= breakOnError;
+					require(test, function(){
+						doh.run();
+					});
+				});
+			},
 
 			async: async
 		};
@@ -194,45 +190,20 @@
 				'dojox'
 			],
 			deps: ["dojo/domReady", "doh/main"],
-			callback: callback,
+			callback: function(domReady, doh){
+				domReady(function(){
+					doh._fixHeight();
+					doh.breakOnError= breakOnError;
+					require(test, function(){
+						doh.run();
+					});
+				});
+			},
 			async: async,
 			isDebug: 1
 		};
 	}
-
-	for (var i = 0; i < packages.length; i++) {
-		var isFound = false;
-		for (var j = 0; j < config.packages.length; j++) {
-			if (packages[i].name == config.packages[j].name) {
-				isFound = true;
-				config.packages[j].location = packages[i].location;
-				break;
-			}
-		}
-		if (!isFound) {
-			config.packages.push(packages[i]);
-		}
-	}
-
-	function callback(domReady, doh){
-		domReady(function(){
-			var amdTests = [], module;
-			doh._fixHeight();
-			doh.breakOnError= breakOnError;
-			for (var i = 0, l = test.length; i < l; i++) {
-				module = test[i];
-				if(/\.html$/.test(module)){
-					doh.register(module, require.toUrl(module), 999999);
-				}else{
-					amdTests.push(module);
-				}
-			}
-			require(amdTests, function(){
-				doh.run();
-			});
-		});
-	}
-
+	
 	// load all of the dohPlugins
 	if(dohPlugins){
 		var i = 0;
@@ -240,7 +211,7 @@
 			config.deps.push(dohPlugins[i]);
 		}
 	}
-
+	
 	require = config;
 
 	// now script inject any boots

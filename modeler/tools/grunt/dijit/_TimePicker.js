@@ -147,22 +147,21 @@ define([
 
 		_getFilteredNodes: function(/*number*/ start, /*number*/ maxNum, /*Boolean*/ before, /*DOMNode*/ lastNode){
 			// summary:
-			//		Returns a DocumentFragment of nodes with the filter applied.  At most maxNum nodes
+			//		Returns an array of nodes with the filter applied.  At most maxNum nodes
 			//		will be returned - but fewer may be returned as well.  If the
 			//		before parameter is set to true, then it will return the elements
 			//		before the given index
 			// tags:
 			//		private
 
-			var nodes = this.ownerDocument.createDocumentFragment();
+			var nodes = [];
 
 			for(var i = 0 ; i < this._maxIncrement; i++){
 				var n = this._createOption(i);
 				if(n){
-					nodes.appendChild(n);
+					nodes.push(n);
 				}
 			}
-
 			return nodes;
 		},
 
@@ -202,14 +201,15 @@ define([
 			var visibleRange = (endDate.getTime() - this._refDate.getTime()) * 0.001;
 			this._maxIncrement = Math.ceil((visibleRange + 1) / clickableIncrementSeconds);
 
-			var nodes = this._getFilteredNodes();
+			var nodes  = this._getFilteredNodes();
+			array.forEach(nodes, function(n){
+				this.domNode.appendChild(n);
+			}, this);
 
 			// never show empty due to a bad filter
-			if(!nodes.firstChild && this.filterString){
+			if(!nodes.length && this.filterString){
 				this.filterString = '';
 				this._showText();
-			}else{
-				this.domNode.appendChild(nodes);
 			}
 		},
 
@@ -274,26 +274,24 @@ define([
 				innerHTML: dateString
 			}, div);
 
-			var marker = index % this._visibleIncrement < 1 && index % this._visibleIncrement > -1,
-				tick = !marker && !(index % this._clickableIncrement);
-			if(marker){
-				div.className += " " + this.baseClass + "Marker";
-			}else if(tick){
-				div.className += " " + this.baseClass + "Tick";
+			if(index % this._visibleIncrement < 1 && index % this._visibleIncrement > -1){
+				domClass.add(div, this.baseClass + "Marker");
+			}else if(!(index % this._clickableIncrement)){
+				domClass.add(div, this.baseClass + "Tick");
 			}
 
 			if(this.isDisabledDate(date)){
 				// set disabled
-				div.className += " " + this.baseClass + "ItemDisabled";
+				domClass.add(div, this.baseClass + "ItemDisabled");
 			}
 			if(this.value && !ddate.compare(this.value, date, this.constraints.selector)){
 				div.selected = true;
-				div.className += " " + this.baseClass + "ItemSelected";
+				domClass.add(div, this.baseClass + "ItemSelected");
 				this._selectedDiv = div;
-				if(marker){
-					div.className += " " + this.baseClass + "MarkerSelected";
-				}else if(tick){
-					div.className += " " + this.baseClass + "TickSelected";
+				if(domClass.contains(div, this.baseClass + "Marker")){
+					domClass.add(div, this.baseClass + "MarkerSelected");
+				}else{
+					domClass.add(div, this.baseClass + "TickSelected");
 				}
 
 				// Initially highlight the current value.   User can change highlight by up/down arrow keys
@@ -310,26 +308,18 @@ define([
 			this.set("selected", this._selectedDiv);
 		},
 
-		_onOptionSelected: function(/*Object*/ tgt, /*Boolean*/ change){
+		_onOptionSelected: function(/*Object*/ tgt){
 			// summary:
-			//		Called when user clicks or keys to an option in the drop down list
-			// tgt: Object
-			//		tgt.target specifies the node that was clicked
-			// change: Boolean
-			//		If true, fire "change" event, otherwise just fire "input" event.
+			//		Called when user clicks an option in the drop down list
 			// tags:
 			//		private
 			var tdate = tgt.target.date || tgt.target.parentNode.date;
 			if(!tdate || this.isDisabledDate(tdate)){
 				return;
 			}
-			this._set('value', tdate);
-			this.emit("input");
-			if(change) {
-				this._highlighted_option = null;
-				this.set('value', tdate);
-				this.onChange(tdate);
-			}
+			this._highlighted_option = null;
+			this.set('value', tdate);
+			this.onChange(tdate);
 		},
 
 		onChange: function(/*Date*/ /*===== time =====*/){
@@ -373,13 +363,11 @@ define([
 			//		protected
 			if(e.keyCode == keys.DOWN_ARROW){
 				this.selectNextNode();
-				this._onOptionSelected({target: this._highlighted_option}, false);
 				e.stopPropagation();
 				e.preventDefault();
 				return false;
 			}else if(e.keyCode == keys.UP_ARROW){
 				this.selectPreviousNode();
-				this._onOptionSelected({target: this._highlighted_option}, false);
 				e.stopPropagation();
 				e.preventDefault();
 				return false;
@@ -391,7 +379,7 @@ define([
 
 				// Accept the currently-highlighted option as the value
 				if(this._highlighted_option){
-					this._onOptionSelected({target: this._highlighted_option}, true);
+					this._onOptionSelected({target: this._highlighted_option});
 				}
 
 				// Call stopEvent() for ENTER key so that form doesn't submit,
@@ -419,7 +407,7 @@ define([
 		},
 
 		onClick: function(/*DomNode*/ node){
-			this._onOptionSelected({target: node}, true);
+			this._onOptionSelected({target: node});
 		}
 	});
 

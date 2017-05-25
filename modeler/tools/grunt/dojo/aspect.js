@@ -4,7 +4,7 @@ define([], function(){
 	//		dojo/aspect
 
 	"use strict";
-	var undefined;
+	var undefined, nextId = 0;
 	function advise(dispatcher, type, advice, receiveArguments){
 		var previous = dispatcher[type];
 		var around = type == "around";
@@ -49,7 +49,7 @@ define([], function(){
 						dispatcher = advice = signal.advice = null;
 					}
 				},
-				id: dispatcher.nextId++,
+				id: nextId++,
 				advice: advice,
 				receiveArguments: receiveArguments
 			};
@@ -79,14 +79,12 @@ define([], function(){
 			if(!existing || existing.target != target){
 				// no dispatcher in place
 				target[methodName] = dispatcher = function(){
-					var executionId = dispatcher.nextId;
+					var executionId = nextId;
 					// before advice
 					var args = arguments;
 					var before = dispatcher.before;
 					while(before){
-						if(before.advice){
-							args = before.advice.apply(this, args) || args;
-						}
+						args = before.advice.apply(this, args) || args;
 						before = before.next;
 					}
 					// around advice
@@ -96,14 +94,12 @@ define([], function(){
 					// after advice
 					var after = dispatcher.after;
 					while(after && after.id < executionId){
-						if(after.advice){
-							if(after.receiveArguments){
-								var newResults = after.advice.apply(this, args);
-								// change the return value only if a new value was returned
-								results = newResults === undefined ? results : newResults;
-							}else{
-								results = after.advice.call(this, results, args);
-							}
+						if(after.receiveArguments){
+							var newResults = after.advice.apply(this, args);
+							// change the return value only if a new value was returned
+							results = newResults === undefined ? results : newResults;
+						}else{
+							results = after.advice.call(this, results, args);
 						}
 						after = after.next;
 					}
@@ -115,7 +111,6 @@ define([], function(){
 					}};
 				}
 				dispatcher.target = target;
-				dispatcher.nextId = dispatcher.nextId || 0;
 			}
 			var results = advise((dispatcher || existing), type, advice, receiveArguments);
 			advice = null;

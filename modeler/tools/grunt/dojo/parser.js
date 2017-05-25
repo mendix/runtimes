@@ -41,35 +41,29 @@ define([
 		return map;
 	}
 
+	// Map from widget name or list of widget names(ex: "dijit/form/Button,acme/MyMixin") to a constructor.
+	var _ctorMap = {};
+
 	function getCtor(/*String[]*/ types, /*Function?*/ contextRequire){
 		// summary:
 		//		Retrieves a constructor.  If the types array contains more than one class/MID then the
 		//		subsequent classes will be mixed into the first class and a unique constructor will be
 		//		returned for that array.
 
-		if(!contextRequire){
-			contextRequire = require;
-		}
-
-		// Map from widget name or list of widget names(ex: "dijit/form/Button,acme/MyMixin") to a constructor.
-		// Keep separate map for each requireContext to avoid false matches (ex: "./Foo" can mean different things
-		// depending on context.)
-		var ctorMap = contextRequire._dojoParserCtorMap || (contextRequire._dojoParserCtorMap = {});
-
 		var ts = types.join();
-		if(!ctorMap[ts]){
+		if(!_ctorMap[ts]){
 			var mixins = [];
 			for(var i = 0, l = types.length; i < l; i++){
 				var t = types[i];
 				// TODO: Consider swapping getObject and require in the future
-				mixins[mixins.length] = (ctorMap[t] = ctorMap[t] || (dlang.getObject(t) || (~t.indexOf('/') &&
-					contextRequire(t))));
+				mixins[mixins.length] = (_ctorMap[t] = _ctorMap[t] || (dlang.getObject(t) || (~t.indexOf('/') &&
+					(contextRequire ? contextRequire(t) : require(t)))));
 			}
 			var ctor = mixins.shift();
-			ctorMap[ts] = mixins.length ? (ctor.createSubclass ? ctor.createSubclass(mixins) : ctor.extend.apply(ctor, mixins)) : ctor;
+			_ctorMap[ts] = mixins.length ? (ctor.createSubclass ? ctor.createSubclass(mixins) : ctor.extend.apply(ctor, mixins)) : ctor;
 		}
 
-		return ctorMap[ts];
+		return _ctorMap[ts];
 	}
 
 	var parser = {
@@ -285,7 +279,7 @@ define([
 				hash[attrData + "props"] = "data-dojo-props";
 				hash[attrData + "type"] = "data-dojo-type";
 				hash[attrData + "mixins"] = "data-dojo-mixins";
-				hash[scope + "type"] = "dojotype";
+				hash[scope + "type"] = "dojoType";
 				hash[attrData + "id"] = "data-dojo-id";
 			}
 
@@ -869,12 +863,17 @@ define([
 			//	|		parser.parse({ noStart:true, rootNode: someNode });
 
 			// determine the root node and options based on the passed arguments.
-			if(rootNode && typeof rootNode != "string" && !("nodeType" in rootNode)){
-				// If called as parse(options) rather than parse(), parse(rootNode), or parse(rootNode, options)...
+			var root;
+			if(!options && rootNode && rootNode.rootNode){
 				options = rootNode;
-				rootNode = options.rootNode;
+				root = options.rootNode;
+			}else if(rootNode && dlang.isObject(rootNode) && !("nodeType" in rootNode)){
+				options = rootNode;
+			}else{
+				root = rootNode;
 			}
-			var root = rootNode ? dom.byId(rootNode) : dwindow.body();
+			root = root ? dom.byId(root) : dwindow.body();
+
 			options = options || {};
 
 			var mixin = options.template ? { template: true } : {},

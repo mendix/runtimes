@@ -1,0 +1,7 @@
+/*
+    Copyright (c) 2005-2015, Mendix bv. All rights reserved.
+    See licenses.txt for third party licenses that apply.
+*/
+
+//>>built
+define("mendix/validator",["big/big"],function(_1){var _2=new _1("1e20");var _3=(new _1(2)).pow(31).times(-1),_4=(new _1(2)).pow(31).minus(1);var _5=(new _1(2)).pow(63).times(-1),_6=(new _1(2)).pow(63).minus(1);var _7=(new _1(2)).pow(53);function _8(_9,_a,_b){return _9.gte(_a)&&_9.lte(_b);};function _c(_d){return !_d.mod(1).eq(0);};var _e={validation:{OK:0,NOT_INTEGER:1,RANGE_INTEGER:2,RANGE_LONG:3,RANGE_DECIMAL:4,RANGE_NUMBER:5},validate:function(_f,_10){if(/^(Integer|Long|Decimal|Float|Currency)$/.test(_10)){if(_f===""){return _e.validation.OK;}if(!(_f instanceof _1)){_f=new _1(_f);}if((_10=="Integer"||_10=="Long")&&_c(_f)){return _e.validation.NOT_INTEGER;}if(_10==="Integer"&&!_8(_f,_3,_4)){return _e.validation.RANGE_INTEGER;}if(_10==="Long"&&!_8(_f,_5,_6)){return _e.validation.RANGE_LONG;}if(_10==="Decimal"&&_f.abs().gte(_2)){return _e.validation.RANGE_DECIMAL;}if(_10==="Decimal"&&!_f.mod(1e-8).eq(0)){return _e.validation.RANGE_DECIMAL;}if(/^(Float|Currency)$/.test(_10)&&_f.abs().gt(_7)){return _e.validation.RANGE_NUMBER;}}return _e.validation.OK;}};return _e;});

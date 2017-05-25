@@ -38,7 +38,7 @@ define(["./_base/kernel", "require", "./_base/config", "./aspect", "./_base/lang
 		if(replace){
 			_replace(hash);
 		}else{
-			location.hash = "#" + hash;
+			location.href = "#" + hash;
 		}
 		return hash; // String
 	};
@@ -81,8 +81,7 @@ define(["./_base/kernel", "require", "./_base/config", "./aspect", "./_base/lang
 			_ieUriMonitor.iframe.location.replace(href.substring(0, index) + "?" + hash);
 			return;
 		}
-		var href = location.href.replace(/#.*/, "");
-		location.replace(href + "#" + hash);
+		location.replace("#"+hash);
 		!_connect && _pollLocation();
 	}
 
