@@ -36,12 +36,14 @@ define(
 	"dateFormatItem-yQQQ": "QQQ y",
 	"dateFormatItem-yMEd": "E d/M/y",
 	"field-wed-relative+0": "ce mercredi",
+	"field-wed-relative+1": "mercredi prochain",
 	"dateFormatItem-GyMMMEd": "E d MMM y G",
 	"dateFormatItem-MMMEd": "E d MMM",
-	"field-wed-relative+1": "mercredi prochain",
 	"eraNarrow": [
 		"av. J.-C.",
-		"ap. J.-C."
+		"ap. J.-C.",
+		"ap. J.-C.",
+		"EC"
 	],
 	"field-tue-relative+-1": "mardi dernier",
 	"dayPeriods-format-wide-morning": "matin",
@@ -79,8 +81,8 @@ define(
 	"dayPeriods-format-abbr-am": "AM",
 	"dayPeriods-format-wide-noon": "midi",
 	"dateFormatItem-yMd": "d/M/y",
-	"dateFormatItem-yM": "M/y",
 	"field-era": "ère",
+	"dateFormatItem-yM": "M/y",
 	"months-standAlone-wide": [
 		"janvier",
 		"février",
@@ -102,10 +104,10 @@ define(
 		"3e trimestre",
 		"4e trimestre"
 	],
-	"timeFormat-long": "HH:mm:ss z",
-	"dateFormatItem-yMMM": "MMM y",
 	"dateFormatItem-yQQQQ": "QQQQ y",
+	"timeFormat-long": "HH:mm:ss z",
 	"field-year": "année",
+	"dateFormatItem-yMMM": "MMM y",
 	"field-hour": "heure",
 	"months-format-abbr": [
 		"janv.",
@@ -126,11 +128,11 @@ define(
 	"timeFormat-full": "HH:mm:ss zzzz",
 	"dayPeriods-format-narrow-morning": "matin",
 	"field-day-relative+0": "aujourd’hui",
-	"field-day-relative+1": "demain",
 	"field-thu-relative+0": "ce jeudi",
+	"field-day-relative+1": "demain",
+	"field-thu-relative+1": "jeudi prochain",
 	"dateFormatItem-GyMMMd": "d MMM y G",
 	"field-day-relative+2": "après-demain",
-	"field-thu-relative+1": "jeudi prochain",
 	"dateFormatItem-H": "HH 'h'",
 	"months-standAlone-abbr": [
 		"janv.",
@@ -172,16 +174,18 @@ define(
 	"timeFormat-medium": "HH:mm:ss",
 	"field-sun-relative+0": "ce dimanche",
 	"dateFormatItem-Hm": "HH:mm",
+	"field-sun-relative+1": "dimanche prochain",
 	"quarters-standAlone-abbr": [
 		"T1",
 		"T2",
 		"T3",
 		"T4"
 	],
-	"field-sun-relative+1": "dimanche prochain",
 	"eraAbbr": [
 		"av. J.-C.",
-		"ap. J.-C."
+		"AEC",
+		"ap. J.-C.",
+		"EC"
 	],
 	"field-minute": "minute",
 	"field-dayperiod": "cadran",
@@ -255,7 +259,9 @@ define(
 	],
 	"eraNames": [
 		"avant Jésus-Christ",
-		"après Jésus-Christ"
+		"après Jésus-Christ",
+		"ap. J.-C.",
+		"EC"
 	],
 	"dateFormatItem-yMMMd": "d MMM y",
 	"days-format-narrow": [

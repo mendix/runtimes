@@ -99,16 +99,12 @@ define([
 			this._set("label", content);
 			var labelNode = this.containerNode || this.focusNode;
 			labelNode.innerHTML = content;
-			this.onLabelSet();
-		},
-
-		onLabelSet: function(){
 		}
 	});
 
 	if(has("dojo-bidi")){
 		ButtonMixin = declare("dijit.form._ButtonMixin", ButtonMixin, {
-			onLabelSet: function(){
+			_setLabelAttr: function(){
 				this.inherited(arguments);
 				var labelNode = this.containerNode || this.focusNode;
 				this.applyTextDir(labelNode);

@@ -22,16 +22,18 @@ define([
 		//		'true' to re-enable to previous, arguably broken, behavior.
 		_earlyTemplatedStartup: false,
 
+		// widgetsInTemplate: [protected] Boolean
+		//		Should we parse the template to find widgets that might be
+		//		declared in markup inside it?  (Remove for 2.0 and assume true)
+		widgetsInTemplate: true,
+
 		// contextRequire: Function
 		//		Used to provide a context require to the dojo/parser in order to be
 		//		able to use relative MIDs (e.g. `./Widget`) in the widget's template.
 		contextRequire: null,
 
 		_beforeFillContent: function(){
-			// Short circuit the parser when the template doesn't contain any widgets.  Note that checking against
-			// this.templateString is insufficient because the data-dojo-type=... may appear through a substitution
-			// variable, like in ConfirmDialog, where the widget is hidden inside of the ${!actionBarTemplate}.
-			if(/dojoType|data-dojo-type/i.test(this.domNode.innerHTML)){
+			if(this.widgetsInTemplate){
 				// Before copying over content, instantiate widgets in template
 				var node = this.domNode;
 

@@ -1,11 +1,11 @@
-function factory(uglify, fs){
+function factory(uglify){
 	if(!uglify){
 		throw new Error("Unknown host environment: only nodejs is supported by uglify optimizer.");
 	}
 	if(uglify.minify){
 		//uglify2, provide a uglify-1 compatible uglify function
 		var UglifyJS = uglify;
-		uglify = function(code, options, dest, useSourceMaps){
+		uglify = function(code, options){
 			//parse
 			var ast = UglifyJS.parse(code, options);
 			ast.figure_out_scope();
@@ -23,23 +23,7 @@ function factory(uglify, fs){
 			compressed_ast.compute_char_frequency();
 			compressed_ast.mangle_names();
 
-			var gen_options = options.gen_options || {};
-			if (useSourceMaps) {
-				var source_map = gen_options.source_map || {};
-				source_map.file = options.filename.split("/").pop();
-				// account for the //>> built line
-				source_map.dest_line_diff = 1;
-				gen_options.source_map = UglifyJS.SourceMap(source_map);
-			}
-
-			var output = compressed_ast.print_to_string(gen_options);
-
-			if (useSourceMaps) {
-				output += "//# sourceMappingURL=" + dest.split("/").pop() + ".map";
-				fs.writeFile(dest + ".map", gen_options.source_map.toString(), "utf-8");
-			}
-
-			return output;
+			return compressed_ast.print_to_string(options.gen_options);
 		}
 	}
 	return uglify;
@@ -47,18 +31,17 @@ function factory(uglify, fs){
 
 if(global.define){
 	//loaded by dojo AMD loader
-	define(["dojo/has!host-node?dojo/node!uglify-js:", "../../fs"], factory);
+	define(["dojo/has!host-node?dojo/node!uglify-js:"], factory);
 }else{
 	//loaded in a node sub process
 	try{
 		var uglify = require("uglify-js");
-		var fs = require("fs");
 	}catch(e){}
-	uglify = factory(uglify, fs);
+	uglify = factory(uglify);
 	process.on("message", function(data){
 		var result = "", error = "";
 		try{
-			var result = uglify(data.text, data.options, data.dest, data.useSourceMaps);
+			var result = uglify(data.text, data.options);
 		}catch(e){
 			error = e.toString() + " " + e.stack;
 		}

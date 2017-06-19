@@ -183,7 +183,9 @@ define(
 	"field-sun-relative+1": "söndag nästa vecka",
 	"eraAbbr": [
 		"f.Kr.",
-		"e.Kr."
+		"f.v.t.",
+		"e.Kr.",
+		"v.t."
 	],
 	"field-minute": "Minut",
 	"field-dayperiod": "fm/em",

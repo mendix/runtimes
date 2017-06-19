@@ -36,12 +36,14 @@ define(
 	"dateFormatItem-yQQQ": "QQQ y",
 	"dateFormatItem-yMEd": "E, d/M/y",
 	"field-wed-relative+0": "aquest dimecres",
+	"field-wed-relative+1": "dimecres que ve",
 	"dateFormatItem-GyMMMEd": "E, d MMM, y G",
 	"dateFormatItem-MMMEd": "E d MMM",
-	"field-wed-relative+1": "dimecres que ve",
 	"eraNarrow": [
 		"aC",
-		"dC"
+		"dC",
+		"dC",
+		"de la n.e."
 	],
 	"field-tue-relative+-1": "dimarts passat",
 	"days-format-short": [
@@ -77,8 +79,8 @@ define(
 	"dateFormatItem-Md": "d/M",
 	"dateFormatItem-GyMMMM": "LLLL 'de' y G",
 	"dateFormatItem-yMd": "d/M/y",
-	"dateFormatItem-yM": "M/y",
 	"field-era": "era",
+	"dateFormatItem-yM": "M/y",
 	"months-standAlone-wide": [
 		"gener",
 		"febrer",
@@ -100,10 +102,10 @@ define(
 		"3r trimestre",
 		"4t trimestre"
 	],
-	"timeFormat-long": "H:mm:ss z",
-	"dateFormatItem-yMMM": "LLL y",
 	"dateFormatItem-yQQQQ": "QQQQ y",
+	"timeFormat-long": "H:mm:ss z",
 	"field-year": "any",
+	"dateFormatItem-yMMM": "LLL y",
 	"field-hour": "hora",
 	"months-format-abbr": [
 		"gen.",
@@ -123,11 +125,11 @@ define(
 	"field-sat-relative+1": "dissabte que ve",
 	"timeFormat-full": "H:mm:ss zzzz",
 	"field-day-relative+0": "avui",
-	"field-day-relative+1": "demà",
 	"field-thu-relative+0": "aquest dijous",
+	"field-day-relative+1": "demà",
+	"field-thu-relative+1": "dijous que ve",
 	"dateFormatItem-GyMMMd": "d MMM y G",
 	"field-day-relative+2": "demà passat",
-	"field-thu-relative+1": "dijous que ve",
 	"dateFormatItem-H": "H",
 	"months-standAlone-abbr": [
 		"gen.",
@@ -170,16 +172,18 @@ define(
 	"timeFormat-medium": "H:mm:ss",
 	"field-sun-relative+0": "aquest diumenge",
 	"dateFormatItem-Hm": "HH:mm",
+	"field-sun-relative+1": "diumenge que ve",
 	"quarters-standAlone-abbr": [
 		"1T",
 		"2T",
 		"3T",
 		"4T"
 	],
-	"field-sun-relative+1": "diumenge que ve",
 	"eraAbbr": [
 		"aC",
-		"dC"
+		"a. de la n. e.",
+		"dC",
+		"de la n.e."
 	],
 	"field-minute": "minut",
 	"field-dayperiod": "a. m./p. m.",

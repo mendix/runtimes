@@ -9,5 +9,5 @@ define(["./create"], function(create){
 	};
 	=====*/
 
-	return create("CancelError", null, null, { dojoType: "cancel", log: false });
+	return create("CancelError", null, null, { dojoType: "cancel" });
 });

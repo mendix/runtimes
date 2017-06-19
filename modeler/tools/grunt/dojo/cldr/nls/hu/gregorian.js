@@ -36,12 +36,14 @@ define(
 	"dateFormatItem-yQQQ": "y. QQQ",
 	"dateFormatItem-yMEd": "y. MM. dd., E",
 	"field-wed-relative+0": "ez a szerda",
+	"field-wed-relative+1": "következő szerda",
 	"dateFormatItem-GyMMMEd": "G y. MMM d., E",
 	"dateFormatItem-MMMEd": "MMM d., E",
-	"field-wed-relative+1": "következő szerda",
 	"eraNarrow": [
 		"ie.",
-		"isz."
+		"isz.",
+		"i. sz.",
+		"Kr. u."
 	],
 	"field-tue-relative+-1": "előző kedd",
 	"days-format-short": [
@@ -76,8 +78,8 @@ define(
 	"field-thu-relative+-1": "előző csütörtök",
 	"dateFormatItem-Md": "M. d.",
 	"dateFormatItem-yMd": "y. MM. dd.",
-	"dateFormatItem-yM": "y. M.",
 	"field-era": "éra",
+	"dateFormatItem-yM": "y. M.",
 	"months-standAlone-wide": [
 		"január",
 		"február",
@@ -99,10 +101,10 @@ define(
 		"III. negyedév",
 		"IV. negyedév"
 	],
-	"timeFormat-long": "H:mm:ss z",
-	"dateFormatItem-yMMM": "y. MMM",
 	"dateFormatItem-yQQQQ": "y. QQQQ",
+	"timeFormat-long": "H:mm:ss z",
 	"field-year": "év",
+	"dateFormatItem-yMMM": "y. MMM",
 	"field-hour": "óra",
 	"months-format-abbr": [
 		"jan.",
@@ -122,11 +124,11 @@ define(
 	"field-sat-relative+1": "következő szombat",
 	"timeFormat-full": "H:mm:ss zzzz",
 	"field-day-relative+0": "ma",
-	"field-day-relative+1": "holnap",
 	"field-thu-relative+0": "ez a csütörtök",
+	"field-day-relative+1": "holnap",
+	"field-thu-relative+1": "következő csütörtök",
 	"dateFormatItem-GyMMMd": "G y. MMM d.",
 	"field-day-relative+2": "holnapután",
-	"field-thu-relative+1": "következő csütörtök",
 	"dateFormatItem-H": "H",
 	"months-standAlone-abbr": [
 		"jan.",
@@ -169,16 +171,18 @@ define(
 	"timeFormat-medium": "H:mm:ss",
 	"field-sun-relative+0": "ez a vasárnap",
 	"dateFormatItem-Hm": "H:mm",
+	"field-sun-relative+1": "következő vasárnap",
 	"quarters-standAlone-abbr": [
 		"N1",
 		"N2",
 		"N3",
 		"N4"
 	],
-	"field-sun-relative+1": "következő vasárnap",
 	"eraAbbr": [
 		"i. e.",
-		"i. sz."
+		"Kr. e.",
+		"i. sz.",
+		"Kr. u."
 	],
 	"field-minute": "perc",
 	"field-dayperiod": "napszak",
@@ -251,7 +255,9 @@ define(
 	"dateFormatItem-yMMMd": "y. MMM d.",
 	"eraNames": [
 		"időszámításunk előtt",
-		"időszámításunk szerint"
+		"időszámításunk szerint",
+		"i. sz.",
+		"Kr. u."
 	],
 	"days-format-narrow": [
 		"V",

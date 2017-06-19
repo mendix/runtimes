@@ -1,0 +1,7 @@
+/*
+    Copyright (c) 2005-2015, Mendix bv. All rights reserved.
+    See licenses.txt for third party licenses that apply.
+*/
+
+//>>built
+define("mxui/widget/NavigationList",["mxui/widget/_WidgetBase","mxui/mixin/_Stateful","mendix/lang","dojo/_base/array","dojo/on","dojo/dom-class","dojo/_base/declare"],function(_1,_2,_3,_4,_5,_6,_7){var _8=_7([_1,_2],{declaredClass:"mxui.widget.NavigationList",_view:null,_currentActive:-1,_initialActive:-1,buildRendering:function(){this._view=new _9(this.srcNodeRef,this);this.domNode=this._view.domNode;var _a=this;this._view.subscribeToClick(function(_b){_a._currentActive=_b;_a._view.deactivateAll();_a._view.activate(_b);});this._restoreSelection();this.connect(this.mxform,"onNavigation",this._restoreSelection);},_restoreSelection:function(){this._currentActive=this.getState("activeItem",this._currentActive);this._initialActive=this._currentActive;this._view.deactivateAll();this._view.activate(this._currentActive);},storeState:function(_c){_c("activeItem",this._initialActive);}});var _9=_7(null,{_list:null,_handlerScope:null,constructor:function(_d,_e){this.domNode=_d;this._list=_d;this._handlerScope=_e;},subscribeToClick:function(_f){var _10=this;this._handlerScope.own(_5(this._list,"li.mx-navigationlist-item:click",function(){_f(_4.indexOf(_10._list.childNodes,this));}));},activate:function(_11){if(_11!=-1){_6.add(this._list.childNodes[_11],"active");}},deactivateAll:function(){_3.forEach(this._list.querySelectorAll("li.mx-navigationlist-item.active"),function(_12){_6.remove(_12,"active");});}});return _8;});

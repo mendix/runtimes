@@ -13,7 +13,17 @@ define([
 	//		dijit/form/ValidationTextBox
 
 
-	var ValidationTextBox = declare("dijit.form.ValidationTextBox", TextBox, {
+	/*=====
+	var __Constraints = {
+		// locale: String
+		//		locale used for validation, picks up value from this widget's lang attribute
+		// _flags_: anything
+		//		various flags passed to pattern function
+	};
+	=====*/
+
+	var ValidationTextBox;
+	return ValidationTextBox = declare("dijit.form.ValidationTextBox", TextBox, {
 		// summary:
 		//		Base class for textbox widgets with the ability to validate content of various types and provide user feedback.
 
@@ -50,10 +60,9 @@ define([
 		//		displayed when the field is focused.
 		message: "",
 
-		// constraints: ValidationTextBox.__Constraints
-		//		Despite the name, this parameter specifies both constraints on the input as well as
-		//		formatting options.  See `dijit/form/ValidationTextBox.__Constraints` for details.
-		constraints:{},
+		// constraints: __Constraints
+		//		user-defined object needed to pass parameters to the validator functions
+		constraints: {},
 
 		// pattern: [extension protected] String|Function(constraints) returning a string.
 		//		This defines the regular expression used to validate the input.
@@ -325,15 +334,4 @@ define([
 			this.inherited(arguments);
 		}
 	});
-
-	/*=====
-	 ValidationTextBox.__Constraints = {
-		 // locale: String
-		 //		locale used for validation, picks up value from this widget's lang attribute
-		 // _flags_: anything
-		 //		various flags passed to pattern function
-	 };
-	 =====*/
-
-	return ValidationTextBox;
 });

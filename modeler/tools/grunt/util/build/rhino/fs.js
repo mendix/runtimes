@@ -1,36 +1,5 @@
 define([], function() {
 	var
-		copyFile = function(src, dest, cb) {
-			function close(it) {
-				try{
-					if (it) it.close();
-				}catch(e){
-					// swallow
-				}
-			}
-			var BUF_SIZE = 8192;
-			var fis = null;
-			var fos = null;
-			try {
-				fis = new java.io.FileInputStream(src);
-				fos = new java.io.FileOutputStream(dest);
-
-				var buf = java.lang.reflect.Array.newInstance(java.lang.Byte.TYPE, BUF_SIZE);
-
-				var i;
-				while ((i = fis.read(buf)) != -1) {
-					fos.write(buf, 0, i);
-				}
-			}finally{
-				close(fis);
-				close(fos);
-			}
-			// invoke callback if no error.
-			if (cb) {
-				cb(0);
-			}
-		},
-
 		readFileSync = function(filename, encoding) {
 			if (encoding=="utf8") {
 				// convert node.js idiom to rhino idiom
@@ -62,8 +31,6 @@ define([], function() {
 		};
 
 	return {
-		copyFile:copyFile,
-
 		statSync:function(filename) {
 			return new java.io.File(filename);
 		},

@@ -40,7 +40,9 @@ define(
 	"dateFormatItem-MMMEd": "E, d/MM",
 	"eraNarrow": [
 		"a.C.",
-		"d.C."
+		"a.E.C.",
+		"d.C.",
+		"E.C."
 	],
 	"dateFormatItem-yMM": "MM/y",
 	"field-tue-relative+-1": "terça-feira passada",
@@ -185,7 +187,9 @@ define(
 	],
 	"eraAbbr": [
 		"a.C.",
-		"d.C."
+		"a.E.C.",
+		"d.C.",
+		"E.C."
 	],
 	"field-minute": "Minuto",
 	"field-dayperiod": "Da manhã/da tarde",
@@ -260,7 +264,9 @@ define(
 	"dateFormatItem-yMMMd": "d/MM/y",
 	"eraNames": [
 		"a.C.",
-		"d.C."
+		"a.E.C.",
+		"d.C.",
+		"E.C."
 	],
 	"days-format-narrow": [
 		"D",

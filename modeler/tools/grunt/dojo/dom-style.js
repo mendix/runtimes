@@ -1,4 +1,4 @@
-define(["./sniff", "./dom", "./_base/window"], function(has, dom, win){
+define(["./sniff", "./dom"], function(has, dom){
 	// module:
 	//		dojo/dom-style
 
@@ -45,10 +45,8 @@ define(["./sniff", "./dom", "./_base/window"], function(has, dom, win){
 		};
 	}else{
 		getComputedStyle = function(node){
-			var dv = node.ownerDocument.defaultView,
-				w = dv.opener ? dv : win.global.window.parent;
 			return node.nodeType == 1 /* ELEMENT_NODE*/ ?
-				w.getComputedStyle(node, null) : {};
+				node.ownerDocument.defaultView.getComputedStyle(node, null) : {};
 		};
 	}
 	style.getComputedStyle = getComputedStyle;
@@ -201,20 +199,19 @@ define(["./sniff", "./dom", "./_base/window"], function(has, dom, win){
 	function _toStyleValue(node, type, value){
 		//TODO: should we really be doing string case conversion here? Should we cache it? Need to profile!
 		type = type.toLowerCase();
-
-		// Adjustments for IE and Edge
-		if(value == "auto"){
-			if(type == "height"){ return node.offsetHeight; }
-			if(type == "width"){ return node.offsetWidth; }
-		}
-		if(type == "fontweight"){
-			switch(value){
-				case 700: return "bold";
-				case 400:
-				default: return "normal";
+		if(has("ie") || has("trident")){
+			if(value == "auto"){
+				if(type == "height"){ return node.offsetHeight; }
+				if(type == "width"){ return node.offsetWidth; }
+			}
+			if(type == "fontweight"){
+				switch(value){
+					case 700: return "bold";
+					case 400:
+					default: return "normal";
+				}
 			}
 		}
-
 		if(!(type in _pixelNamesCache)){
 			_pixelNamesCache[type] = _pixelRegExp.test(type);
 		}
