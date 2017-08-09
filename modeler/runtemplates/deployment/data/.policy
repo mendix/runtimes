@@ -4,6 +4,7 @@ grant \{
   permission java.io.FilePermission "conf/dictionaries/en_US.dic", "read";
   permission java.io.FilePermission "java:fonts", "read";
   permission java.io.FilePermission "quartz.properties", "read";
+  permission java.io.FilePermission "{InstallDir}/-", "read";
   permission java.io.FilePermission "{DeploymentDir}/-", "read";
   permission java.io.FilePermission "{DeploymentDir}/data/files/-", "read";
   permission java.io.FilePermission "{DeploymentDir}/data/tmp", "read";
@@ -15,6 +16,7 @@ grant \{
   permission java.lang.RuntimePermission "accessClassInPackage.com.sun.org.apache.xerces.internal.*", "";
   permission java.lang.RuntimePermission "accessClassInPackage.jdk.nashorn.internal.scripts", "";
   permission java.lang.RuntimePermission "accessClassInPackage.sun.misc", "";
+  permission java.lang.RuntimePermission "accessClassInPackage.sun.nio.cs";
   permission java.lang.RuntimePermission "accessClassInPackage.sun.security.ssl", "";
   permission java.lang.RuntimePermission "accessDeclaredMembers", "";
   permission java.lang.RuntimePermission "accessDeclaredMembers";
@@ -34,6 +36,7 @@ grant \{
   permission java.lang.management.ManagementPermission "monitor";
   permission java.lang.reflect.ReflectPermission "suppressAccessChecks", "";
   permission java.lang.reflect.ReflectPermission "suppressAccessChecks";
+  permission java.net.NetPermission "getCookieHandler", "";
   permission java.net.NetPermission "getProxySelector", "";
   permission java.net.NetPermission "setDefaultAuthenticator", "";
   permission java.net.NetPermission "specifyStreamHandler", "";
@@ -42,12 +45,15 @@ grant \{
   permission java.security.SecurityPermission "insertProvider.BC", "";
   permission java.security.SecurityPermission "putProviderProperty.BC", "";
   permission java.security.SecurityPermission "putProviderProperty.XMLDSig", "";
+  permission java.util.PropertyPermission "DISABLE_XWSS_SECURITY", "read";
+  permission java.util.PropertyPermission "MAX_NONCE_AGE", "read";
   permission java.util.PropertyPermission "HSSFRow.*", "read";
   permission java.util.PropertyPermission "HSSFSheet.*", "read";
   permission java.util.PropertyPermission "HSSFWorkbook.*", "read";
   permission java.util.PropertyPermission "HSSFWorkbook.SheetInitialCapacity", "read";
   permission java.util.PropertyPermission "JSON_SMART_SIMPLE", "read";
   permission java.util.PropertyPermission "JSON_SMART_SIMPLE", "read,write";
+  permission java.util.PropertyPermission "aws.profile", "read";
   permission java.util.PropertyPermission "caucho.*", "read";
   permission java.util.PropertyPermission "cglib.debugLocation", "read,write";
   permission java.util.PropertyPermission "com.amazonaws.*", "read,write";
@@ -55,10 +61,9 @@ grant \{
   permission java.util.PropertyPermission "com.google.gdata.DisableCookieHandler", "read";
   permission java.util.PropertyPermission "com.sas.*", "read";
   permission java.util.PropertyPermission "com.sun.jersey.core.util.ReaderWriter.BufferSize", "read";
+  permission java.util.PropertyPermission "com.sun.metro.*", "read";
   permission java.util.PropertyPermission "com.sun.org.apache.xml.internal.dtm.DTMManager", "read";
-  permission java.util.PropertyPermission "com.sun.xml.fastinfoset.parser.buffer-size", "read";
-  permission java.util.PropertyPermission "com.sun.xml.fastinfoset.parser.string-interning", "read";
-  permission java.util.PropertyPermission "com.sun.xml.fastinfoset.serializer.character-encoding-scheme", "read";
+  permission java.util.PropertyPermission "com.sun.xml.*", "read";
   permission java.util.PropertyPermission "com.warrenstrange.*", "read,write";
   permission java.util.PropertyPermission "com.zaxxer.hikari.*", "read";
   permission java.util.PropertyPermission "debug", "read";
@@ -77,6 +82,7 @@ grant \{
   permission java.util.PropertyPermission "http://java.sun.com/xml/dom/properties/ancestor-check", "read";
   permission java.util.PropertyPermission "https.cipherSuites", "read";
   permission java.util.PropertyPermission "https.protocols", "read";
+  permission java.util.PropertyPermission "https.proxyHost", "read";
   permission java.util.PropertyPermission "ical4j.*", "read,write";
   permission java.util.PropertyPermission "ical4j.unfolding.*", "read";
   permission java.util.PropertyPermission "imgscalr.*", "read,write";
@@ -95,12 +101,10 @@ grant \{
   permission java.util.PropertyPermission "java.vm.version", "read";
   permission java.util.PropertyPermission "javax.net.ssl.*", "read,write";
   permission java.util.PropertyPermission "javax.net.ssl.keyStore", "read,write";
-  permission java.util.PropertyPermission "javax.net.ssl.keyStore", "write";
   permission java.util.PropertyPermission "javax.net.ssl.keyStorePassword", "read,write";
-  permission java.util.PropertyPermission "javax.net.ssl.keyStorePassword", "write";
   permission java.util.PropertyPermission "javax.net.ssl.trustStore", "read,write";
   permission java.util.PropertyPermission "javax.net.ssl.trustStorePassword", "read,write";
-  permission java.util.PropertyPermission "javax.net.ssl.trustStorePassword", "write";
+  permission java.util.PropertyPermission "javax.xml.soap.MetaFactory", "read";
   permission java.util.PropertyPermission "jcifs.properties", "read,write";
   permission java.util.PropertyPermission "jco.destinations.dir", "read";
   permission java.util.PropertyPermission "line.separator", "read,write";
@@ -119,7 +123,6 @@ grant \{
   permission java.util.PropertyPermission "net.sf.ehcache.store.config.*", "read,write";
   permission java.util.PropertyPermission "oracle.*", "read,write";
   permission java.util.PropertyPermission "org.apache.*", "read,write";
-  permission java.util.PropertyPermission "org.apache.commons.logging.LogFactory.HashtableImpl", "read";
   permission java.util.PropertyPermission "org.apache.commons.logging.LogFactory.HashtableImpl", "read,write";
   permission java.util.PropertyPermission "org.apache.commons.net.ftp.systemType", "read,write";
   permission java.util.PropertyPermission "org.apache.lucene.*", "read,write";
@@ -134,11 +137,9 @@ grant \{
   permission java.util.PropertyPermission "org.jboss.netty.debug", "read";
   permission java.util.PropertyPermission "org.owasp.*", "read,write";
   permission java.util.PropertyPermission "org.owasp.esapi.SecurityConfiguration", "read";
-  permission java.util.PropertyPermission "org.postgresql.forceBinary", "read";
   permission java.util.PropertyPermission "org.postgresql.forceBinary", "read,write";
   permission java.util.PropertyPermission "org.quartz.properties", "read";
   permission java.util.PropertyPermission "org.quartz.scheduler.skipUpdateCheck", "read";
-  permission java.util.PropertyPermission "org.springframework.*", "read, write";
   permission java.util.PropertyPermission "org.springframework.*", "read,write";
   permission java.util.PropertyPermission "org.terracotta.quartz.skipUpdateCheck", "read";
   permission java.util.PropertyPermission "org.w3c.dom.DOMImplementationSourceList", "read,write";
@@ -170,7 +171,7 @@ grant \{
   permission java.util.PropertyPermission "webdriver.chrome.silentOutput", "read";
   permission java.util.PropertyPermission "webdriver.chrome.verboseLogging", "read";
   permission java.util.PropertyPermission "webdriver.chrome.whitelistedIps", "read";
-  permission java.util.PropertyPermission "webdriver.remote.shorten_log_messages", "read";
+  permission java.util.PropertyPermission "webdriver.remote.shorten_log_messages", "read,write";
   permission java.util.logging.LoggingPermission "control", "";
   permission javax.management.MBeanPermission "*", "*";
   permission javax.management.MBeanPermission "com.amazonaws.metrics.MetricAdmin#-[com.amazonaws.management:type=AwsSdkMetrics]", "registerMBean";
@@ -182,11 +183,6 @@ grant \{
   permission javax.security.auth.AuthPermission "createLoginContext.mendix-client", "";
   permission javax.xml.bind.JAXBPermission "setDatatypeConverter";
   permission org.bouncycastle.jce.ProviderConfigurationPermission "BC", "ecImplicitlyCA, threadLocalEcImplicitlyCA";
-  permission org.osgi.framework.AdminPermission "*", "*";
-  permission org.osgi.framework.BundlePermission "*", "provide,require, host,fragment";
-  permission org.osgi.framework.PackagePermission "*", "exportonly,import";
-  permission org.osgi.framework.ServicePermission "*", "get,register";
-  permission org.osgi.service.event.TopicPermission "*", "publish,subscribe";
 \};
 
 grant codeBase "file:{InstallDir}/-" \{
