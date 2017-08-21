@@ -11,7 +11,6 @@ require ([
 "mxui/lib/form/InlineForm",
 "mendix/lang",
 "mendix/validator",
-"mendix/lib/Error",
 "mendix/lib/MxContext",
 "mendix/lib/MxMetaObject",
 "mendix/lib/ObjectValidation",
