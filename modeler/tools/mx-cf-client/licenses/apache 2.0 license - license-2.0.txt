@@ -388,6 +388,7 @@ limitations under the License.
 					<h5 class="white">Legal</h5>
         	<ul class="list-unstyled white" role="menu">
 						<li><a href="/legal/">Legal Affairs</a></li>
+						<li><a href="/legal/dmca.html">DMCA</a></li>
 						<li><a href="/licenses/">Licenses</a></li>
 						<li><a href="/foundation/marks/">Trademark Policy</a></li>
 						<li><a href="/foundation/records/">Public Records</a></li>
