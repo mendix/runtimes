@@ -1,0 +1,26 @@
+{
+  "name": "page-editor-registry",
+  "version": "10.0.0-mxdev",
+  "main": "./pageEditorRegistry.bundle.js",
+  "files": [
+    "./pageEditorRegistry.bundle.js"
+  ],
+  "scripts": {
+    "build": "webpack -p",
+    "lint": "tslint --type-check --project tsconfig.json 'src/**/*.ts'",
+    "pack": "npm pack"
+  },
+  "devDependencies": {
+    "@types/react": "^16.0.2",
+    "mendixmodelsdk": "^4.3.0",
+    "react": "16.0.0-beta.1",
+    "ts-loader": "^2.3.7",
+    "tslint": "^5.7.0",
+    "typescript": "^2.5.3",
+    "webpack": "^3.6.0"
+  },
+  "peerDependencies": {
+    "mendixmodelsdk": "^4.3.0",
+    "react": "16.0.0-beta.1"
+  }
+}
