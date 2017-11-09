@@ -8,7 +8,7 @@
 		"runtime/bundles/com.mendix.logging-api.jar",
 		"runtime/bundles/com.mendix.m2ee-api.jar",
 		"runtime/bundles/com.mendix.public-api.jar",
-		"runtime/bundles/javax.servlet.jar"
+		"runtime/bundles/javax.servlet-api.servlet.jar"
 	],
 	"ProjectBundlesDir": "model/bundles",
 }
