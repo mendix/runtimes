@@ -33,7 +33,139 @@
 
 <!-- start of server/banner.html -->
 <!-- start of head-include-2.html -->
+
+
+
+
+
+
+
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<style type="text/css" media="screen">
+<!-- #translations
+{
+  border-bottom: .2em solid #123e3f;
+}
+#header
+{
+  clear: both;
+  background: linear-gradient(#deeefc, white);
+}
+#fsf-frame
+{
+  margin: .3em 1em;
+} 
+#gnu-banner
+{
+  float: none;
+  padding-bottom: .5em;
+}
+div#fundraiser
+{
+  direction: ltr;
+  background-color: #123e3f;
+}
+#fundraiser p
+{
+  font-size: 1.1em;
+  padding: .2em 0 .4em;
+  margin: 0 3%;
+  color: white;
+  text-align: center;
+}
+#fundraiser p.contribute
+{
+  line-height: 1.5em;
+  text-align: center;
+  padding: 0 0 .5em;
+}
+#fundraiser a
+{
+  border-radius: 1em;
+  -moz-border-radius: 1em;
+  -khtml-border-radius: 1em;
+  -webkit-border-radius: 1em;
+  -opera-border-radius: 1em;
+  color: white;
+  padding: 0 .5em 0 .5em;
+  display: inline-block;
+  margin: .3em .5em;
+  text-decoration: none;
+}
+#fundraiser .donate
+{
+  background-color: #1abc9c;
+}
+#fundraiser .join
+{
+  background-color: #3498db;
+}
+#fundraiser b
+{
+  color: yellow;
+}
+.progress
+{
+  width: 99%;
+  line-height: 1.2em;
+  text-align: right;
+  padding-right: 1%;
+  background: #36a9aa;
+  color: black;
+  font-weight: bold;
+}
+.progress-bar
+{
+  float: left;
+  line-height: 1.2em;
+  padding: 0 .1em;
+  margin: 0;
+  min-width: 4em;
+  background: #feb916;
+  text-align: center;
+  position: absolute;
+} -->
+#fundraiser .donate, #fundraiser .join
+{
+  width: 4em;
+}
+</style>
+<style type="text/css" media="screen">.progress-bar
+{
+  width: 12%;
+}
+
+<!--
+.goal-div
+{
+  position: relative;
+}
+.percentage, .goal
+{
+  margin-right: .1em;
+}
+
+@media (max-width: 21em)
+{
+  #fundraiser p { font-size: 0.8em; }
+}
+@media (min-width: 45em)
+{
+  #fundraiser p
+  {
+    float: left;
+    text-align: left;
+    width: 58%;
+  }
+  #fundraiser p.contribute
+  {
+    float: right;
+    text-align: center;
+    width: 30%;
+    padding: .5em 0;
+  }
+} -->
+</style>
 <!-- end of head-include-2.html -->
 
 </head>
@@ -78,9 +210,30 @@
 <!-- end of server/body-include-1.html -->
 
 <!-- start of server/body-include-2 -->
+<div id="fundraiser">
+<p>
+Associate members power up the Free Software Foundation.
+Help smash our goal of <b>700</b> new members
+or donate by December 31st!</p>
+<p class="contribute">
+<a class="donate" href="http://my.fsf.org/donate?pk_campaign=2017_Fundraiser_Banner&amp;pk_kwd=Donate">
+Donate</a>
+<a class="join" href="http://my.fsf.org/join?pk_campaign=2017_Fundraiser_Banner&amp;pk_kwd=Join">
+Join</a>
+</p>
+<div style="clear:both"></div>
+<div class="progress">
+<div class="progress-bar">
+<span class="percentage"><span class="gnun-split"></span>$55,792</span>
+</div>
+<div class="goal-div">
+<span class="goal">$450,000</span>
+</div>
+</div>
+</div> <!-- /fundraiser -->
+
 <div id="header">
 <div id="fsf-frame">
-<p id="join-fsf"><a href="https://www.fsf.org/associate/support_freedom?referrer=4052">JOIN&nbsp;THE&nbsp;FSF</a></p>
 <div id="fssbox">
 <p><a href="//www.fsf.org/fss">Free Software Supporter</a></p>
 <form action="https://my.fsf.org/civicrm/profile/create?reset=1&amp;gid=31"
@@ -102,10 +255,10 @@
 
 <div id="gnu-banner">
  <a href="/">
- <img src="/graphics/heckert_gnu.small.png" alt=" [A GNU head] " /><strong>GNU</strong> Operating System</a>
-
-<p id="fsf-support">Sponsored by the <a href="#mission-statement">Free Software Foundation</a></p>
+ <img src="/graphics/heckert_gnu.transp.small.png" alt=" [A GNU head] " /><strong>GNU</strong> Operating System</a>
 </div><!-- /gnu-banner -->
+
+<div style="clear: both"></div>
 </div><!-- /header -->
 
 <div id="navigation">
