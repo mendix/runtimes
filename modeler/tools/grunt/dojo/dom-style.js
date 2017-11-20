@@ -45,12 +45,10 @@ define(["./sniff", "./dom", "./_base/window"], function(has, dom, win){
 		};
 	}else{
 		getComputedStyle = function(node){
-			if(node.nodeType === 1 /* ELEMENT_NODE*/){
-				var dv = node.ownerDocument.defaultView,
-					w = dv.opener ? dv : win.global.window;
-				return w.getComputedStyle(node, null);
-			}
-			return {};
+			var dv = node.ownerDocument.defaultView,
+				w = dv.opener ? dv : win.global.window.parent;
+			return node.nodeType == 1 /* ELEMENT_NODE*/ ?
+				w.getComputedStyle(node, null) : {};
 		};
 	}
 	style.getComputedStyle = getComputedStyle;
