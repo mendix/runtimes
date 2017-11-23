@@ -1,0 +1,9 @@
+﻿<#@ template language="C#" #>
+import { startup } from "mendix/native";
+import { AppRegistry } from "react-native";
+
+startup("<#= Endpoint #>", {
+    "metamodel.json": {}
+});
+
+AppRegistry.registerComponent("GeneratedApp", () => require("./<#= HomePage #>").render);
