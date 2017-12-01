@@ -176,8 +176,7 @@
 			"dojo-dom-ready-api": 0,
 			"dojo-sniff": 0,
 			"dojo-inject-api": 1,
-			"host-webworker": 1,
-			"dojo-guarantee-console": 0 // console is immutable in FF30+, see https://bugs.dojotoolkit.org/ticket/18100
+			"host-webworker": 1
 		});
 
 		defaultConfig.loaderPatch = {
@@ -341,9 +340,7 @@
 	//
 	// loader eval
 	//
-	var eval_ =  has("csp-restrictions") ?
-		// noop eval if there are csp restrictions
-		function(){} :
+	var eval_ =
 		// use the function constructor so our eval is scoped close to (but not in) in the global space with minimal pollution
 		new Function('return eval(arguments[0]);');
 
@@ -482,8 +479,7 @@
 			= 0;
 
 	if(has("dojo-config-api")){
-		var consumePendingCacheInsert = function(referenceModule, clear){
-				clear = clear !== false;
+		var consumePendingCacheInsert = function(referenceModule){
 				var p, item, match, now, m;
 				for(p in pendingCacheInsert){
 					item = pendingCacheInsert[p];
@@ -500,9 +496,7 @@
 				if(now){
 					now(createRequire(referenceModule));
 				}
-				if(clear){
-					pendingCacheInsert = {};
-				}
+				pendingCacheInsert = {};
 			},
 
 			escapeString = function(s){
@@ -657,8 +651,9 @@
 				if(config.cache){
 					consumePendingCacheInsert();
 					pendingCacheInsert = config.cache;
-					//inject now all depencies so cache is available for mapped module
-					consumePendingCacheInsert(0, !!config.cache["*noref"]);
+					if(config.cache["*noref"]){
+						consumePendingCacheInsert();
+					}
 				}
 
 				signal("config", [config, req.rawConfig]);
@@ -960,7 +955,7 @@
 			}
 		},
 
-		getModuleInfo_ = function(mid, referenceModule, packs, modules, baseUrl, mapProgs, pathsMapProg, aliases, alwaysCreate, fromPendingCache){
+		getModuleInfo_ = function(mid, referenceModule, packs, modules, baseUrl, mapProgs, pathsMapProg, aliases, alwaysCreate){
 			// arguments are passed instead of using lexical variables so that this function my be used independent of the loader (e.g., the builder)
 			// alwaysCreate is useful in this case so that getModuleInfo never returns references to real modules owned by the loader
 			var pid, pack, midInPackage, mapItem, url, result, isRelative, requestedMid;
@@ -981,13 +976,11 @@
 				// at this point, mid is an absolute mid
 
 				// map the mid
-				if(!fromPendingCache && !isRelative && mapProgs.star){
-					mapItem = runMapProg(mid, mapProgs.star[1]);
-				}
-				if(!mapItem && referenceModule){
+				if(referenceModule){
 					mapItem = runMapProg(referenceModule.mid, mapProgs);
-					mapItem = mapItem && runMapProg(mid, mapItem[1]);
 				}
+				mapItem = mapItem || mapProgs.star;
+				mapItem = mapItem && runMapProg(mid, mapItem[1]);
 
 				if(mapItem){
 					mid = mapItem[1] + mid.substring(mapItem[3]);
@@ -1042,7 +1035,7 @@
 		},
 
 		getModuleInfo = function(mid, referenceModule, fromPendingCache){
-			return getModuleInfo_(mid, referenceModule, packs, modules, req.baseUrl, mapProgs, pathsMapProg, aliases, undefined, fromPendingCache);
+			return getModuleInfo_(mid, referenceModule, packs, modules, req.baseUrl, fromPendingCache ? [] : mapProgs, fromPendingCache ? [] : pathsMapProg, fromPendingCache ? [] : aliases);
 		},
 
 		resolvePluginResourceId = function(plugin, prid, referenceModule){
@@ -1168,7 +1161,7 @@
 				var prid = resolvePluginResourceId(plugin, pseudoPluginResource.prid, pseudoPluginResource.req.module),
 					mid = plugin.dynamic ? pseudoPluginResource.mid.replace(/waitingForPlugin$/, prid) : (plugin.mid + "!" + prid),
 					pluginResource = mix(mix({}, pseudoPluginResource), {mid:mid, prid:prid, injected:0});
-				if(!modules[mid] || !modules[mid].injected /*for require.undef*/){
+				if(!modules[mid]){
 					// create a new (the real) plugin resource and inject it normally now that the plugin is on board
 					injectPlugin(modules[mid] = pluginResource);
 				} // else this was a duplicate request for the same (plugin, rid) for a nondynamic plugin
@@ -1282,9 +1275,6 @@
 			try{
 				checkCompleteGuard++;
 				proc();
-			}catch(e){
-				// https://bugs.dojotoolkit.org/ticket/16617
-				throw e;
 			}finally{
 				checkCompleteGuard--;
 			}
@@ -1325,7 +1315,7 @@
 			// This is useful for testing frameworks (at least).
 			var module = getModule(moduleId, referenceModule);
 			setArrived(module);
-			mix(module, {def:0, executed:0, injected:0, node:0, load:0});
+			mix(module, {def:0, executed:0, injected:0, node:0});
 		};
 	}
 
@@ -1383,7 +1373,7 @@
 			evalModuleText = function(text, module){
 				// see def() for the injectingCachedModule bracket; it simply causes a short, safe circuit
 				if(has("config-stripStrict")){
-					text = text.replace(/(["'])use strict\1/g, '');
+					text = text.replace(/"use strict"/g, '');
 				}
 				injectingCachedModule = 1;
 				if(has("config-dojo-loader-catches")){
@@ -1683,11 +1673,7 @@
 			},
 			windowOnLoadListener = domOn(window, "load", "onload", function(){
 				req.pageLoaded = 1;
-				// https://bugs.dojotoolkit.org/ticket/16248
-				try{
-					doc.readyState!="complete" && (doc.readyState = "complete");
-				}catch(e){
-				}
+				doc.readyState!="complete" && (doc.readyState = "complete");
 				windowOnLoadListener();
 			});
 

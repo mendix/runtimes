@@ -1,2 +1,2 @@
 //>>built
-define("dijit/_BidiSupport",["dojo/has","./_WidgetBase","./_BidiMixin"],function(b,a,c){a.extend(c);b.add("dojo-bidi",!0);return a});
+define("dijit/_BidiSupport",["dojo/has","./_WidgetBase","./_BidiMixin"],function(_1,_2,_3){_2.extend(_3);_1.add("dojo-bidi",true);return _2;});

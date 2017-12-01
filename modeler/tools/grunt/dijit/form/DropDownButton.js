@@ -1,6 +1,5 @@
 define([
 	"dojo/_base/declare", // declare
-	"dojo/_base/kernel",
 	"dojo/_base/lang", // hitch
 	"dojo/query", // query
 	"../registry", // registry.byNode
@@ -10,7 +9,7 @@ define([
 	"../_HasDropDown",
 	"dojo/text!./templates/DropDownButton.html",
 	"../a11yclick"	// template uses ondijitclick
-], function(declare, kernel, lang, query, registry, popup, Button, _Container, _HasDropDown, template){
+], function(declare, lang, query, registry, popup, Button, _Container, _HasDropDown, template){
 
 	// module:
 	//		dijit/form/DropDownButton
@@ -35,26 +34,20 @@ define([
 		templateString: template,
 
 		_fillContent: function(){
-			// Overrides _TemplatedMixin#_fillContent().
-			// My inner HTML possibly contains both the button label and/or a drop down widget, like
+			// Overrides Button._fillContent().
+			//
+			// My inner HTML contains both the button contents and a drop down widget, like
 			// <DropDownButton>  <span>push me</span>  <Menu> ... </Menu> </DropDownButton>
+			// The first node is assumed to be the button content. The widget is the popup.
 
-			var source = this.srcNodeRef;
-			var dest = this.containerNode;
-			if(source && dest){
-				while(source.hasChildNodes()){
-					var child = source.firstChild;
-					if(child.hasAttribute && (child.hasAttribute("data-dojo-type") || child.hasAttribute("dojoType") ||
-							child.hasAttribute("data-" + kernel._scopeName + "-type") ||
-							child.hasAttribute(kernel._scopeName + "Type"))){
-						// The parser hasn't gotten to this node yet, so save it in a wrapper <div>
-						// and then grab the instantiated widget in startup().
-						this.dropDownContainer = this.ownerDocument.createElement("div");
-						this.dropDownContainer.appendChild(child);
-					}else{
-						dest.appendChild(child);
-					}
-				}
+			if(this.srcNodeRef){ // programatically created buttons might not define srcNodeRef
+				//FIXME: figure out how to filter out the widget and use all remaining nodes as button
+				//	content, not just nodes[0]
+				var nodes = query("*", this.srcNodeRef);
+				this.inherited(arguments, [nodes[0]]);
+
+				// save pointer to srcNode so we can grab the drop down widget after it's instantiated
+				this.dropDownContainer = this.srcNodeRef;
 			}
 		},
 
@@ -66,7 +59,10 @@ define([
 			// the child widget from srcNodeRef is the dropdown widget.  Insert it in the page DOM,
 			// make it invisible, and store a reference to pass to the popup code.
 			if(!this.dropDown && this.dropDownContainer){
-				this.dropDown = registry.byNode(this.dropDownContainer.firstChild);
+				var dropDownNode = query("[widgetId]", this.dropDownContainer)[0];
+				if(dropDownNode){
+					this.dropDown = registry.byNode(dropDownNode);
+				}
 				delete this.dropDownContainer;
 			}
 			if(this.dropDown){

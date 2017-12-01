@@ -1,0 +1,26 @@
+<div class="${baseClass} mx-datagrid">
+    <div class="${baseClass}-searchbar clearfix" dojoAttachPoint="searchNode" focusIndex="0">
+        <div class="${baseClass}-search-controls" focusIndex="1" dojoAttachPoint="searchControlNode"></div>
+        <div class="${baseClass}-search-inputs" focusIndex="0" dojoAttachPoint="searchArgumentNode"></div>
+        <div class="${baseClass}-search-message" dojoAttachPoint="messageNode"></div>
+    </div>
+    
+    <div class="${baseClass}-controlbar clearfix" dojoAttachPoint="controlNode" focusIndex="1">
+        <div class="${baseClass}-pagingbar" dojoAttachPoint="pagingBarNode"></div>
+        <div class="${baseClass}-toolbar" dojoAttachPoint="toolBarNode"></div>
+    </div>
+        
+    <div class="${baseClass}-content" dojoAttachPoint="contentNode" focusIndex="2">
+        <div class="${subClass}-content-wrapper" dojoAttachPoint="tableWrapper">
+            <table class="table table-bordered ${subClass}-head-table" dojoAttachPoint="headTable">
+                <colgroup dojoAttachPoint="headTableGroupNode"></colgroup>
+                <thead class="${subClass}-head" dojoAttachPoint="gridHeadNode"></thead>
+            </table>
+            <table class="table table-striped table-bordered ${subClass}-body-table" dojoAttachPoint="gridTable">
+                <colgroup dojoAttachPoint="bodyTableGroupNode"></colgroup>
+                <tbody class="${subClass}-body" dojoAttachPoint="gridBodyNode"></tbody>
+                <tfoot class="${subClass}-foot" dojoAttachPoint="gridFootNode"></tfoot>
+            </table>
+        </div>
+    </div>
+</div>

@@ -182,7 +182,9 @@ define(
 	"field-sun-relative+1": "søndag neste uke",
 	"eraAbbr": [
 		"f.Kr.",
-		"e.Kr."
+		"fvt.",
+		"e.Kr.",
+		"vt."
 	],
 	"field-minute": "Minutt",
 	"field-dayperiod": "AM/PM",
@@ -255,7 +257,9 @@ define(
 	],
 	"eraNames": [
 		"f.Kr.",
-		"e.Kr."
+		"før vår tidsregning",
+		"e.Kr.",
+		"vår tidsregning"
 	],
 	"dateFormatItem-yMMMd": "d. MMM y",
 	"days-format-narrow": [

@@ -1,0 +1,16 @@
+<PUBLIC:COMPONENT lightWeight="true">
+    <PUBLIC:ATTACH EVENT="oncontentready" ONEVENT="initialize()" />
+    <PUBLIC:ATTACH EVENT="ondetach" ONEVENT="destroy()" />
+
+    <script type="text/javascript">
+        function initialize() {
+            window.mxui.polyfill.placeholder.initialize(element);
+        }
+
+        function destroy() {
+            try {
+                window.mxui.polyfill.placeholder.destroy(element);
+            } catch (e) {}
+        }
+    </script>
+</PUBLIC:COMPONENT>

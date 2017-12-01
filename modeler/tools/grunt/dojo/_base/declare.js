@@ -3,14 +3,7 @@ define(["./kernel", "../has", "./lang"], function(dojo, has, lang){
 	//		dojo/_base/declare
 
 	var mix = lang.mixin, op = Object.prototype, opts = op.toString,
-		xtor, counter = 0, cname = "constructor";
-
-	if(!has("csp-restrictions")){
-		// 'new Function()' is preferable when available since it does not create a closure
-		xtor = new Function;
-	}else{
-		xtor = function(){};
-	}
+		xtor = new Function, counter = 0, cname = "constructor";
 
 	function err(msg, cls){ throw new Error("declare" + (cls ? " " + cls : "") + ": " + msg); }
 
@@ -312,7 +305,7 @@ define(["./kernel", "../has", "./lang"], function(dojo, has, lang){
 				target[name] = t;
 			}
 		}
-		if(has("bug-for-in-skips-shadowed") && source){
+		if(has("bug-for-in-skips-shadowed")){
 			for(var extraNames= lang._extraNames, i= extraNames.length; i;){
 				name = extraNames[--i];
 				t = source[name];
@@ -782,12 +775,7 @@ define(["./kernel", "../has", "./lang"], function(dojo, has, lang){
 				t = bases[i];
 				(t._meta ? mixOwn : mix)(proto, t.prototype);
 				// chain in new constructor
-				if (has("csp-restrictions")) {
-					ctor = function () {};
-				}
-				else {
-					ctor = new Function;
-				}
+				ctor = new Function;
 				ctor.superclass = superclass;
 				ctor.prototype = proto;
 				superclass = proto.constructor = ctor;
@@ -813,10 +801,6 @@ define(["./kernel", "../has", "./lang"], function(dojo, has, lang){
 		}
 		if(proto["-chains-"]){
 			chains = mix(chains || {}, proto["-chains-"]);
-		}
-
-		if(superclass && superclass.prototype && superclass.prototype["-chains-"]) {
-			chains = mix(chains || {}, superclass.prototype["-chains-"]);
 		}
 
 		// build ctor

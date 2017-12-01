@@ -36,16 +36,18 @@ define(
 	"dateFormatItem-yQQQ": "QQQ y",
 	"dateFormatItem-yMEd": "E, d.M.y",
 	"field-wed-relative+0": "Diesen Mittwoch",
+	"field-wed-relative+1": "Nächsten Mittwoch",
 	"dateFormatItem-GyMMMEd": "E, d. MMM y G",
 	"dateFormatItem-MMMEd": "E, d. MMM",
-	"field-wed-relative+1": "Nächsten Mittwoch",
 	"eraNarrow": [
 		"v. Chr.",
-		"n. Chr."
+		"n. Chr.",
+		"n. Chr.",
+		"u. Z."
 	],
 	"dateFormatItem-yMM": "MM.y",
-	"dayPeriods-format-wide-earlyMorning": "morgens",
 	"field-tue-relative+-1": "Letzten Dienstag",
+	"dayPeriods-format-wide-earlyMorning": "morgens",
 	"dayPeriods-format-wide-morning": "vormittags",
 	"days-format-short": [
 		"So.",
@@ -81,8 +83,8 @@ define(
 	"dateFormatItem-Md": "d.M.",
 	"dayPeriods-format-wide-noon": "Mittag",
 	"dateFormatItem-yMd": "d.M.y",
-	"dateFormatItem-yM": "M.y",
 	"field-era": "Epoche",
+	"dateFormatItem-yM": "M.y",
 	"months-standAlone-wide": [
 		"Januar",
 		"Februar",
@@ -104,12 +106,12 @@ define(
 		"3. Quartal",
 		"4. Quartal"
 	],
-	"timeFormat-long": "HH:mm:ss z",
-	"dateFormatItem-yMMM": "MMM y",
 	"dateFormatItem-yQQQQ": "QQQQ y",
+	"timeFormat-long": "HH:mm:ss z",
 	"field-year": "Jahr",
-	"dateFormatItem-MMdd": "dd.MM.",
+	"dateFormatItem-yMMM": "MMM y",
 	"field-hour": "Stunde",
+	"dateFormatItem-MMdd": "dd.MM.",
 	"months-format-abbr": [
 		"Jan.",
 		"Feb.",
@@ -128,11 +130,11 @@ define(
 	"field-sat-relative+1": "Nächsten Samstag",
 	"timeFormat-full": "HH:mm:ss zzzz",
 	"field-day-relative+0": "Heute",
-	"field-day-relative+1": "Morgen",
 	"field-thu-relative+0": "Diesen Donnerstag",
+	"field-day-relative+1": "Morgen",
+	"field-thu-relative+1": "Nächsten Donnerstag",
 	"dateFormatItem-GyMMMd": "d. MMM y G",
 	"field-day-relative+2": "Übermorgen",
-	"field-thu-relative+1": "Nächsten Donnerstag",
 	"dateFormatItem-H": "HH 'Uhr'",
 	"months-standAlone-abbr": [
 		"Jan",
@@ -175,16 +177,18 @@ define(
 	"dateFormatItem-yMMdd": "dd.MM.y",
 	"field-sun-relative+0": "Diesen Sonntag",
 	"dateFormatItem-Hm": "HH:mm",
+	"field-sun-relative+1": "Nächsten Sonntag",
 	"quarters-standAlone-abbr": [
 		"Q1",
 		"Q2",
 		"Q3",
 		"Q4"
 	],
-	"field-sun-relative+1": "Nächsten Sonntag",
 	"eraAbbr": [
 		"v. Chr.",
-		"n. Chr."
+		"v. u. Z.",
+		"n. Chr.",
+		"u. Z."
 	],
 	"field-minute": "Minute",
 	"field-dayperiod": "Tageshälfte",
@@ -256,7 +260,9 @@ define(
 	],
 	"eraNames": [
 		"v. Chr.",
-		"n. Chr."
+		"n. Chr.",
+		"n. Chr.",
+		"u. Z."
 	],
 	"dateFormatItem-yMMMd": "d. MMM y",
 	"days-format-narrow": [

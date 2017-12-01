@@ -9,14 +9,13 @@ define([
 	"dojo/dom-construct", // domConstruct.create domConstruct.destroy domConstruct.place
 	"dojo/dom-geometry", // domGeometry.position
 	"dojo/dom-style", // domStyle.getComputedStyle domStyle.set
-	"dojo/_base/kernel", // kernel.deprecated, kernel.locale
+	"dojo/_base/kernel", // kernel.deprecated
 	"dojo/keys", // keys.BACKSPACE keys.TAB
 	"dojo/_base/lang", // lang.clone lang.hitch lang.isArray lang.isFunction lang.isString lang.trim
 	"dojo/on", // on()
 	"dojo/query", // query
 	"dojo/domReady",
 	"dojo/sniff", // has("ie") has("mozilla") has("opera") has("safari") has("webkit")
-	"dojo/string",
 	"dojo/topic", // topic.publish() (publish)
 	"dojo/_base/unload", // unload
 	"dojo/_base/url", // url
@@ -29,7 +28,7 @@ define([
 	"../focus",
 	"../main"    // dijit._scopeName
 ], function(array, config, declare, Deferred, dom, domAttr, domClass, domConstruct, domGeometry, domStyle,
-			kernel, keys, lang, on, query, domReady, has, string, topic, unload, _Url, winUtils,
+			kernel, keys, lang, on, query, domReady, has, topic, unload, _Url, winUtils,
 			_Widget, _CssStateMixin, selectionapi, rangeapi, htmlapi, focus, dijit){
 
 	// module:
@@ -193,7 +192,7 @@ define([
 			}
 			if(has("ie") || has("trident")){
 				// IE generates <strong> and <em> but we want to normalize to <b> and <i>
-				// Still happens in IE11, but doesn't happen with Edge.
+				// Still happens in IE11!
 				this.contentPostFilters = [this._normalizeFontStyle].concat(this.contentPostFilters);
 				this.contentDomPostFilters = [lang.hitch(this, "_stripBreakerNodes")].concat(this.contentDomPostFilters);
 			}
@@ -533,10 +532,17 @@ define([
 				s = "javascript: '" + src + "'";
 			}
 
-			// Attach to document before setting the content, to avoid problem w/iframe running in
-			// wrong security context (IE9 and IE11), see #16633.
-			this.editingArea.appendChild(ifr);
-			ifr.src = s;
+			if(has("ie") == 9){
+				// On IE9, attach to document before setting the content, to avoid problem w/iframe running in
+				// wrong security context, see #16633.
+				this.editingArea.appendChild(ifr);
+				ifr.src = s;
+			}else{
+				// For other browsers, set src first, especially for IE6/7 where attaching first gives a warning on
+				// https:// about "this page contains secure and insecure items, do you want to view both?"
+				ifr.setAttribute('src', s);
+				this.editingArea.appendChild(ifr);
+			}
 
 			// TODO: this is a guess at the default line-height, kinda works
 			if(dn.nodeName === "LI"){
@@ -558,23 +564,10 @@ define([
 			//		private
 			var _cs = domStyle.getComputedStyle(this.domNode);
 
-			// Find any associated label element, aria-label, or aria-labelledby and get unescaped text.
-			var title;
-			if(this["aria-label"]){
-				title = this["aria-label"];
-			}else{
-				var labelNode = query('label[for="' + this.id + '"]', this.ownerDocument)[0] ||
-						dom.byId(this["aria-labelledby"], this.ownerDocument);
-				if(labelNode){
-					title = labelNode.textContent || labelNode.innerHTML || "";
-				}
-			}
-
 			// The contents inside of <body>.  The real contents are set later via a call to setValue().
 			// In auto-expand mode, need a wrapper div for AlwaysShowToolbar plugin to correctly
 			// expand/contract the editor as the content changes.
-			var html = "<div id='dijitEditorBody' role='textbox' aria-multiline='true' " +
-					(title ? " aria-label='" + string.escape(title) + "'" : "") + "></div>";
+			var html = "<div id='dijitEditorBody'></div>";
 
 			var font = [ _cs.fontWeight, _cs.fontSize, _cs.fontFamily ].join(" ");
 
@@ -617,18 +610,26 @@ define([
 				userStyle += match + ';';
 			});
 
+
+			// need to find any associated label element, aria-label, or aria-labelledby and update iframe document title
+			var label = query('label[for="' + this.id + '"]');
+			var title = "";
+			if(label.length){
+				title = label[0].innerHTML;
+			}else if(this["aria-label"]){
+				title = this["aria-label"];
+			}else if(this["aria-labelledby"]){
+				title = dom.byId(this["aria-labelledby"]).innerHTML;
+			}
+
 			// Now that we have the title, also set it as the title attribute on the iframe
 			this.iframe.setAttribute("title", title);
 
-			// if this.lang is unset then use default value, to avoid invalid setting of lang=""
-			var language = this.lang || kernel.locale.replace(/-.*/, "");
-
 			return [
 				"<!DOCTYPE html>",
-				"<html lang='" + language + "'" + (this.isLeftToRight() ? "" : " dir='rtl'") + ">\n",
-				"<head>\n",
+				this.isLeftToRight() ? "<html lang='" + this.lang + "'>\n<head>\n" : "<html dir='rtl' lang='" + this.lang + "'>\n<head>\n",
+				title ? "<title>" + title + "</title>" : "",
 				"<meta http-equiv='Content-Type' content='text/html'>\n",
-				title ? "<title>" + string.escape(title) + "</title>" : "",
 				"<style>\n",
 				"\tbody,html {\n",
 				"\t\tbackground:transparent;\n",
@@ -660,13 +661,10 @@ define([
 
 				"\tli > ul:-moz-first-node, li > ol:-moz-first-node{ padding-top: 1.2em; }\n",
 				// Can't set min-height in IE>=9, it puts layout on li, which puts move/resize handles.
-				// Also can't set it on Edge, as it leads to strange behavior where hitting the return key
-				// doesn't start a new list item.
-				(has("ie") || has("trident") || has("edge") ? "" : "\tli{ min-height:1.2em; }\n"),
+				(has("ie") || has("trident") ? "" : "\tli{ min-height:1.2em; }\n"),
 				"</style>\n",
 				this._applyEditingAreaStyleSheets(), "\n",
-				"</head>\n<body role='application'",
-				title ? " aria-label='" + string.escape(title) + "'" : "",
+				"</head>\n<body role='main' ",
 
 				// Onload handler fills in real editor content.
 				// On IE9, sometimes onload is called twice, and the first time frameElement is null (test_FullScreen.html)
@@ -1079,7 +1077,6 @@ define([
 
 			// Workaround IE problem when you blur the browser windows while an editor is focused: IE hangs
 			// when you focus editor #1, blur the browser window, and then click editor #0.  See #16939.
-			// Note: Edge doesn't seem to have this problem.
 			if(has("ie") || has("trident")){
 				this.defer(function(){
 					if(!focus.curNode){
@@ -1225,6 +1222,22 @@ define([
 			// tags:
 			//		private
 
+			var ie = 1;
+			var mozilla = 1 << 1;
+			var webkit = 1 << 2;
+			var opera = 1 << 3;
+
+			function isSupportedBy(browsers){
+				return {
+					ie: Boolean(browsers & ie),
+					mozilla: Boolean(browsers & mozilla),
+					webkit: Boolean(browsers & webkit),
+					opera: Boolean(browsers & opera)
+				};
+			}
+
+			var supportedBy = null;
+
 			switch(command.toLowerCase()){
 				case "bold":
 				case "italic":
@@ -1242,6 +1255,8 @@ define([
 				case "delete":
 				case "selectall":
 				case "toggledir":
+					supportedBy = isSupportedBy(mozilla | ie | webkit | opera);
+					break;
 
 				case "createlink":
 				case "unlink":
@@ -1258,27 +1273,27 @@ define([
 				case "redo":
 				case "strikethrough":
 				case "tabindent":
+					supportedBy = isSupportedBy(mozilla | ie | opera | webkit);
+					break;
 
-				case "cut":
-				case "copy":
-				case "paste":
-					return true;
-
-				// Note: This code path is apparently never called.  Not sure if it should return true or false
-				// for Edge.
 				case "blockdirltr":
 				case "blockdirrtl":
 				case "dirltr":
 				case "dirrtl":
 				case "inlinedirltr":
 				case "inlinedirrtl":
-					return has("ie") || has("trident") || has("edge");
+					supportedBy = isSupportedBy(ie);
+					break;
+				case "cut":
+				case "copy":
+				case "paste":
+					supportedBy = isSupportedBy(ie | mozilla | webkit | opera);
+					break;
 
-				// Note: This code path is apparently never called, not even by the dojox/editor table plugins.
-				// There's also an _inserttableEnabledImpl() method that's also never called.
-				// Previously this code returned truthy for IE and mozilla, but false for chrome/safari, so
-				// leaving it that way just in case.
 				case "inserttable":
+					supportedBy = isSupportedBy(mozilla | ie);
+					break;
+
 				case "insertcell":
 				case "insertcol":
 				case "insertrow":
@@ -1287,11 +1302,17 @@ define([
 				case "deleterows":
 				case "mergecells":
 				case "splitcell":
-					return !has("webkit");
+					supportedBy = isSupportedBy(ie | mozilla);
+					break;
 
 				default:
 					return false;
 			}
+
+			return ((has("ie") || has("trident")) && supportedBy.ie) ||
+				(has("mozilla") && supportedBy.mozilla) ||
+				(has("webkit") && supportedBy.webkit) ||
+				(has("opera") && supportedBy.opera);	// Boolean return true if the command is supported, false otherwise
 		},
 
 		execCommand: function(/*String*/ command, argument){
@@ -1319,8 +1340,6 @@ define([
 				if(command === "heading"){
 					throw new Error("unimplemented");
 				}else if(command === "formatblock" && (has("ie") || has("trident"))){
-					// See http://stackoverflow.com/questions/10741831/execcommand-formatblock-headings-in-ie.
-					// Not necessary on Edge though.
 					argument = '<' + argument + '>';
 				}
 			}
@@ -1397,9 +1416,7 @@ define([
 			}
 			var r;
 			command = this._normalizeCommand(command);
-			if(has("ie") && command === "formatblock"){
-				// This is to deal with IE bug when running in non-English.  See _localizeEditorCommands().
-				// Apparently not needed on IE11 or Edge.
+			if((has("ie") || has("trident")) && command === "formatblock"){
 				r = this._native2LocalFormatNames[this.document.queryCommandValue(command)];
 			}else if(has("mozilla") && command === "hilitecolor"){
 				var oldValue;
@@ -2324,7 +2341,7 @@ define([
 			// tags:
 			//		protected
 			var applied = false;
-			if(has("ie") || has("trident") || has("edge")){
+			if(has("ie") || has("trident")){
 				applied = this._adaptIEList("insertorderedlist", argument);
 			}
 			if(!applied){
@@ -2341,7 +2358,7 @@ define([
 			// tags:
 			//		protected
 			var applied = false;
-			if(has("ie") || has("trident") || has("edge")){
+			if(has("ie") || has("trident")){
 				applied = this._adaptIEList("insertunorderedlist", argument);
 			}
 			if(!applied){
@@ -2432,9 +2449,6 @@ define([
 			//		then the native browser commands will fail to execute correctly.
 			//		To work around the issue,  we can remove all empty nodes from
 			//		the start of the range selection.
-			//
-			//		Note: not needed on Edge because Windows 10 won't let the user make
-			//		a selection containing leading or trailing newlines.
 			var selection = rangeapi.getSelection(this.window);
 			if(selection && selection.rangeCount && !selection.isCollapsed){
 				var range = selection.getRangeAt(0);
@@ -2767,7 +2781,7 @@ define([
 			//		private
 			var selection = rangeapi.getSelection(this.window);
 			if(selection.isCollapsed){
-				// In the case of no selection, let's commonize the behavior and
+				// In the case of no selection, lets commonize the behavior and
 				// make sure that it indents if needed.
 				if(selection.rangeCount && !this.queryCommandValue(command)){
 					var range = selection.getRangeAt(0);
@@ -2781,7 +2795,6 @@ define([
 							// or IE may shove too much into the list element.  It seems to
 							// grab content before the text node too if it's br split.
 							// Why can't IE work like everyone else?
-							// This problem also happens on Edge.
 
 							// Create a space, we'll select and bold it, so
 							// the whole word doesn't get bolded

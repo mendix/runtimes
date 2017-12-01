@@ -1,0 +1,7 @@
+/*
+    Copyright (c) 2005-2015, Mendix bv. All rights reserved.
+    See licenses.txt for third party licenses that apply.
+*/
+
+//>>built
+define("mxui/widget/LinkButton",["mxui/widget/_DynamicButton","mxui/mixin/_DynamicOptionHelper","mxui/dom","mendix/logger","dojo/_base/declare"],function(_1,_2,_3,_4,_5){var _6=_5([_1,_2],{declaredClass:"mxui.widget.LinkButton",action:"",address:"",subject:"",cc:"",bcc:"",body:"",_argNames:{email:["subject","cc","bcc","body"]},_target:"",_url:"",buildRendering:function(){this.inherited(arguments);this._target=(this.action=="open"?"_blank":"_self");},onClick:function(e){window.open(this._url,this._target);},refresh:function(_7){this.updateOptions(["address","subject","cc","bcc","body"],this._mxObject,function(_8){this.setUrl(_8);if(_7){_7();}});},setUrl:function(_9){var _a=_9.address,_b;switch(this.action){case "open":_b=_a;break;case "email":_b="mailto:"+window.escape(_a);break;case "call":_b="tel:"+window.escape(_a);break;case "text":_b="sms:"+window.escape(_a);break;default:throw new Error(this.id+".setUrl : invalid action");}var _c=[],_d=this._argNames[this.action];if(_d){for(var i=0,_e;_e=_d[i];++i){var _f=_9[_e];if(_f){_c.push(_e+"="+window.escape(_f));}}if(_c.length>0){_b+="?"+_c.join("&");}}this._url=_b;}});return _6;});

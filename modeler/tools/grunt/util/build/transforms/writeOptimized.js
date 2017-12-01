@@ -21,12 +21,11 @@ define(["../buildControl", "require"], function(bc, require){
 		});
 	}
 
-	return function(resource, callback){
-		var copyright = resource.pack ? resource.pack.copyright : bc.copyright;
+	return function(resource, callback) {
 		if(bc.optimize && !resource.layer){
-			return optimizers[bc.optimize](resource, resource.uncompressedText, copyright, bc.optimize, callback);
+			return optimizers[bc.optimize](resource, resource.uncompressedText, resource.pack.copyright, bc.optimize, callback);
 		}else if(bc.layerOptimize && resource.layer && !resource.layer.discard){
-			return optimizers[bc.layerOptimize](resource, resource.uncompressedText, copyright, bc.layerOptimize, callback);
+			return optimizers[bc.layerOptimize](resource, resource.uncompressedText, resource.layer.copyright, bc.layerOptimize, callback);
 		}else{
 			return 0;
 		}

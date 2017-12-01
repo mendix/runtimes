@@ -21,7 +21,11 @@ define([
 	// summary:
 	//		This is the package main module for the dojo package; it loads dojo base appropriate for the execution environment.
 
-	// Load code to fix IE's console
+	// the preferred way to load the dojo firebug console is by setting has("dojo-firebug") true in dojoConfig
+	// the isDebug config switch is for backcompat and will work fine in sync loading mode; it works in
+	// async mode too, but there's no guarantee when the module is loaded; therefore, if you need a firebug
+	// console guaranteed at a particular spot in an app, either set config.has["dojo-firebug"] true before
+	// loading dojo.js or explicitly include dojo/_firebug/firebug in a dependency list.
 	if(config.isDebug){
 		require(["./_firebug/firebug"]);
 	}
