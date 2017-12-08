@@ -73,6 +73,7 @@ grant \{
   permission java.util.PropertyPermission "hikaricp.configurationFile", "read";
   permission java.util.PropertyPermission "hikaricp.configurationFile", "read,write";
   permission java.util.PropertyPermission "hornetq.version.property.filename", "read";
+  permission java.util.PropertyPermission "socksProxyHost", "read";
   permission java.util.PropertyPermission "http.agent", "read";
   permission java.util.PropertyPermission "http.keepAlive", "read,write";
   permission java.util.PropertyPermission "http.maxConnections", "read";

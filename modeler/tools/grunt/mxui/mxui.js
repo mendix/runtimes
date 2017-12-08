@@ -24,7 +24,6 @@ require ([
 "dijit/_TemplatedMixin",
 "dijit/_Widget",
 "dijit/_WidgetBase",
-"dijit/_base/focus",
 "dijit/focus",
 "dijit/registry",
 "dojo/Deferred",
