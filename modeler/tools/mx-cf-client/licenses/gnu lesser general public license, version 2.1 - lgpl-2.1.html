@@ -34,139 +34,7 @@
 <!-- start of server/banner.html -->
 <!-- start of head-include-2.html -->
 
-
-
-
-
-
-
-
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<style type="text/css" media="screen">
-<!-- #translations
-{
-  border-bottom: .2em solid #123e3f;
-}
-#header
-{
-  clear: both;
-  background: linear-gradient(#deeefc, white);
-}
-#fsf-frame
-{
-  margin: .3em 1em;
-} 
-#gnu-banner
-{
-  float: none;
-  padding-bottom: .5em;
-}
-div#fundraiser
-{
-  direction: ltr;
-  background-color: #123e3f;
-}
-#fundraiser p
-{
-  font-size: 1.1em;
-  padding: .2em 0 .4em;
-  margin: 0 3%;
-  color: white;
-  text-align: center;
-}
-#fundraiser p.contribute
-{
-  line-height: 1.5em;
-  text-align: center;
-  padding: 0 0 .5em;
-}
-#fundraiser a
-{
-  border-radius: 1em;
-  -moz-border-radius: 1em;
-  -khtml-border-radius: 1em;
-  -webkit-border-radius: 1em;
-  -opera-border-radius: 1em;
-  color: white;
-  padding: 0 .5em 0 .5em;
-  display: inline-block;
-  margin: .3em .5em;
-  text-decoration: none;
-}
-#fundraiser .donate
-{
-  background-color: #1abc9c;
-}
-#fundraiser .join
-{
-  background-color: #3498db;
-}
-#fundraiser b
-{
-  color: yellow;
-}
-.progress
-{
-  width: 100%;
-  height: 1.2em;
-  line-height: 1.2em;
-  text-align: right;
-  background: #36a9aa;
-  color: black;
-  font-weight: bold;
-}
-.progress-bar
-{
-  line-height: 1.2em;
-  padding: 0 1em;
-  margin: 0;
-  min-width: 4em;
-  background: #feb916;
-  text-align: right;
-} -->
-#fundraiser .donate, #fundraiser .join
-{
-  width: 4em;
-}
-</style>
-<style type="text/css" media="screen">.progress-bar
-{
-  width: 62%;
-}
-
-<!--
-.goal-div
-{
-  position: relative;
-  bottom: 1.2em;
-  right: .1em;
-}
-.percentage, .goal
-{
-  margin-right: .1em;
-}
-
-@media (max-width: 21em)
-{
-  #fundraiser p { font-size: 0.8em; }
-}
-@media (min-width: 45em)
-{
-  #fundraiser p
-  {
-    float: left;
-    text-align: left;
-    width: 58%;
-  }
-  #fundraiser p.contribute
-  {
-    float: right;
-    text-align: center;
-    width: 30%;
-    padding: .5em 0;
-  }
-} -->
-</style>
 <!-- end of head-include-2.html -->
 
 </head>
@@ -211,30 +79,10 @@ div#fundraiser
 <!-- end of server/body-include-1.html -->
 
 <!-- start of server/body-include-2 -->
-<div id="fundraiser">
-<p>
-Associate members power up the Free Software Foundation.
-Help smash our goal of <b>700</b> new members
-or donate by December 31st!</p>
-<p class="contribute">
-<a class="donate" href="http://my.fsf.org/donate?pk_campaign=2017_Fundraiser_Banner&amp;pk_kwd=Donate">
-Donate</a>
-<a class="join" href="http://my.fsf.org/join?pk_campaign=2017_Fundraiser_Banner&amp;pk_kwd=Join">
-Join</a>
-</p>
-<div style="clear:both"></div>
-<div class="progress">
-<div class="progress-bar">
-<span class="percentage"><span class="gnun-split"></span>$282,109</span>
-</div>
-<div class="goal-div">
-<span class="goal">$450,000</span>
-</div>
-</div>
-</div> <!-- /fundraiser -->
 
 <div id="header">
 <div id="fsf-frame">
+<p id="join-fsf"><a href="https://www.fsf.org/associate/support_freedom?referrer=4052">JOIN&nbsp;THE&nbsp;FSF</a></p>
 <div id="fssbox">
 <p><a href="//www.fsf.org/fss">Free Software Supporter</a></p>
 <form action="https://my.fsf.org/civicrm/profile/create?reset=1&amp;gid=31"
@@ -257,9 +105,10 @@ Join</a>
 <div id="gnu-banner">
  <a href="/">
  <img src="/graphics/heckert_gnu.transp.small.png" alt=" [A GNU head] " /><strong>GNU</strong> Operating System</a>
-</div><!-- /gnu-banner -->
 
-<div style="clear: both"></div>
+<p id="fsf-support">Sponsored by the <a href="#mission-statement">Free Software Foundation</a></p>
+</div><!-- /gnu-banner -->
+<div style="clear:both"></div>
 </div><!-- /header -->
 
 <div id="navigation">
@@ -983,14 +832,15 @@ That's all there is to it!</p>
 <div id="mission-statement">
 
 <blockquote>
-<p><a href="//www.fsf.org"><img id="fsfbanner"
-src="/graphics/fsf-logo-notext-small.png" alt=" [FSF logo] "/></a><strong>&ldquo;Our
-mission is to preserve, protect and promote the freedom to use, study,
-copy, modify, and redistribute computer software, and to defend the
-rights of Free Software users.&rdquo;</strong></p>
+<p style="direction:ltr; text-align:left"><a href="//www.fsf.org"><img id="fsfbanner"
+src="/graphics/fsf-logo-notext-small.png" alt=" [FSF logo] "/></a><strong>
+&ldquo;The Free Software Foundation (FSF) is a nonprofit with a worldwide
+mission to promote computer user freedom. We defend the rights of all
+software users.&rdquo;</strong></p>
 </blockquote>
 
-<p>The <a href="//www.fsf.org">Free Software Foundation</a> is
+<p style="direction:ltr; text-align:left">
+The <a href="//www.fsf.org">Free Software Foundation</a> is
 the principal organizational sponsor of the GNU Operating System.
 <strong>Support GNU and the FSF</strong> by <a
 href="//shop.fsf.org/">buying manuals and gear</a>, <a

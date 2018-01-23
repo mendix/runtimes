@@ -62,5 +62,5 @@ require ([
 "dojo/touch",
 "dojo/window",
 "dojox/date/buddhist",
-"dojox/date/buddhist/locale"
+"dojox/date/buddhist/locale",
 ], function() {});
