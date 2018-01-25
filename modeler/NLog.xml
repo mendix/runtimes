@@ -8156,31 +8156,6 @@
             <param name="fallback">Fallback value to return in case of exception. Defaults to default value of type T.</param>
             <returns>Result returned by the provided function or fallback value in case of exception.</returns>
         </member>
-        <member name="M:NLog.Logger.SwallowAsync(System.Func{System.Threading.Tasks.Task})">
-            <summary>
-            Runs async action. If the action throws, the exception is logged at <c>Error</c> level. Exception is not propagated outside of this method.
-            </summary>
-            <param name="asyncAction">Async action to execute.</param>
-        </member>
-        <member name="M:NLog.Logger.SwallowAsync``1(System.Func{System.Threading.Tasks.Task{``0}})">
-            <summary>
-            Runs the provided async function and returns its result. If exception is thrown, it is logged at <c>Error</c> level.
-            Exception is not propagated outside of this method. Fallback value is returned instead.
-            </summary>
-            <typeparam name="T">Return type of the provided function.</typeparam>
-            <param name="asyncFunc">Async function to run.</param>
-            <returns>Result returned by the provided function or fallback value in case of exception.</returns>
-        </member>
-        <member name="M:NLog.Logger.SwallowAsync``1(System.Func{System.Threading.Tasks.Task{``0}},``0)">
-            <summary>
-            Runs the provided async function and returns its result. If exception is thrown, it is logged at <c>Error</c> level.
-            Exception is not propagated outside of this method. Fallback value is returned instead.
-            </summary>
-            <typeparam name="T">Return type of the provided function.</typeparam>
-            <param name="asyncFunc">Async function to run.</param>
-            <param name="fallback">Fallback value to return in case of exception. Defaults to default value of type T.</param>
-            <returns>Result returned by the provided function or fallback value in case of exception.</returns>
-        </member>
         <member name="M:NLog.Logger.Log(NLog.LogLevel,System.Object)">
             <summary>
             Writes the diagnostic message at the specified level.
