@@ -2308,6 +2308,7 @@ input[type="checkbox"] {
 .alert {
     margin-top: 8px;
     margin-bottom: 10px;
+    white-space: pre-line;
 }
 
 /* Client defaults and helpers */
