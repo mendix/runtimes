@@ -2252,226 +2252,6 @@ div.dijitTabDisabled, .dj_ie div.dijitTabDisabled {
 .dijitFocused .dijitMenuItemShortcutKey {
 	text-decoration: underline;
 }
-/* Dijit custom styling */
-.dijitBorderContainer {
-    height: 350px;
-}
-.dijitTooltipContainer {
-    background: #fff;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-}
-.dijitContentPane {
-    -webkit-box-sizing: content-box;
-    -moz-box-sizing: content-box;
-    box-sizing: content-box;
-    overflow: auto !important; /* Widgets like the data grid pass their scroll
-    offset to the parent if there is not enough room to display a scroll bar
-    in the widget itself, so do not hide the overflow. */
-}
-/* Overrides taken from dijit_rtl.css for the dijit calendar widget that's
- * still used in reporting. */
-.dijitCalendarRtl .dijitCalendarNextYear {
-	margin:0 0.55em 0 0;
-}
-.dijitCalendarRtl .dijitCalendarPreviousYear {
-	margin:0 0 0 0.55em;
-}
-/* Global Bootstrap changes */
-
-/* Because labels are also used by readonly input widgets to show their value,
- * don't make them bold by default. Give every label a padding-top instead to
- * align it with form controls. */
-label {
-    font-weight: normal;
-    padding-top: 7px;
-    margin-bottom: 0;
-}
-th > label {
-    font-weight: bold;
-}
-/* Use default Bootstrap styling for labels inside form-groups */
-.control-label {
-    font-weight: 700;
-    padding-top: 0;
-    margin-bottom: 5px;
-}
-/* Bacause we use checkboxes without labels, align them with other widgets. */
-input[type="checkbox"] {
-    margin: 9px 0;
-}
-
-.checkbox input[type="checkbox"] {
-    margin-top: 4px;
-}
-
-.alert {
-    margin-top: 8px;
-    margin-bottom: 10px;
-    white-space: pre-line;
-}
-
-/* Client defaults and helpers */
-.mx-dataview-content, .mx-scrollcontainer-wrapper:not(.mx-scrollcontainer-nested), .mx-tabcontainer-content, .mx-grid-content {
-    -webkit-overflow-scrolling: touch;
-}
-/* because we abuse labels to render readonly inputs */
-.mx-static-label {
-    font-weight: normal;
-}
-#content > .mx-page {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    min-height: 100%;
-}
-
-.mx-left-aligned {
-    text-align: left;
-}
-.mx-right-aligned {
-    text-align: right;
-}
-.mx-center-aligned {
-    text-align: center;
-}
-
-.mx-table {
-    width: 100%;
-}
-.mx-table th,
-.mx-table td {
-    padding: 8px;
-    vertical-align: top;
-}
-.mx-table th.nopadding,
-.mx-table td.nopadding {
-	padding: 0;
-}
-
-.mx-list {
-    padding: 0;
-    list-style: none;
-}
-.mx-list > li {
-    padding: 5px 10px 10px;
-    border: 1px #ddd;
-    border-style: solid solid none;
-    background-color: #fff;
-}
-.mx-list > li:first-child {
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
-}
-.mx-list > li:last-child {
-    border-bottom-style: solid;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-}
-.mx-list-striped > li:nth-child(2n+1) {
-    background: #f9f9f9;
-}
-.mx-list > li:hover {
-    background: #f5f5f5;
-}
-
-.mx-resizer-n,
-.mx-resizer-s {
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 10px;
-}
-.mx-resizer-n {
-    top: -5px;
-    cursor: n-resize;
-}
-.mx-resizer-s {
-    bottom: -5px;
-    cursor: s-resize;
-}
-
-.mx-resizer-e,
-.mx-resizer-w {
-    position: absolute;
-    top: 0;
-    width: 10px;
-    height: 100%;
-}
-.mx-resizer-e {
-    right: -5px;
-    cursor: e-resize;
-}
-.mx-resizer-w {
-    left: -5px;
-    cursor: w-resize;
-}
-
-.mx-resizer-nw,
-.mx-resizer-ne,
-.mx-resizer-sw,
-.mx-resizer-se {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-}
-
-.mx-resizer-nw,
-.mx-resizer-ne {
-    top: -5px;
-}
-.mx-resizer-sw,
-.mx-resizer-se {
-    bottom: -5px;
-}
-.mx-resizer-nw,
-.mx-resizer-sw {
-    left: -5px;
-}
-.mx-resizer-ne,
-.mx-resizer-se {
-    right: -5px;
-}
-
-.mx-resizer-nw {
-    cursor: nw-resize;
-}
-.mx-resizer-ne {
-    cursor: ne-resize;
-}
-.mx-resizer-sw {
-    cursor: sw-resize;
-}
-.mx-resizer-se {
-    cursor: se-resize;
-}
-
-.mx-offscreen {
-    /* When position relative is not set IE doesn't properly render when this class is removed
-     * with the effect that elements are not displayed or are not clickable.
-    */
-    position: relative;
-    height: 0;
-    overflow: hidden;
-}
-
-.mx-ie-event-shield {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-}
-
-.mx-swipe-navigation-progress {
-    position: absolute;
-    height: 54px;
-    width: 54px;
-    top: calc(50% - 27px);
-    left: calc(50% - 27px);
-    background: url(data:image/gif;base64,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);
-}
 .mx-tooltip {
     margin: 10px;
 }
@@ -3196,6 +2976,9 @@ body[dir="rtl"] .mx-header-left {
 .mx-textarea-counter {
     font-size: smaller;
 }
+.mx-textarea-readonly-text {
+    white-space: pre-line;
+}
 .mx-underlay {
     position: fixed;
     top: 0;
@@ -3437,17 +3220,225 @@ body[dir="rtl"] .mx-master-detail-content-hidden {
 .reportingReportParameter th {
     text-align: right;
 }
-.reportingDateRange table {
+/* Dijit custom styling */
+.dijitBorderContainer {
+    height: 350px;
+}
+.dijitTooltipContainer {
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+.dijitContentPane {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    overflow: auto !important; /* Widgets like the data grid pass their scroll
+    offset to the parent if there is not enough room to display a scroll bar
+    in the widget itself, so do not hide the overflow. */
+}
+/* Overrides taken from dijit_rtl.css for the dijit calendar widget that's
+ * still used in reporting. */
+.dijitCalendarRtl .dijitCalendarNextYear {
+	margin:0 0.55em 0 0;
+}
+.dijitCalendarRtl .dijitCalendarPreviousYear {
+	margin:0 0 0 0.55em;
+}
+/* Global Bootstrap changes */
+
+/* Because labels are also used by readonly input widgets to show their value,
+ * don't make them bold by default. Give every label a padding-top instead to
+ * align it with form controls. */
+label {
+    font-weight: normal;
+    padding-top: 7px;
+    margin-bottom: 0;
+}
+th > label {
+    font-weight: bold;
+}
+/* Use default Bootstrap styling for labels inside form-groups */
+.control-label {
+    font-weight: 700;
+    padding-top: 0;
+    margin-bottom: 5px;
+}
+/* Bacause we use checkboxes without labels, align them with other widgets. */
+input[type="checkbox"] {
+    margin: 9px 0;
+}
+
+.checkbox input[type="checkbox"] {
+    margin-top: 4px;
+}
+
+.alert {
+    margin-top: 8px;
+    margin-bottom: 10px;
+    white-space: pre-line;
+}
+
+/* Client defaults and helpers */
+.mx-dataview-content, .mx-scrollcontainer-wrapper:not(.mx-scrollcontainer-nested), .mx-tabcontainer-content, .mx-grid-content {
+    -webkit-overflow-scrolling: touch;
+}
+/* because we abuse labels to render readonly inputs */
+.mx-static-label {
+    font-weight: normal;
+}
+#content > .mx-page {
+    position: absolute;
+    top: 0;
     width: 100%;
-    table-layout: fixed;
+    min-height: 100%;
 }
-.reportingDateRange th {
-    padding: 5px;
+
+.mx-left-aligned {
+    text-align: left;
+}
+.mx-right-aligned {
     text-align: right;
-    background-color: #eee;
 }
-.reportingDateRange td {
-    padding: 5px;
+.mx-center-aligned {
+    text-align: center;
+}
+
+.mx-table {
+    width: 100%;
+}
+.mx-table th,
+.mx-table td {
+    padding: 8px;
+    vertical-align: top;
+}
+.mx-table th.nopadding,
+.mx-table td.nopadding {
+	padding: 0;
+}
+
+.mx-list {
+    padding: 0;
+    list-style: none;
+}
+.mx-list > li {
+    padding: 5px 10px 10px;
+    border: 1px #ddd;
+    border-style: solid solid none;
+    background-color: #fff;
+}
+.mx-list > li:first-child {
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+.mx-list > li:last-child {
+    border-bottom-style: solid;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+.mx-list-striped > li:nth-child(2n+1) {
+    background: #f9f9f9;
+}
+.mx-list > li:hover {
+    background: #f5f5f5;
+}
+
+.mx-resizer-n,
+.mx-resizer-s {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 10px;
+}
+.mx-resizer-n {
+    top: -5px;
+    cursor: n-resize;
+}
+.mx-resizer-s {
+    bottom: -5px;
+    cursor: s-resize;
+}
+
+.mx-resizer-e,
+.mx-resizer-w {
+    position: absolute;
+    top: 0;
+    width: 10px;
+    height: 100%;
+}
+.mx-resizer-e {
+    right: -5px;
+    cursor: e-resize;
+}
+.mx-resizer-w {
+    left: -5px;
+    cursor: w-resize;
+}
+
+.mx-resizer-nw,
+.mx-resizer-ne,
+.mx-resizer-sw,
+.mx-resizer-se {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+}
+
+.mx-resizer-nw,
+.mx-resizer-ne {
+    top: -5px;
+}
+.mx-resizer-sw,
+.mx-resizer-se {
+    bottom: -5px;
+}
+.mx-resizer-nw,
+.mx-resizer-sw {
+    left: -5px;
+}
+.mx-resizer-ne,
+.mx-resizer-se {
+    right: -5px;
+}
+
+.mx-resizer-nw {
+    cursor: nw-resize;
+}
+.mx-resizer-ne {
+    cursor: ne-resize;
+}
+.mx-resizer-sw {
+    cursor: sw-resize;
+}
+.mx-resizer-se {
+    cursor: se-resize;
+}
+
+.mx-offscreen {
+    /* When position relative is not set IE doesn't properly render when this class is removed
+     * with the effect that elements are not displayed or are not clickable.
+    */
+    position: relative;
+    height: 0;
+    overflow: hidden;
+}
+
+.mx-ie-event-shield {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.mx-swipe-navigation-progress {
+    position: absolute;
+    height: 54px;
+    width: 54px;
+    top: calc(50% - 27px);
+    left: calc(50% - 27px);
+    background: url(data:image/gif;base64,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);
 }
 .mx-reportmatrix-table {
     margin-bottom: 0;
@@ -3462,3 +3453,15 @@ body[dir="rtl"] .mx-master-detail-content-hidden {
 /* widgets */
 
 /* reporting */
+.reportingDateRange table {
+    width: 100%;
+    table-layout: fixed;
+}
+.reportingDateRange th {
+    padding: 5px;
+    text-align: right;
+    background-color: #eee;
+}
+.reportingDateRange td {
+    padding: 5px;
+}
