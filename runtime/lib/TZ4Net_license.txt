@@ -1,8 +1,8 @@
 "TZ4Net Library" Software Licence
 
-Version 3.7
+Version 3.9
 
-Copyright (c) 2006-2011 Zbigniew Babiej. All rights reserved.
+Copyright (c) 2006-2015 Zbigniew Babiej. All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -23,14 +23,6 @@ any, must include the following acknowledgment:
 
 Alternately, this acknowledgment may appear in the software itself,
 if and wherever such third-party acknowledgments normally appear.
-
-4. The name "TZ4Net Library" must not be used to endorse 
-or promote products derived from this software without prior written 
-permission. For written permission, please contact zbabiej@yahoo.com.
-
-5. Products derived from this software may not be called 
-"TZ4Net Library", nor may "TZ4Net Library"
-appear in their name, without prior written permission of Zbigniew Babiej.
 
 THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESSED OR IMPLIED
 WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF

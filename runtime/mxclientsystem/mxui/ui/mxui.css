@@ -3245,6 +3245,13 @@ body[dir="rtl"] .mx-master-detail-content-hidden {
 .dijitCalendarRtl .dijitCalendarPreviousYear {
 	margin:0 0 0 0.55em;
 }
+.dijitCalendarRtl .dijitCalendarDecrementArrow {
+	float: right;
+}
+.dijitCalendarRtl .dijitCalendarIncrementArrow {
+	float: left;
+}
+
 /* Global Bootstrap changes */
 
 /* Because labels are also used by readonly input widgets to show their value,
